@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset=UTF-8"UTF-8">
+	<title>-平台注册</title>
+	<!-- 公共的页面头部引入页面 -->
+<link rel="shortcut icon" href="images/logo.ico" />
+<link rel="Bookmark" href="images/logo.ico" />
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Cache-Control" content="no-store" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="0" />
+<meta http-equiv="Cache" content="no-cache">
+
+<link rel="stylesheet" type="text/css" href="css/mainbase.css" tppabs="css/mainbase.css">
+<link rel="stylesheet" type="text/css" href="css/button.css" tppabs="css/button.css">
+<link href="css/jquery-ui-1.8.14.custom.css" tppabs="css/jquery-ui-1.8.14.custom.css" rel="stylesheet" type="text/css">
+
+<script type="text/javascript" src="js/jquery-1.11.0.js" tppabs="js/jquery-1.11.0.js"></script>
+<script type="text/javascript" src="js/jquery-migrate-1.2.1.js" tppabs="js/jquery-migrate-1.2.1.js"></script>
+<script type="text/javascript" src="js/jquery.form.js" tppabs="js/jquery.form.js"></script>
+<script type="text/javascript" src="js/jquery.validate.min.js" tppabs="js/jquery.validate.min.js"></script>
+
+<script type="text/javascript" src="js/jquery-ui.js" tppabs="js/jquery-ui.js"></script>
+<script type="text/javascript" src="js/jquery-ui.datepicker-zh-CN.js" tppabs="js/jquery-ui.datepicker-zh-CN.js"></script>
+<script type="text/javascript" src="js/public.js" tppabs="js/public.js"></script>
+<script type="text/javascript" src="js/TimeFormat.js" tppabs="js/TimeFormat.js"></script>
+
+<script src="js/dialog-min.js" tppabs="js/dialog-min.js"></script>
+<link href="css/ui-dialog.css" tppabs="css/ui-dialog.css" rel="stylesheet">   
+<link rel="stylesheet" href="css/index.css" tppabs="css/index.css" type="text/css" />
+<link rel="stylesheet" href="css/reg.css" tppabs="css/reg.css" type="text/css" />
+    
+     <script type="text/javascript">
+            $(function() {
+                //显示或隐藏OAS服务使用协议
+                var num = 0;
+                $("#protocol").click(function() {
+                    if (num == 0) {
+                        $("#agreements").show();
+                        num = 1;
+                    } else {
+                        $("#agreements").hide();
+                        num = 0;
+                    }
+                });
+                //表单提交验证（使用jquery的验证validate框架）
+                $("#register").validate({
+                    rules:{
+                        'orgName' : { required:true,minlength:2},
+                        'type' : { required : true },
+                        'name' : { required : true },
+                        'userName' : { required : true },
+                        'userPassword' : { required : true },
+                        'passowrd' : { required : true },
+                        'code' : { required : true }
+                    },
+                    messages : {
+                    	orgName:{required:"机构名称不能为空!",minlength:"最少2个字符"},
+                    	type:{required:"请选择一个机构类型！"}
+                        },
+                    submitHandler:function(form) {
+                        form.submit();
+                        $(form).submit(function() {
+                            return false;
+                        });
+                    }
+                });
+                //实现当输入4个值的时候自动触发source部分函数执行
+                $("#code").autocomplete({
+                    minLength : 4,
+                    source : function(request, response) {
+                    	$("#show_code").html("");
+                        var url ="getVerifyCode";
+                        $.post(url, {'code':$("#code").val()}, function(data) {
+                            $("#return_code").val(data.flag);
+                            $("#show_code").html(data.msg);
+                        }, "json");
+                    }
+                });
+
+                /** 为验证码看不清楚绑定点击事件 */
+    			$("a[class='transform']").click(function(){
+    				/** 重新设置验证码图片的src属性，让它引用一张新的图片 */
+    				$("#vimg").attr("src","verify?random=" + Math.random());
+    			});
+            });
+            
+            function reg(){
+                var ret=$("#return_code").val();
+                if (ret == 1) {
+                    $("#show_code").html("请输入验证码");
+                    return false;
+                }else if (ret == 2) {
+                    $("#show_code").html("验证码不正确");
+                    return false;
+                }else{
+                	$("#show_code").html("");
+                }
+                var password=$("#password").val();
+                var userPassword=$("#userPassword").val();
+                if(password!=userPassword){
+                    $("#show_passowrd").html("两次输入密码不相同！");
+                    return false;
+                }else{
+                    $("#show_passowrd").html(""); 
+                } 
+                $("#register").submit();  
+            }
+
+    		$(document).keydown(function(event){
+    			if (event.keyCode === 13){
+    				reg();
+    			}
+    		});
+        </script>
+    </head>
+    <body>
+        <div id="content">
+            <div id="main">
+                <div id="header">
+                    <div class="headertop">
+                        <div class="logo" title="Today Aim"></div>
+                        <div class="text">
+                            <ul>
+                                <li><a href="toLogin.htm" tppabs="user/toLogin">登录</a></li>
+                                <li>|</li>
+                                <li><a href="#">帮助中心</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="reg_infor">
+                <input type="hidden" id="return_code" value="0" />
+                <div class="regTitle"></div>
+                <form id="register" name="register" action="user/register" method="post">
+                    <table>
+                        <tbody>
+                            <tr>
+                                <th class="right"><b>*&nbsp;</b>机构名称：</th>
+                                <td><input class="txt" type="text" name="orgName" id="orgName" />                                </td>
+                                <td><span id="orgName_Error"></span></td>
+                            </tr>
+                            <tr>
+                                <th class="right"><b>*&nbsp;</b>机构类型：</th>
+                                <td><select class="select" name="type"  id="type">
+                                        <option selected></option>
+                                        <option>外资(欧美)</option>
+                                        <option>外资(非欧美)</option>
+                                        <option>合资(欧美)</option>
+                                        <option>合资(非欧美)</option>
+                                        <option>国企</option>
+                                        <option>民营公司</option>
+                                        <option>外企代表处</option>
+                                        <option>政府机关</option>
+                                        <option>事业单位</option>
+                                        <option>非营利性机构</option>
+                                        <option>其他性质</option>
+                                    </select>                                </td>
+                                <td><span id="type_Error"></span></td>
+                            </tr>
+                            <tr>
+                                <th class="right"><b>*&nbsp;&nbsp;</b>用&nbsp;户&nbsp;名：</th>
+                                <td><input class="txt" type="text" name="name" id="name" />                                </td>
+                                <td><span id="name_Error"></span></td>
+                            </tr>
+                            <tr>
+                                <th class="right"><b>*&nbsp;</b>登录帐号：</th>
+                                <td><input class="txt" type="text" name="userName"
+                                           id="userName" />                                </td>
+                                <td><span id="userName_Error"></span></td>
+                            </tr>
+                            <tr>
+                                <th class="right"><b>*&nbsp;</b>登录密码：</th>
+                                <td><input class="txt" type="password" name="userPassword" id="userPassword" />                                </td>
+                                <td><span id="userPassword_Error"></span></td>
+                            </tr>
+                            <tr>
+                                <th class="right"><b>*&nbsp;</b>确认密码：</th>
+                                <td><input class="txt" type="password" name="passowrd" id="password" />                                </td>
+                                <td><span id="show_passowrd"></span></td>
+                            </tr>
+                            <tr>
+                                <th class="right"><b>*&nbsp;&nbsp;</b>验&nbsp;证&nbsp;码：</th>
+                                <td>
+                                    <div style="width:160px;height:34px;float:left;">
+                                     <input class="Codefirm" type="text" name="code" id="code"/>
+                                    </div>
+                                    <div style="height:34px;float:left;">
+                                    <a href="javascript:void(0)" class="transform">
+                                     <img src="images/verify.jpg" tppabs="verify" id="vimg" alt="验证码"/>                                    </a>                                    </div>                                </td>
+                                <td><span id="show_code"></span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p class="treaty">
+                        <input type="checkbox" checked /> 
+                        <a style="cursor: pointer;" id="protocol">我已经看过并同意《 OAS服务使用协议》</a>                    </p>
+                    <div id="agreements" class="protocol">
+                        <p>
+                            <strong>本协议由您与 OAS公司 OAS网络有限公司共同缔结，本协议具有合同效力。</strong>                        </p>
+                        <p>本协议中协议双方合称协议方，OAS公司 OAS网络有限公司在协议中亦称为“OAS”。</p>
+                        <p>
+                            一、 协议内容及签署
+                            1.本协议内容包括协议正文及所有 OAS已经发布的或将来可能发布的各类规则。所有规则为本协议不可分割的组成部分，与协议正文具有同等法律效力。除另行明确声明外，任何 OAS及其关联公司提供的服务（以下称为 OAS网服务）均受本协议约束。
+                            <br>
+                            2.您应当在使用 OAS网服务之前认真阅读全部协议内容，对于协议中以加粗字体显示的内容，您应重点阅读。如您对协议有任何疑问的，应向 OAS咨询。但无论您事实上是否在使用 OAS网服务之前认真阅读了本协议内容，只要您使用 OAS网服务，则本协议即对您产生约束，届时您不应以未阅读本协议的内容或者未获得 OAS对您问询的解答等理由，主张本协议无效，或要求撤销本协议。
+                            <br> 3.您承诺接受并遵守本协议的约定。如果您不同意本协议的约定，您应立即停止注册程序或停止使用 OAS网服务。 <br>
+                            4. OAS有权根据需要不时地制订、修改本协议及/或各类规则，并以网站公示的方式进行公告，不再单独通知您。变更后的协议和规则一经在网站公布后，立即自动生效。如您不同意相关变更，应当立即停止使用 OAS网服务。您继续使用 OAS网服务的，即表示您接受经修订的协议。                        </p>
+                        <div style="margin-bottom:4px;"></div>
+                    </div>
+                    <p>&nbsp;</p>
+                    <p>
+                        <input type="button" onClick="reg();" class="btnClass" name="btnClass" value="" />
+                    </p>
+                </form>
+            </div>
+<!-- 公共的页面尾部信息页面 -->
+<div id="footer">
+	<div class="footertop">
+		<span><a href="">法律声明</a> &nbsp;|&nbsp; <a href="">服务条款</a>
+			&nbsp;|&nbsp; <a href="">隐私声明</a> &nbsp;|&nbsp; <a href="">联系我们</a>
+			&nbsp;|&nbsp; <a href="">人才招聘</a> </span>	</div>
+	<p>
+		<span>创新企业协同办公平台</span>	</p>
+</div>
+</div>    
+    </body>
+</html>

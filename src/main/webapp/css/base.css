@@ -1,0 +1,41 @@
+@charset "utf-8";
+
+body {
+	text-align: center;
+}
+
+ul li {
+	list-style: none;
+}
+
+ol li {
+	list-style: none;
+}
+
+ol li {
+	float: left;
+}
+
+a,.fun_help ul li {
+	font-size: 12px;
+}
+
+a {
+	text-decoration: none;
+	font-size: 12px;
+	cursor: pointer;
+	color: #161819;
+}
+
+a:hover {
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+h3 {
+	font-size: 14px;
+}
+
+h3 a {
+	color: #0287CB;
+}
