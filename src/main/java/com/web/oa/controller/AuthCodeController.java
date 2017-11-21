@@ -33,14 +33,13 @@ public class AuthCodeController {
         String sesssionCode = (String) session.getAttribute(WebCommons.AUTH_CODE);
         Map<String, Object> map = new HashMap<>();
         if (StringUtils.isEmpty(code)) {
-            map.put(WebCommons.AUTH_FLAG, 0);
+            map.put(WebCommons.AUTH_FLAG, 1);
             map.put(WebCommons.AUTH_MSG, "验证码不能为空");
         } else if (!code.equalsIgnoreCase(sesssionCode)) {
-            map.put(WebCommons.AUTH_FLAG, 1);
+            map.put(WebCommons.AUTH_FLAG, 2);
             map.put(WebCommons.AUTH_MSG, "验证码错误，请重新输入");
         } else {
-            map.put(WebCommons.AUTH_FLAG, 0);
-            map.put(WebCommons.AUTH_MSG, "验证码错误，请重新输入");
+            map.put(WebCommons.AUTH_FLAG, 3);
         }
         return map;
     }
