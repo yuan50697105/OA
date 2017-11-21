@@ -6,7 +6,7 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 import javax.persistence.*;
 
 @Entity
-@Cache(usage = CacheConcurrencyStrategy.READ_WRITE,region = "myCache")
+@Cache(usage = CacheConcurrencyStrategy.READ_WRITE, region = "myCache")
 public class Department {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

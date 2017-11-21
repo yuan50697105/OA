@@ -1,10 +1,7 @@
 package com.web.oa.bean;
 
-import org.hibernate.annotations.Cache;
-import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import javax.persistence.Entity;
 import java.io.File;
 import java.util.Date;
 

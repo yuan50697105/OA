@@ -11,7 +11,7 @@ import javax.persistence.Id;
 import java.util.Date;
 
 @Entity
-@Cache(usage = CacheConcurrencyStrategy.READ_WRITE,region = "myCache")
+@Cache(usage = CacheConcurrencyStrategy.READ_WRITE, region = "myCache")
 public class Organization {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -21,7 +21,7 @@ public class Organization {
     private String type;// 机构类型
     private String introduction;// 机构介绍
     private String registeredCapital;// 注册资金
-    @DateTimeFormat(pattern="yyyy-MM-dd")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date registerTime;// 注册时间
     private String status;// 状态标志
     private String corporation;// 法人代表

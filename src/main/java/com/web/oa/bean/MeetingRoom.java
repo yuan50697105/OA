@@ -9,7 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-@Cache(usage = CacheConcurrencyStrategy.READ_WRITE,region = "myCache")
+@Cache(usage = CacheConcurrencyStrategy.READ_WRITE, region = "myCache")
 public class MeetingRoom {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

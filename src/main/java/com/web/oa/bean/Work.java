@@ -11,22 +11,22 @@ import javax.persistence.Id;
 import java.util.Date;
 
 @Entity
-@Cache(usage = CacheConcurrencyStrategy.READ_WRITE,region = "myCache")
+@Cache(usage = CacheConcurrencyStrategy.READ_WRITE, region = "myCache")
 public class Work {
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long workId;
     private Long orgId;
     private Long userId;
     private String workName;
     private String work;
-    @DateTimeFormat(pattern="yyyy-MM-dd")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date planStartDate;
-    @DateTimeFormat(pattern="yyyy-MM-dd")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date planEndDate;
-    @DateTimeFormat(pattern="yyyy-MM-dd")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date startDate;
-    @DateTimeFormat(pattern="yyyy-MM-dd")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date endDate;
 
     private Date startPlanStartDate;

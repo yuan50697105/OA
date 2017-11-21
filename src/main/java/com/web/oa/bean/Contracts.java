@@ -9,8 +9,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-@Cache(usage = CacheConcurrencyStrategy.READ_WRITE,region = "myCache")
-public class Contracts{
+@Cache(usage = CacheConcurrencyStrategy.READ_WRITE, region = "myCache")
+public class Contracts {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long contractsId;

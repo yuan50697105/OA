@@ -12,6 +12,7 @@ import org.springframework.stereotype.Repository;
 public class UserDaoImpl implements UserDao {
     @Autowired
     private HibernateTemplate hibernateTemplate;
+
     public User getByUser(User user) {
         DetachedCriteria detachedCriteria = DetachedCriteria.forClass(User.class);
         detachedCriteria.add(Restrictions.eq("userName", user.getUserName()));

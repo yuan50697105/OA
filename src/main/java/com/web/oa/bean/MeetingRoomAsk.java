@@ -8,7 +8,7 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-@Cache(usage = CacheConcurrencyStrategy.READ_WRITE,region = "myCache")
+@Cache(usage = CacheConcurrencyStrategy.READ_WRITE, region = "myCache")
 public class MeetingRoomAsk {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -16,9 +16,9 @@ public class MeetingRoomAsk {
     private Long roomId;// 会议室id
     private Long userId;// 申请用户
     private Date operTime;// 申请时间
-    @DateTimeFormat(pattern="yyyy-MM-dd")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date startTime;// 使用开始时间
-    @DateTimeFormat(pattern="yyyy-MM-dd")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date endTime;// 使用结束时间
     private String remark;// 备注
     private String status;// 1：待审 2：已通过 3：已完结 4:未通过

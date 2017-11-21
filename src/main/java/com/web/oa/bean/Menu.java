@@ -8,10 +8,10 @@ import java.util.Date;
 import java.util.List;
 
 @Entity
-@Cache(usage = CacheConcurrencyStrategy.READ_WRITE,region = "myCache")
+@Cache(usage = CacheConcurrencyStrategy.READ_WRITE, region = "myCache")
 public class Menu {
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long menuId;// 菜单编号
     private Long orgId;// 机构Id
     private String menuName;// 菜单名

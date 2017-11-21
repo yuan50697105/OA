@@ -11,7 +11,7 @@ import javax.persistence.Id;
 import java.util.Date;
 
 @Entity
-@Cache(usage = CacheConcurrencyStrategy.READ_WRITE,region = "myCache")
+@Cache(usage = CacheConcurrencyStrategy.READ_WRITE, region = "myCache")
 public class Notice {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -20,7 +20,7 @@ public class Notice {
     private Long userId;// 发布人id
     private String noticeName;// 公告标题
     private String notice;// 公告内容
-    @DateTimeFormat(pattern="yyyy-MM-dd")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date publishTime;// 发表时间
     private String noticeType;// 公告类型 1：制度 2：通知 3：新闻
 

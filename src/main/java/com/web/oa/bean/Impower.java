@@ -10,7 +10,7 @@ import javax.persistence.Id;
 import java.util.Date;
 
 @Entity
-@Cache(usage = CacheConcurrencyStrategy.READ_WRITE,region = "myCache")
+@Cache(usage = CacheConcurrencyStrategy.READ_WRITE, region = "myCache")
 public class Impower {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
