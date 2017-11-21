@@ -1,11 +1,12 @@
-<html>
 <#assign ctx=request.contextPath>
+<!doctype html>
+<html>
 <head>
     <title>协同办公平台-用户登录</title>
-    <base href="${ctx}">
+
     <!-- 公共的页面头部引入页面 -->
-    <link rel="shortcut icon" href="/images/logo.ico"/>
-    <link rel="Bookmark" href="/images/logo/logo.ico"/>
+    <link rel="shortcut icon" href="${ctx}/images/logo.ico"/>
+    <link rel="Bookmark" href="${ctx}/images/logo/logo.ico"/>
 
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta http-equiv="Cache-Control" content="no-store"/>
@@ -20,7 +21,7 @@
 
     <script type="text/javascript" src="${ctx}/js/jquery-1.11.0.js" tppabs="${ctx}/js/jquery-1.11.0.js"></script>
     <script type="text/javascript" src="${ctx}/js/jquery-migrate-1.2.1.js"
-            tppabs="/js/jquery-migrate-1.2.1.js"></script>
+            tppabs="${ctx}/js/jquery-migrate-1.2.1.js"></script>
     <script type="text/javascript" src="${ctx}/js/jquery.form.js" tppabs="${ctx}/js/jquery.form.js"></script>
     <script type="text/javascript" src="${ctx}/js/jquery.validate.min.js"
             tppabs="${ctx}/js/jquery.validate.min.js"></script>
@@ -33,13 +34,9 @@
 
     <script src="${ctx}/js/dialog-min.js" tppabs="${ctx}/js/dialog-min.js"></script>
     <link href="${ctx}/css/ui-dialog.css" tppabs="${ctx}/css/ui-dialog.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="${ctx}/css/style.css" tppabs="${ctx}css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="${ctx}/css/style.css" tppabs="${ctx}/css/style.css"/>
     <script type="text/javascript" src="${ctx}/js/cloud.js" tppabs="${ctx}/js/cloud.js"></script>
-    <style>
-        .loginbox {
-            margin: 0 auto;
-        }
-    </style>
+
     <script language="javascript">
         $(function () {
 
@@ -125,7 +122,7 @@
                     </label>
                 </li>
                 <li>
-                    <label>您还没有帐号？<a href="${ctx}//user/toReg" tppabs="register">立即注册</a></label>
+                    <label>您还没有帐号？<a href="register.htmlregister.htm" tppabs="register">立即注册</a></label>
                 </li>
             </ul>
         </form>
