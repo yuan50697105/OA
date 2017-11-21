@@ -19,21 +19,23 @@
     <link href="css/jquery-ui-1.8.14.custom.css" tppabs="css/jquery-ui-1.8.14.custom.css" rel="stylesheet"
           type="text/css">
 
-    <script type="text/javascript" src="js/jquery-1.11.0.js" tppabs="js/jquery-1.11.0.js"></script>
-    <script type="text/javascript" src="js/jquery-migrate-1.2.1.js" tppabs="js/jquery-migrate-1.2.1.js"></script>
-    <script type="text/javascript" src="js/jquery.form.js" tppabs="js/jquery.form.js"></script>
-    <script type="text/javascript" src="js/jquery.validate.min.js" tppabs="js/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="${ctx}/js/jquery-1.11.0.js" tppabs="${ctx}/js/jquery-1.11.0.js"></script>
+    <script type="text/javascript" src="${ctx}/js/jquery-migrate-1.2.1.js"
+            tppabs="${ctx}/js/jquery-migrate-1.2.1.js"></script>
+    <script type="text/javascript" src="${ctx}/js/jquery.form.js" tppabs="${ctx}/js/jquery.form.js"></script>
+    <script type="text/javascript" src="${ctx}/js/jquery.validate.min.js"
+            tppabs="${ctx}/js/jquery.validate.min.js"></script>
 
-    <script type="text/javascript" src="js/jquery-ui.js" tppabs="js/jquery-ui.js"></script>
-    <script type="text/javascript" src="js/jquery-ui.datepicker-zh-CN.js"
-            tppabs="js/jquery-ui.datepicker-zh-CN.js"></script>
-    <script type="text/javascript" src="js/public.js" tppabs="js/public.js"></script>
-    <script type="text/javascript" src="js/TimeFormat.js" tppabs="js/TimeFormat.js"></script>
+    <script type="text/javascript" src="${ctx}/js/jquery-ui.js" tppabs="${ctx}/js/jquery-ui.js"></script>
+    <script type="text/javascript" src="${ctx}/js/jquery-ui.datepicker-zh-CN.js"
+            tppabs="${ctx}/js/jquery-ui.datepicker-zh-CN.js"></script>
+    <script type="text/javascript" src="${ctx}/js/public.js" tppabs="${ctx}/js/public.js"></script>
+    <script type="text/javascript" src="${ctx}/js/TimeFormat.js" tppabs="${ctx}/js/TimeFormat.js"></script>
 
-    <script src="js/dialog-min.js" tppabs="js/dialog-min.js"></script>
-    <link href="css/ui-dialog.css" tppabs="css/ui-dialog.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/index.css" tppabs="css/index.css" type="text/css"/>
-    <link rel="stylesheet" href="css/reg.css" tppabs="css/reg.css" type="text/css"/>
+    <script src="${ctx}/js/dialog-min.js" tppabs="${ctx}/js/dialog-min.js"></script>
+    <link href="${ctx}/css/ui-dialog.css" tppabs="${ctx}/css/ui-dialog.css" rel="stylesheet">
+    <link rel="stylesheet" href="${ctx}/css/index.css" tppabs="${ctx}/css/index.css" type="text/css"/>
+    <link rel="stylesheet" href="${ctx}/css/reg.css" tppabs="${ctx}/css/reg.css" type="text/css"/>
 
     <script type="text/javascript">
         $(function () {
@@ -86,7 +88,7 @@
             /** 为验证码看不清楚绑定点击事件 */
             $("a[class='transform']").click(function () {
                 /** 重新设置验证码图片的src属性，让它引用一张新的图片 */
-                $("#vimg").attr("src", "verify?random=" + Math.random());
+                $("#vimg").attr("src", "${ctx}/getAuthCode?random=" + Math.random());
             });
         });
 
@@ -138,7 +140,7 @@
     <div class="reg_infor">
         <input type="hidden" id="return_code" value="0"/>
         <div class="regTitle"></div>
-        <form id="register" name="register" action="user/register" method="post">
+        <form id="register" name="register" action="${ctx}/user/register" method="post">
             <table>
                 <tbody>
                 <tr>
@@ -192,8 +194,8 @@
                             <input class="Codefirm" type="text" name="code" id="code"/>
                         </div>
                         <div style="height:34px;float:left;">
-                            <a href="javascript:void(0)" class="transform">
-                                <img src="images/verify.jpg" tppabs="verify" id="vimg" alt="验证码"/> </a></div>
+                            <a href="javascript:void(0);" class="transform">
+                                <img src="${ctx}/getAuthCode" tppabs="verify" id="vimg" alt="验证码"/> </a></div>
                     </td>
                     <td><span id="show_code"></span></td>
                 </tr>
