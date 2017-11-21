@@ -16,7 +16,6 @@ $(document).ready(function () {
             $("#container ul").tabsRemove(parseInt($(this).attr("id")) + 1);
         });
     }
-
     addtabimg();
     //加入关闭tabs按钮.tabclose 结束
     // tabs	

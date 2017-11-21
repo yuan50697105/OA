@@ -1,3 +1,4 @@
+
 /*
  * Translated default messages for the jQuery validation plugin. Language: CN
  * Author:
@@ -44,7 +45,6 @@ function toggle_editor(id) {
     else
         tinyMCE.execCommand("mceRemoveControl", false, id);
 }
-
 function tabColor() {
     var x = "bgColorWa";
     var z = "bgColorYa";
@@ -76,7 +76,6 @@ function checkAll(checkbox, name) {
         $("input[name=" + name + "]").attr("checked", false);
     }
 }
-
 // 自动完成
 function autocompleteUser(pyInputId, userNameId, userDlId, userOrgCodeId,
                           userOrgDescId) {
@@ -109,7 +108,6 @@ function autocompleteUser(pyInputId, userNameId, userDlId, userOrgCodeId,
         }
     });
 }
-
 // 行政机构下拉
 function xzjg(xianName, xiangName, cunName) {
     var xianSelect = $("#" + xianName.replace(/\./gi, "_"));
@@ -166,7 +164,6 @@ function xzjg(xianName, xiangName, cunName) {
         }
     });
 }
-
 // 行政机构下拉(四级)
 function xzjgz(xianName, xiangName, cunName, zuName) {
     var xianSelect = $("#" + xianName.replace(/\./gi, "_"));
@@ -258,7 +255,6 @@ function xzjgz(xianName, xiangName, cunName, zuName) {
         }
     });
 }
-
 // 医疗机构
 function org(xianName, xiangName, cunName) {
     var xianSelect = $("#" + xianName.replace(/\./gi, "_"));
@@ -875,10 +871,10 @@ $(function () {
     if ($.browser.msie) {
         document.onkeydown = function enterToTab() {
             if (event.srcElement.type != 'button' && event.srcElement.type != 'submit' && event.srcElement.type != "image" && event.srcElement.type != 'textarea' && event.keyCode == 13) {
-                event.keyCode = 9;
+                event.keyCode = 9; 
             }
         }
-    }
+    }    
 
 });
 

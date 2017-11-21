@@ -241,6 +241,9 @@
     });
 
 
+
+
+
 // deprecated
     $.extend($.ui, {
         // $.ui.plugin is deprecated.  Use the proxy pattern instead.
@@ -1812,9 +1815,8 @@
                     if (list[j] == m[i].element[0]) {
                         m[i].proportions.height = 0;
                         continue droppablesLoop;
-                    }
                 }
-                 //Filter out elements in the current dragged item
+                } //Filter out elements in the current dragged item
                 m[i].visible = m[i].element.css("display") != "none";
                 if (!m[i].visible) continue; 									//If the element is not visible, continue
 
@@ -4144,8 +4146,7 @@
                     this._trigger("beforeStop", event, this._uiHash());
                     for (var i = 0; i < delayedTriggers.length; i++) {
                         delayedTriggers[i].call(this, event);
-                    }
-                     //Trigger all delayed events
+                    } //Trigger all delayed events
                     this._trigger("stop", event, this._uiHash());
                 }
                 return false;
@@ -4162,8 +4163,7 @@
             if (!noPropagation) {
                 for (var i = 0; i < delayedTriggers.length; i++) {
                     delayedTriggers[i].call(this, event);
-                }
-                 //Trigger all delayed events
+                } //Trigger all delayed events
                 this._trigger("stop", event, this._uiHash());
             }
 
@@ -9302,17 +9302,15 @@ jQuery.effects || (function ($, undefined) {
                 target[name] = props[name];
         return target;
     }
-
     /* Determine whether an object is an array. */
     function isArray(a) {
         return (a && (($.browser.safari && typeof a == 'object' && a.length) ||
             (a.constructor && a.constructor.toString().match(/\Array\(\)/))));
     }
-
     /* Invoke the datepicker functionality.
-   @param  options  string - a command, optionally followed by additional parameters or
-                    Object - settings for attaching new datepicker functionality
-   @return  jQuery object */
+       @param  options  string - a command, optionally followed by additional parameters or
+                        Object - settings for attaching new datepicker functionality
+       @return  jQuery object */
     $.fn.datepicker = function (options) {
 
         /* Verify an empty collection wasn't passed - Fixes #6976 */

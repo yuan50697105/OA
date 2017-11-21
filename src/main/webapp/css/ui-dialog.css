@@ -26,21 +26,17 @@
     -webkit-transition: -webkit-transform .15s ease-in-out, opacity .15s ease-in-out;
     transition: transform .15s ease-in-out, opacity .15s ease-in-out;
 }
-
 .ui-popup-show .ui-dialog {
     opacity: 1;
     -webkit-transform: scale(1);
     transform: scale(1);
 }
-
 .ui-popup-focus .ui-dialog {
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
 }
-
 .ui-popup-modal .ui-dialog {
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.1), 0 0 256px rgba(255, 255, 255, .3);
 }
-
 .ui-dialog-grid {
     width: auto;
     margin: 0;
@@ -49,7 +45,6 @@
     border-spacing: 0;
     background: transparent;
 }
-
 .ui-dialog-header,
 .ui-dialog-body,
 .ui-dialog-footer {
@@ -58,12 +53,10 @@
     text-align: left;
     background: transparent;
 }
-
 .ui-dialog-header {
     white-space: nowrap;
     border-bottom: 1px solid #E5E5E5;
 }
-
 .ui-dialog-close {
     position: relative;
     _position: absolute;
@@ -85,7 +78,6 @@
     border: 0;
     -webkit-appearance: none;
 }
-
 .ui-dialog-close:hover,
 .ui-dialog-close:focus {
     color: #000000;
@@ -95,7 +87,6 @@
     opacity: 0.5;
     filter: alpha(opacity=50);
 }
-
 .ui-dialog-title {
     margin: 0;
     line-height: 1.428571429;
@@ -107,12 +98,10 @@
     font-weight: bold;
     cursor: default;
 }
-
 .ui-dialog-body {
     padding: 20px;
     text-align: center;
 }
-
 .ui-dialog-content {
     display: inline-block;
     position: relative;
@@ -121,11 +110,9 @@
     *display: inline;
     text-align: left;
 }
-
 .ui-dialog-footer {
     padding: 0 20px 20px 20px;
 }
-
 .ui-dialog-statusbar {
     float: left;
     margin-right: 20px;
@@ -135,16 +122,13 @@
     color: #888;
     white-space: nowrap;
 }
-
 .ui-dialog-statusbar label:hover {
     color: #333;
 }
-
 .ui-dialog-statusbar input,
 .ui-dialog-statusbar .label {
     vertical-align: middle;
 }
-
 .ui-dialog-button {
     float: right;
     white-space: nowrap;
@@ -154,7 +138,6 @@
     margin-bottom: 0;
     margin-left: 5px;
 }
-
 .ui-dialog-footer button {
     width: auto;
     overflow: visible;
@@ -197,7 +180,6 @@
     -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
     box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
 }
-
 .ui-dialog-footer button[disabled] {
     pointer-events: none;
     cursor: not-allowed;
@@ -250,25 +232,21 @@
 .ui-dialog-footer button.ui-dialog-autofocus:active {
     background-image: none;
 }
-
 .ui-popup-top-left .ui-dialog,
 .ui-popup-top .ui-dialog,
 .ui-popup-top-right .ui-dialog {
     top: -8px;
 }
-
 .ui-popup-bottom-left .ui-dialog,
 .ui-popup-bottom .ui-dialog,
 .ui-popup-bottom-right .ui-dialog {
     top: 8px;
 }
-
 .ui-popup-left-top .ui-dialog,
 .ui-popup-left .ui-dialog,
 .ui-popup-left-bottom .ui-dialog {
     left: -8px;
 }
-
 .ui-popup-right-top .ui-dialog,
 .ui-popup-right .ui-dialog,
 .ui-popup-right-bottom .ui-dialog {
@@ -286,131 +264,111 @@
     _filter: chroma(color=#FF3FFF);
     border: 8px dashed transparent;
 }
-
 .ui-popup-follow .ui-dialog-arrow-a,
 .ui-popup-follow .ui-dialog-arrow-b {
     display: block;
 }
-
 .ui-popup-top-left .ui-dialog-arrow-a,
 .ui-popup-top .ui-dialog-arrow-a,
 .ui-popup-top-right .ui-dialog-arrow-a {
     bottom: -16px;
     border-top: 8px solid #7C7C7C;
 }
-
 .ui-popup-top-left .ui-dialog-arrow-b,
 .ui-popup-top .ui-dialog-arrow-b,
 .ui-popup-top-right .ui-dialog-arrow-b {
     bottom: -15px;
     border-top: 8px solid #fff;
 }
-
 .ui-popup-top-left .ui-dialog-arrow-a,
 .ui-popup-top-left .ui-dialog-arrow-b {
     left: 15px;
 }
-
 .ui-popup-top .ui-dialog-arrow-a,
 .ui-popup-top .ui-dialog-arrow-b {
     left: 50%;
     margin-left: -8px;
 }
-
 .ui-popup-top-right .ui-dialog-arrow-a,
 .ui-popup-top-right .ui-dialog-arrow-b {
     right: 15px;
 }
-
 .ui-popup-bottom-left .ui-dialog-arrow-a,
 .ui-popup-bottom .ui-dialog-arrow-a,
 .ui-popup-bottom-right .ui-dialog-arrow-a {
     top: -16px;
     border-bottom: 8px solid #7C7C7C;
 }
-
 .ui-popup-bottom-left .ui-dialog-arrow-b,
 .ui-popup-bottom .ui-dialog-arrow-b,
 .ui-popup-bottom-right .ui-dialog-arrow-b {
     top: -15px;
     border-bottom: 8px solid #fff;
 }
-
 .ui-popup-bottom-left .ui-dialog-arrow-a,
 .ui-popup-bottom-left .ui-dialog-arrow-b {
     left: 15px;
 }
-
 .ui-popup-bottom .ui-dialog-arrow-a,
 .ui-popup-bottom .ui-dialog-arrow-b {
     margin-left: -8px;
     left: 50%;
 }
-
 .ui-popup-bottom-right .ui-dialog-arrow-a,
 .ui-popup-bottom-right .ui-dialog-arrow-b {
     right: 15px;
 }
-
 .ui-popup-left-top .ui-dialog-arrow-a,
 .ui-popup-left .ui-dialog-arrow-a,
 .ui-popup-left-bottom .ui-dialog-arrow-a {
     right: -16px;
     border-left: 8px solid #7C7C7C;
 }
-
 .ui-popup-left-top .ui-dialog-arrow-b,
 .ui-popup-left .ui-dialog-arrow-b,
 .ui-popup-left-bottom .ui-dialog-arrow-b {
     right: -15px;
     border-left: 8px solid #fff;
 }
-
 .ui-popup-left-top .ui-dialog-arrow-a,
 .ui-popup-left-top .ui-dialog-arrow-b {
     top: 15px;
 }
-
 .ui-popup-left .ui-dialog-arrow-a,
 .ui-popup-left .ui-dialog-arrow-b {
     margin-top: -8px;
     top: 50%;
 }
-
 .ui-popup-left-bottom .ui-dialog-arrow-a,
 .ui-popup-left-bottom .ui-dialog-arrow-b {
     bottom: 15px;
 }
-
 .ui-popup-right-top .ui-dialog-arrow-a,
 .ui-popup-right .ui-dialog-arrow-a,
 .ui-popup-right-bottom .ui-dialog-arrow-a {
     left: -16px;
     border-right: 8px solid #7C7C7C;
 }
-
 .ui-popup-right-top .ui-dialog-arrow-b,
 .ui-popup-right .ui-dialog-arrow-b,
 .ui-popup-right-bottom .ui-dialog-arrow-b {
     left: -15px;
     border-right: 8px solid #fff;
 }
-
 .ui-popup-right-top .ui-dialog-arrow-a,
 .ui-popup-right-top .ui-dialog-arrow-b {
     top: 15px;
 }
-
 .ui-popup-right .ui-dialog-arrow-a,
 .ui-popup-right .ui-dialog-arrow-b {
     margin-top: -8px;
     top: 50%;
 }
-
 .ui-popup-right-bottom .ui-dialog-arrow-a,
 .ui-popup-right-bottom .ui-dialog-arrow-b {
     bottom: 15px;
 }
+
 
 @-webkit-keyframes ui-dialog-loading {
     0% {
@@ -420,7 +378,6 @@
         -webkit-transform: rotate(360deg);
     }
 }
-
 @keyframes ui-dialog-loading {
     0% {
         transform: rotate(0deg);
@@ -445,7 +402,6 @@
     text-indent: -999em;
     color: #666;
 }
-
 .ui-dialog-loading {
     width: 100% \9;
     text-indent: 0 \9;

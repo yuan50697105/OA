@@ -265,7 +265,6 @@ fieldset legend {
     margin-top: 5px;
     borde: none;
 }
-
 /*前台管理样式*/
 .common_left, .common_right {
     float: left;
@@ -359,7 +358,6 @@ fieldset legend {
 .pTitle p {
     margin-left: 8px;
 }
-
 /*邮件*/
 .enter_email {
     width: 970px;
@@ -384,7 +382,6 @@ fieldset legend {
     padding-top: 30px;
     color: #4DA844;
 }
-
 .email_hot {
     width: 750px;
     height: auto;
@@ -453,7 +450,6 @@ fieldset legend {
 .email_bg {
     background: #fff;
 }
-
 /*出错页面
 .error_status{
 	background:url("../../images/common"/error.gif) no-repeat center;

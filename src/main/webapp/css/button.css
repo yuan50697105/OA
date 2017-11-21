@@ -2,12 +2,10 @@
     padding: 0 6px 0 27px;
     background: url("../../images/button/first_page_button.gif") no-repeat 0 -1px;
 }
-
 .end_page_button {
     padding: 0 27px 0 6px;
     background: url("../../images/button/end_page_button.gif") no-repeat right -1px;
 }
-
 .back_page_button {
     padding: 0 6px 0 15px;
     background: url("../../images/button/back_page_button.gif") no-repeat 0 -1px;

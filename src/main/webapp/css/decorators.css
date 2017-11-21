@@ -15,7 +15,6 @@ body {
     height: 500px;
     border-right: 1px solid #D4E4F2;
 }
-
 .p_right {
     margin-top: 5px;
     width: 770px;
@@ -559,7 +558,6 @@ table tr td a {
 .add_master, .edit_master {
     display: none;
 }
-
 /*公告*/
 .notes_main {
     height: 450px;

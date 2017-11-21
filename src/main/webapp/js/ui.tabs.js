@@ -94,7 +94,7 @@
             },
             load: function () {
             },
-
+            
             // templates
             tabTemplate: '<li><a href="#{href}"><span>#{text}</span></a></li>',
             panelTemplate: '<div></div>',
@@ -397,7 +397,7 @@
                 // browsers via CSS, also blur removes focus from address bar in Firefox
                 // which can become a usability and annoying problem with tabsRotate.
                 if ($.browser.msie) {
-                    this.blur();
+                    this.blur(); 
                 }
 
                 //return o.bookmarkable && !!trueClick; // convert trueClick == undefined to Boolean required in IE
@@ -414,7 +414,7 @@
                     $li = $(o.tabTemplate.replace(/#\{href\}/, url).replace(/#\{text\}/, text));
 
                 var id = url.indexOf('#') == 0 ? url.replace('#', '') : this.tabId($('a:first-child', $li)[0]);
-
+                
                 // try to find an existing element before creating a new one
                 var $panel = $('#' + id);
                 $panel = $panel.length && $panel
@@ -443,7 +443,7 @@
             }
         },
         remove: function (position) {
-            if (position && position.constructor == Number) {
+            if (position && position.constructor == Number) {                
                 var o = this.options, $li = this.$lis.eq(position - 1).remove(),
                     $panel = this.$panels.eq(position - 1).remove();
 
@@ -468,7 +468,7 @@
             o.enable(this.$tabs[position - 1], this.$panels[position - 1]); // callback
         },
         disable: function (position) {
-            var o = this.options;
+            var o = this.options;      
             this.$lis.eq(position - 1).addClass(o.disabledClass);
             o.disable(this.$tabs[position - 1], this.$panels[position - 1]); // callback
         },

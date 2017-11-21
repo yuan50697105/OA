@@ -26,7 +26,7 @@
     margin-left: -1px;
     margin-top: -3px;
     padding: 0 0 0 0px;
-
+	
 }
 
 .ui-tabs-nav:after {
@@ -127,7 +127,7 @@
 }
 
 .ui-tabs-nav a:hover, .ui-tabs-nav a:focus, .ui-tabs-nav a:active, .ui-tabs-nav .ui-tabs-unselect a:hover, .ui-tabs-nav .ui-tabs-unselect a:focus, .ui-tabs-nav .ui-tabs-unselect a:active { /* @ Opera, we need to be explicit again here now... */
-
+	
 }
 
 .ui-tabs-disabled {
