@@ -10,6 +10,8 @@ import com.web.oa.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
+
 @Service
 public class UserServiceImpl implements UserService {
     @Autowired
@@ -20,9 +22,13 @@ public class UserServiceImpl implements UserService {
     private UserDao userDao;
     @Override
     public boolean save(User user, UserData userData, Organization organization) {
+        organization.setRegisterTime(new Date());
         boolean flag=organizationDao.save(organization);
         if(flag){
             user.setOrgId(organization.getOrgId());
+            user.setCreateTime(new Date());
+            user.setMark("1");
+            user.setPosition("2");
             flag=userDao.save(user);
             if(flag){
                 userData.setUserId(user.getUserId());
