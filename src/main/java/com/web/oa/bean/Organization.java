@@ -8,11 +8,12 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.io.Serializable;
 import java.util.Date;
 
 @Entity
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE, region = "myCache")
-public class Organization {
+public class Organization implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long orgId;// 机构id

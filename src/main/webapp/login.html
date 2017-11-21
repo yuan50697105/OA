@@ -16,8 +16,8 @@
 
     <link rel="stylesheet" type="text/css" href="${ctx}/css/mainbase.css" tppabs="${ctx}/css/mainbase.css">
     <link rel="stylesheet" type="text/css" href="${ctx}/css/button.css" tppabs="${ctx}/css/button.css">
-    <link href="${ctx}/css/jquery-ui-1.8.14.custom.css" tppabs="${ctx}/css/jquery-ui-1.8.14.custom.css" rel="stylesheet"
-          type="text/css">
+    <link rel="stylesheet" type="text/css" href="${ctx}/css/jquery-ui-1.8.14.custom.css"
+          tppabs="${ctx}/css/jquery-ui-1.8.14.custom.css">
 
     <script type="text/javascript" src="${ctx}/js/jquery-1.11.0.js" tppabs="${ctx}/js/jquery-1.11.0.js"></script>
     <script type="text/javascript" src="${ctx}/js/jquery-migrate-1.2.1.js"
@@ -36,7 +36,16 @@
     <link href="${ctx}/css/ui-dialog.css" tppabs="${ctx}/css/ui-dialog.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="${ctx}/css/style.css" tppabs="${ctx}/css/style.css"/>
     <script type="text/javascript" src="${ctx}/js/cloud.js" tppabs="${ctx}/js/cloud.js"></script>
+    <style>
+        .loginbox {
+            margin: 0 auto;
+            margin-top: 75px;
+        }
 
+        .login {
+            padding-top: 1px;
+        }
+    </style>
     <script language="javascript">
         $(function () {
 
@@ -109,7 +118,7 @@
     <span class="systemlogo"></span>
 
     <div class="loginbox">
-        <form id="login" action="user/login" method="POST">
+        <form id="login" class="login" action="user/login" method="POST">
             <ul>
                 <li>
                     <input id="userName" name="userName" type="text" class="loginuser" value="admin"/>
@@ -122,7 +131,7 @@
                     </label>
                 </li>
                 <li>
-                    <label>您还没有帐号？<a href="register.htmlregister.htm" tppabs="register">立即注册</a></label>
+                    <label>您还没有帐号？<a href="${ctx}/user/toReg" tppabs="register">立即注册</a></label>
                 </li>
             </ul>
         </form>
