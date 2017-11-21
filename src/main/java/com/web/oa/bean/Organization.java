@@ -19,7 +19,7 @@ import java.util.Date;
 @DynamicInsert(value = true)
 public class Organization implements Serializable {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long orgId;// 机构id
     private String superiorId;// 上级机构id
     private String orgName;// 机构名称

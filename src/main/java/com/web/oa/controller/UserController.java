@@ -24,8 +24,9 @@ public class UserController {
     public String toReg(){
         return "register";
     }
+    @RequestMapping("/reg")
     public String reg(User user, UserData userData, Organization organization){
         boolean flag=userService.save(user,userData,organization);
-        return "";
+        return null;
     }
 }
