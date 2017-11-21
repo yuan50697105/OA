@@ -7,6 +7,7 @@
     <mvc:default-servlet-handler/>
     <context:annotation-config/>
     <context:component-scan base-package="com.web.oa.controller"/>
+    <mvc:view-controller path="/" view-name="redirect:/user/toLogin"/>
     <bean class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
         <property name="defaultEncoding" value="UTF-8"/>
         <property name="templateLoaderPaths" value="/"/>
