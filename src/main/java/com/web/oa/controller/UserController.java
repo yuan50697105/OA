@@ -25,7 +25,7 @@ public class UserController {
 
     @RequestMapping("/toReg")
     public String toReg() {
-        return "";
+        return "register";
     }
 
     @RequestMapping("/reg")
