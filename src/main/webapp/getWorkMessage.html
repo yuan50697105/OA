@@ -1,9 +1,10 @@
-
+<#assign ctx=request.contextPath>
 <!-- saved from url=(0049)http://177.77.79.206:8080/oa//work/getWorkMessage -->
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<html>
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
        <!-- 公共的页面头部引入页面 -->
-<link rel="shortcut icon" href="images/logo.ico">
-<link rel="Bookmark" href="images/logo.ico">
+<link rel="shortcut icon" href="${ctx}/images/logo.ico">
+<link rel="Bookmark" href="${ctx}/images/logo.ico">
 
 
 <meta http-equiv="Cache-Control" content="no-store">
@@ -11,22 +12,22 @@
 <meta http-equiv="Expires" content="0">
 <meta http-equiv="Cache" content="no-cache">
 
-<link rel="stylesheet" type="text/css" href="css/mainbase.css">
-<link rel="stylesheet" type="text/css" href="css/button.css">
-<link href="css/jquery-ui-1.8.14.custom.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="${ctx}/css/mainbase.css">
+<link rel="stylesheet" type="text/css" href="${ctx}/css/button.css">
+<link href="${ctx}/css/jquery-ui-1.8.14.custom.css" rel="stylesheet" type="text/css">
 
-<script type="text/javascript" src="js/jquery-1.11.0.js"></script>
-<script type="text/javascript" src="js/jquery-migrate-1.2.1.js"></script>
-<script type="text/javascript" src="js/jquery.form.js"></script>
-<script type="text/javascript" src="js/jquery.validate.min.js"></script>
+<script type="text/javascript" src="${ctx}/js/jquery-1.11.0.js"></script>
+<script type="text/javascript" src="${ctx}/js/jquery-migrate-1.2.1.js"></script>
+<script type="text/javascript" src="${ctx}/js/jquery.form.js"></script>
+<script type="text/javascript" src="${ctx}/js/jquery.validate.min.js"></script>
 
-<script type="text/javascript" src="js/jquery-ui.js"></script>
-<script type="text/javascript" src="js/jquery-ui.datepicker-zh-CN.js"></script>
-<script type="text/javascript" src="js/public.js"></script>
-<script type="text/javascript" src="js/TimeFormat.js"></script>
+<script type="text/javascript" src="${ctx}/js/jquery-ui.js"></script>
+<script type="text/javascript" src="${ctx}/js/jquery-ui.datepicker-zh-CN.js"></script>
+<script type="text/javascript" src="${ctx}/js/public.js"></script>
+<script type="text/javascript" src="${ctx}/js/TimeFormat.js"></script>
 
-<script src="js/dialog-min.js"></script>
-<link href="css/ui-dialog.css" rel="stylesheet">    </head>
+<script src="${ctx}/js/dialog-min.js"></script>
+<link href="${ctx}/css/ui-dialog.css" rel="stylesheet">    </head>
     <body>
         <div class="pTitle">
             <p>工作计划</p>
@@ -36,7 +37,7 @@
                 <input type="submit" class="search_btn input_button" value="搜 索">
             </div>
             <div id="get_work_list">
-<link href="css/list_style.css" rel="stylesheet" type="text/css">
+<link href="${ctx}/css/list_style.css" rel="stylesheet" type="text/css">
 <script>
 	$(function(){
 		$("#checkAll").click(function(){
@@ -108,13 +109,13 @@
         <li class="click">
         <a href="javascript:void(0)" onClick="javascript:openWindow(&#39;/oa/work/toAddWork&#39;,&#39;850&#39;,&#39;500&#39;)">
         <span>
-        <img src="images/t01.png">
+        <img src="${ctx}/images/t01.png">
         </span>添加</a>
         </li>
         <li>
         <a href="javascript:void(0);" id="deleteBtn">
         <span>
-        <img src="images/t03.png">
+        <img src="${ctx}/images/t03.png">
         </span>删除</a>
         </li>
         </ul>

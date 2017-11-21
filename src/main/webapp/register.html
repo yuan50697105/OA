@@ -73,8 +73,9 @@
                     minLength : 4,
                     source : function(request, response) {
                     	$("#show_code").html("");
-                        var url ="${ctx}/getVerifyCode";
+                        var url ="${ctx}/checkAuthCode";
                         $.post(url, {'code':$("#code").val()}, function(data) {
+                            console.log(data.flag+" "+data.msg);
                             $("#return_code").val(data.flag);
                             $("#show_code").html(data.msg);
                         }, "json");

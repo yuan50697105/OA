@@ -1,10 +1,11 @@
+<#assign ctx=request.contextPath>
 <!DOCTYPE html>
 <!-- saved from url=(0039)http://177.77.79.206:8080/oa/user/login -->
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>协同办公平台-工作台</title>
 <!-- 公共的页面头部引入页面 -->
-<link rel="shortcut icon" href="http://177.77.79.206:8080/oa/images/logo/logo.ico">
-<link rel="Bookmark" href="http://177.77.79.206:8080/oa/images/logo/logo.ico">
+<link rel="shortcut icon" href="http://177.77.79.206:8080/oa/${ctx}/images/logo/logo.ico">
+<link rel="Bookmark" href="http://177.77.79.206:8080/oa/${ctx}/images/logo/logo.ico">
 
 
 <meta http-equiv="Cache-Control" content="no-store">
@@ -12,30 +13,30 @@
 <meta http-equiv="Expires" content="0">
 <meta http-equiv="Cache" content="no-cache">
 
-<link rel="stylesheet" type="text/css" href="css/mainbase.css">
-<link rel="stylesheet" type="text/css" href="css/button.css">
-<link href="css/jquery-ui-1.8.14.custom.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="${ctx}/css/mainbase.css">
+<link rel="stylesheet" type="text/css" href="${ctx}/css/button.css">
+<link href="${ctx}/css/jquery-ui-1.8.14.custom.css" rel="stylesheet" type="text/css">
 
-<script type="text/javascript" src="js/jquery-1.11.0.js"></script>
-<script type="text/javascript" src="js/jquery-migrate-1.2.1.js"></script>
-<script type="text/javascript" src="js/jquery.form.js"></script>
-<script type="text/javascript" src="js/jquery.validate.min.js"></script>
+<script type="text/javascript" src="${ctx}/js/jquery-1.11.0.js"></script>
+<script type="text/javascript" src="${ctx}/js/jquery-migrate-1.2.1.js"></script>
+<script type="text/javascript" src="${ctx}/js/jquery.form.js"></script>
+<script type="text/javascript" src="${ctx}/js/jquery.validate.min.js"></script>
 
-<script type="text/javascript" src="js/jquery-ui.js"></script>
-<script type="text/javascript" src="js/jquery-ui.datepicker-zh-CN.js"></script>
-<script type="text/javascript" src="js/public.js"></script>
-<script type="text/javascript" src="js/TimeFormat.js"></script>
+<script type="text/javascript" src="${ctx}/js/jquery-ui.js"></script>
+<script type="text/javascript" src="${ctx}/js/jquery-ui.datepicker-zh-CN.js"></script>
+<script type="text/javascript" src="${ctx}/js/public.js"></script>
+<script type="text/javascript" src="${ctx}/js/TimeFormat.js"></script>
 
-<script src="js/dialog-min.js"></script>
-<link href="css/ui-dialog.css" rel="stylesheet"><link rel="stylesheet" type="text/css" href="css/base.css">
-<link rel="stylesheet" type="text/css" href="css/ui.tabs.css">
-<link rel="stylesheet" type="text/css" href="css/adminhome.css">
-<link rel="stylesheet" type="text/css" href="css/decorators.css">
-<link rel="stylesheet" type="text/css" href="css/pagesbase.css">
-<script type="text/javascript" src="js/jquery-latest.js"></script>
-<script type="text/javascript" src="js/ui.tabs.js"></script>
+<script src="${ctx}/js/dialog-min.js"></script>
+<link href="${ctx}/css/ui-dialog.css" rel="stylesheet"><link rel="stylesheet" type="text/css" href="${ctx}/css/base.css">
+<link rel="stylesheet" type="text/css" href="${ctx}/css/ui.tabs.css">
+<link rel="stylesheet" type="text/css" href="${ctx}/css/adminhome.css">
+<link rel="stylesheet" type="text/css" href="${ctx}/css/decorators.css">
+<link rel="stylesheet" type="text/css" href="${ctx}/css/pagesbase.css">
+<script type="text/javascript" src="${ctx}/js/jquery-latest.js"></script>
+<script type="text/javascript" src="${ctx}/js/ui.tabs.js"></script>
 
-<script type="text/javascript" src="js/main.js"></script>
+<script type="text/javascript" src="${ctx}/js/main.js"></script>
 </head>
 <body>
 	<div id="admin">
@@ -59,7 +60,7 @@
 				<li id="181">
 					<a id="181" rel="/oa//main/one?menuId=181" title="个人办公">
 						<div class="">
-							<img src="images/work.png">
+							<img src="${ctx}/images/work.png">
 						</div>
 						个人办公
 					</a>
@@ -67,7 +68,7 @@
 				<li id="186">
 					<a id="186" rel="/oa//mail/getMailbox" title="站内邮件">
 						<div class="">
-							<img src="images/mail.png">
+							<img src="${ctx}/images/mail.png">
 						</div>
 						站内邮件
 					</a>
@@ -75,7 +76,7 @@
 				<li id="187">
 					<a id="187" rel="/oa//main/one?menuId=187" title="行政综合">
 						<div class="">
-							<img src="images/administrative.png">
+							<img src="${ctx}/images/administrative.png">
 						</div>
 						行政综合
 					</a>
@@ -83,7 +84,7 @@
 				<li id="193">
 					<a id="193" rel="/oa//main/one?menuId=193" title="人力资源">
 						<div class="">
-							<img src="images/user.png">
+							<img src="${ctx}/images/user.png">
 						</div>
 						人力资源
 					</a>
@@ -91,7 +92,7 @@
 				<li id="196">
 					<a id="196" rel="/oa//main/one?menuId=196" title="公告信息">
 						<div class="">
-							<img src="images/notice.png">
+							<img src="${ctx}/images/notice.png">
 						</div>
 						公告信息
 					</a>
@@ -99,7 +100,7 @@
 				<li id="202">
 					<a id="202" rel="/oa//pages/document/document_main.jsp" title="文件管理">
 						<div class="">
-							<img src="images/file.png">
+							<img src="${ctx}/images/file.png">
 						</div>
 						文件管理
 					</a>
@@ -115,7 +116,7 @@
 			<div id="container">
 				<div class="tab-nav">
 					<ul class="ui-tabs-nav">
-						<li class="ui-tabs-selected"><a href=""><span>工作台</span></a><img src="images/tab-close.gif" align="absmiddle" id="0" class="closetab" style="visibility: hidden;"></li>
+						<li class="ui-tabs-selected"><a href=""><span>工作台</span></a><img src="${ctx}/images/tab-close.gif" align="absmiddle" id="0" class="closetab" style="visibility: hidden;"></li>
 					</ul>
 				</div>
 				
@@ -129,7 +130,7 @@
 				<tbody><tr>
 					<td rowspan="2">
 						<div class="user">
-								<img width="58" height="58" src="images/user_default.png">
+								<img width="58" height="58" src="${ctx}/images/user_default.png">
 
 						</div>
 					</td>

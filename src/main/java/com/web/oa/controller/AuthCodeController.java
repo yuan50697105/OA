@@ -27,7 +27,7 @@ public class AuthCodeController {
         }
     }
 
-    @RequestMapping("/getVerifyCode")
+    @RequestMapping("/checkAuthCode")
     @ResponseBody
     public Map<String, Object> getVerifyCode(String code, HttpSession session) {
         String sesssionCode = (String) session.getAttribute(WebCommons.AUTH_CODE);

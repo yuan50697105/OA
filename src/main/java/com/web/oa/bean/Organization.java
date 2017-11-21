@@ -36,4 +36,124 @@ public class Organization implements Serializable {
     private String address;// 注册地址
     private String businessLicenseNo;// 营业执照号
     private String remark;// 备注
+
+    public Long getOrgId() {
+        return orgId;
+    }
+
+    public void setOrgId(Long orgId) {
+        this.orgId = orgId;
+    }
+
+    public String getSuperiorId() {
+        return superiorId;
+    }
+
+    public void setSuperiorId(String superiorId) {
+        this.superiorId = superiorId;
+    }
+
+    public String getOrgName() {
+        return orgName;
+    }
+
+    public void setOrgName(String orgName) {
+        this.orgName = orgName;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public String getIntroduction() {
+        return introduction;
+    }
+
+    public void setIntroduction(String introduction) {
+        this.introduction = introduction;
+    }
+
+    public String getRegisteredCapital() {
+        return registeredCapital;
+    }
+
+    public void setRegisteredCapital(String registeredCapital) {
+        this.registeredCapital = registeredCapital;
+    }
+
+    public Date getRegisterTime() {
+        return registerTime;
+    }
+
+    public void setRegisterTime(Date registerTime) {
+        this.registerTime = registerTime;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public String getCorporation() {
+        return corporation;
+    }
+
+    public void setCorporation(String corporation) {
+        this.corporation = corporation;
+    }
+
+    public String getTelephone() {
+        return telephone;
+    }
+
+    public void setTelephone(String telephone) {
+        this.telephone = telephone;
+    }
+
+    public String getZipCode() {
+        return zipCode;
+    }
+
+    public void setZipCode(String zipCode) {
+        this.zipCode = zipCode;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getBusinessLicenseNo() {
+        return businessLicenseNo;
+    }
+
+    public void setBusinessLicenseNo(String businessLicenseNo) {
+        this.businessLicenseNo = businessLicenseNo;
+    }
+
+    public String getRemark() {
+        return remark;
+    }
+
+    public void setRemark(String remark) {
+        this.remark = remark;
+    }
 }
