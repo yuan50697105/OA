@@ -16,12 +16,12 @@ import java.util.Map;
 
 @Controller
 public class AuthCodeController {
-    @RequestMapping("getAuthCode")
+    @RequestMapping("/getAuthCode")
     public void getAuthCode(HttpSession session, HttpServletResponse response) {
         String code = AuthCodeUtils.getCode();
         session.setAttribute(WebCommons.AUTH_CODE, code);
         try {
-            ImageIO.write(AuthCodeUtils.getCodeImg(code), "JPEF", response.getOutputStream());
+            ImageIO.write(AuthCodeUtils.getCodeImg(code), "JPEG", response.getOutputStream());
         } catch (IOException e) {
             e.printStackTrace();
         }
