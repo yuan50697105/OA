@@ -1,6 +1,7 @@
 package com.web.oa.dao;
 
 import com.web.oa.bean.User;
+import com.web.oa.utils.PageModel;
 
 import java.util.List;
 
@@ -20,4 +21,6 @@ public interface UserDao {
     List<User> findAll();
 
     Long countByUserName(String userName);
+
+    List<User> findByUserName(String userName,int page,int size);
 }

@@ -2,6 +2,8 @@ package com.web.oa.bean;
 
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
+import org.hibernate.annotations.DynamicInsert;
+import org.hibernate.annotations.DynamicUpdate;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.Entity;
@@ -13,6 +15,8 @@ import java.util.Date;
 
 @Entity
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE, region = "myCache")
+@DynamicUpdate(value = true)
+@DynamicInsert(value = true)
 public class Organization implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

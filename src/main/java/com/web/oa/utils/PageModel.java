@@ -3,11 +3,13 @@ package com.web.oa.utils;
 import java.util.List;
 
 public class PageModel<T> {
-    private int pageIndex;
+    private long pageIndex;
     private int pageSize;
     private long totalRecords;
     private List<T> t;
-
+    public PageModel(){
+        this.pageSize=5;
+    }
     public long getStartIndex() {
         return (pageIndex - 1) * pageSize;
     }
@@ -16,11 +18,11 @@ public class PageModel<T> {
         return totalRecords % pageSize == 0 ? totalRecords / pageSize : totalRecords / pageSize + 1;
     }
 
-    public int getPageIndex() {
+    public long getPageIndex() {
         return pageIndex;
     }
 
-    public void setPageIndex(int pageIndex) {
+    public void setPageIndex(long pageIndex) {
         this.pageIndex = pageIndex;
     }
 

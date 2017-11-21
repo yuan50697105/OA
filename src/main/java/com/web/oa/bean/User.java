@@ -2,6 +2,8 @@ package com.web.oa.bean;
 
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
+import org.hibernate.annotations.DynamicInsert;
+import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,6 +13,8 @@ import java.util.Date;
 
 @Entity
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE, region = "myCache")
+@DynamicInsert(value = true)
+@DynamicUpdate(value = true)
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

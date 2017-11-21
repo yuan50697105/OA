@@ -2,6 +2,8 @@ package com.web.oa.bean;
 
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
+import org.hibernate.annotations.DynamicInsert;
+import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -10,6 +12,8 @@ import java.util.Date;
 
 @Entity
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE, region = "myCache")
+@DynamicUpdate(value = true)
+@DynamicInsert(value = true)
 public class UserData {
     @Id
     private Long userId;
