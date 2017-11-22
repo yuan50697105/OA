@@ -1,0 +1,128 @@
+<#include "/common/header.html"/>
+<script type="text/javascript" src="${ctx}/js/admin/updateenterprise.js"></script>
+<script type="text/javascript">
+    $(function() {
+        $("#organiztion").submit(function() {
+        	var params = $("#organiztion").serialize();
+			var url = "${ctx}/admin/ajaxUpdateOrganiztion";
+			$.post(url,params,function(flag){
+					if(flag){
+						showDialog(flag,"更新成功");
+					}else{
+						showDialog(flag,"更新失败");	
+					}
+			},"json");
+            return false;
+        });
+    });
+
+    function showDialog(flag,tip){
+    	var d = dialog({
+			title: '温馨提示',
+		    content: tip,
+		});
+		d.show();
+		setTimeout(function () {
+		    d.close().remove();
+
+		    if(flag){
+		    	window.location.href=window.location.href; 
+			}
+		    
+		}, 1000);
+	}
+</script>
+<form action="" method="post" id="organiztion">
+    <input type="hidden" name="orgId" value="${org.orgId}" id="orgId" />
+    <div class="pEdit">
+           <input class="modal_btn1" id="updateEnter"type="button"  value="编&nbsp;辑"/>
+           <input class="modal_btn1" id="saveEnter"  type="submit"  value="保&nbsp;存"/>
+    </div>
+    <table class="org_infro">
+        <tbody>
+            <tr>
+                <td class="txt_right">机构ID：</td>
+                <td class="select_left">${org.orgId}</td>
+                <td><span id="orgIdError"></span></td>
+            </tr>
+            <tr>
+                <td class="txt_right">机构名称：</td>
+                <td>
+                <input class="textbox" type="text" name="orgName" value="${org.orgName?default('')}" id="orgName" />
+                </td>
+                <td><span id="orgNameError"></span></td>
+            </tr>
+            <tr>
+                <td class="txt_right">机构类型：</td>
+                <td><select class="select_left" name="type" id="type" >
+                        <option></option>
+                        <option>外资(欧美)</option>
+                        <option>外资(非欧美)</option>
+                        <option>合资(欧美)</option>
+                        <option>合资(非欧美)</option>
+                        <option>国企</option>
+                        <option>民营公司</option>
+                        <option>外企代表处</option>
+                        <option>政府机关</option>
+                        <option>事业单位</option>
+                        <option>非营利性机构</option>
+                        <option>其他性质</option>
+                    </select></td>
+                <td><span id="typeError"></span></td>
+            </tr>
+            <tr>
+                <td class="txt_right">机构介绍：</td>
+                <td><input class="textbox" type="text" name="introduction" value="${org.introduction?default('')}" id="introduction" /></td>
+                <td><span id="introductionError"></span></td>
+            </tr>
+            <tr>
+                <td class="txt_right">注册资金：</td>
+                <td><input class="textbox" type="text" name="registeredCapital" value="${org.registeredCapital?default('')}" id="registeredCapital"/></td>
+                <td><span id="registeredCapitalError"></span></td>
+            </tr>
+            <tr>
+                <td class="txt_right">注册时间：</td>
+                <td>
+                <input id="registerTime" class="Wdate"  name="registerTime" value="${org.registerTime?string('yyyy-MM-dd')}"
+					onfocus="WdatePicker({dateFmt:'yyyy-MM-dd'});"/>  
+                </td>
+                <td><span id="registerTimeError"></span></td>
+            </tr>
+            <tr>
+                <td class="txt_right">法人代表：</td>
+                <td><input class="textbox" type="text" name="corporation" value="${org.corporation?default('')}" id="corporation"/></td>
+                <td><span id="corporationError"></span></td>
+            </tr>
+            <tr>
+                <td class="txt_right">联系电话：</td>
+                <td><input class="textbox" type="text" name="telephone" value="${org.telephone?default('')}" id="telephone"/></td>
+                <td><span id="telephoneError"></span></td>
+            </tr>
+             <tr>
+                <td class="txt_right">电子邮件：</td>
+                <td><input class="textbox" type="text" name="email" value="${org.email?default('')}" id="email"/></td>
+                <td><span id="emailError"></span></td>
+            </tr>
+            <tr>
+                <td class="txt_right">邮政编码：</td>
+                <td><input class="textbox" type="text" name="zipCode" value="${org.zipCode?default('')}" id="zipCode"/></td>
+                <td><span id="zipCodeError"></span></td>
+            </tr>
+            <tr>
+                <td class="txt_right">注册地址：</td>
+                <td><input class="textbox" type="text" name="address" value="${org.address?default('')}" id="address"/></td>
+                <td><span id="addressError"></span></td>
+            </tr>
+            <tr>
+                <td class="txt_right">营业执照号：</td>
+                <td><input class="textbox" type="text" name="businessLicenseNo" value="${org.businessLicenseNo?default('')}" id="bussinessLicenseNo" /></td>
+                <td><span id="bussinessLicenseNoError"></span></td>
+            </tr>
+            <tr>
+                <td class="txt_right">备注：</td>
+                <td><textarea style="width:300px;" rows="2" name="remark" id="remark">${org.remark?default('')}</textarea></td>
+                <td><span id="remarkError"></span></td>
+            </tr>
+        </tbody>
+    </table>
+</form>

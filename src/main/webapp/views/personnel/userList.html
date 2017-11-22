@@ -1,0 +1,49 @@
+<#include "/common/header.html"/>
+<input type="hidden" name="employee.departmentId" value="${employee.departmentId}" />
+<input type="hidden" name="employee.orgId" value="${employee.orgId}" />
+<div class="data_table">
+	<s:iterator value="employeeList" status="index">
+		<table>
+
+			<tr>
+				<td>姓名:</td>
+				<td>${name}</td>
+				<td>照片:</td>
+				<td><c:if test="${null!=head&&''!=head}">
+						<img width="20" height="20" src="${path}/${head}" />
+					</c:if> <c:if test="${null==head||''==head}">
+						<img width="20" height="20"
+							src="${path}/common/images/head/head.png" />
+					</c:if>
+				</td>
+			</tr>
+			<tr>
+				<td>年龄:</td>
+				<td>${age}</td>
+				<td>性别:</td>
+				<td>${sex}</td>
+
+			</tr>
+
+			<tr>
+				<td>部门:</td>
+				<td>&nbsp;</td>
+				<td>职务:</td>
+				<td>&nbsp;</td>
+			</tr>
+			<tr>
+				<td>手机:</td>
+				<td>${mobilePhone}</td>
+				<td>QQ:</td>
+				<td>&nbsp;</td>
+			</tr>
+			<tr>
+				<td>联系电话:</td>
+				<td>&nbsp;</td>
+				<td>E-mail:</td>
+				<td>${email}</td>
+			</tr>
+		</table>
+	</s:iterator>
+</div>
+<div class="toolsMenu">${pages.toolsMenu}</div>

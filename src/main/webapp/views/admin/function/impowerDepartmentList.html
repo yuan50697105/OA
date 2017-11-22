@@ -1,0 +1,23 @@
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ include file="/pages/common/taglib.jsp"%>
+<div class="data_table">
+    <table  class="listContent">
+        <tr>
+            <th>序号</th>
+            <th>部门</th>
+            <th>部门描述</th>
+            <th>操作</th>
+        </tr>
+        <s:iterator value="departmentList" status="index">
+            <tr>
+                <td><s:property value="#index.count" /></td>
+                <td><s:property value="departmentName" /></td>
+                <td><s:property value="introduce" /></td>
+                <td align="center">
+                    <a href="javascript:void(0);" onclick="javascript:openWindow('${ctx}/admin/impower_loadDepartment.action?de.departmentId=${departmentId}','400','260')">『授权』</a>
+                </td>
+            </tr>
+        </s:iterator>
+    </table>
+</div>
+

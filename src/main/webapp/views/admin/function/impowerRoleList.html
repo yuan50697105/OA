@@ -1,0 +1,36 @@
+<div class="oper_table">
+	<table >
+		<tr>
+			<td>角色名:</td>
+			<td><input type="text" class="txtinput" name="roleName" /></td>
+			<td><input type="submit" class="search_btn" value="搜&nbsp;索" />
+			</td>
+			<td><input onclick="javascript:openWindow('${ctx}/admin/toAddRole','400','260')"
+				class="new_btn" value="新&nbsp;建">
+				</td>
+		</tr>
+	</table>
+</div>
+<div class="data_table">
+	<table class="listContent">
+		<tr>
+			<th>编号</th>
+			<th>角色名称</th>
+			<th>角色描述</th>
+			<th>操作</th>
+		</tr>
+			<#if roleList??>
+			<#list roleList as role>
+			<tr>
+				<td>${role.roleId}</td>
+				<td>${role.roleName}</td>
+				<td>${role.introduce}</td>
+				<td align="center"><a href="javascript:void(0);"
+					onclick="javascript:openWindow('${ctx}/admin/loadRoleEditor?roleId=${role.roleId}','400','260')">『查看/编辑』</a>
+					<a href="javascript:void(0)">『删除』</a>
+				</td>
+			</tr>
+			</#list>
+			</#if>
+	</table>
+</div>

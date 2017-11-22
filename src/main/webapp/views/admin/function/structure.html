@@ -1,0 +1,43 @@
+<#include "/common/header.html"/>
+<html>
+    <head>
+        <title>组织结构</title>
+        <link rel="stylesheet" type="text/css" href="${ctx}/css/admin/main.css">
+        <link rel="stylesheet" type="text/css" href="${ctx}/css/dtree/dtree.css" />
+        <script type="text/javascript" src="${ctx}/js/dtree/dtree.js"></script>
+        <script type="text/javascript">
+            //刷新右侧页面
+            function loadEmployeeList(departmentId) {
+                var url =  "${ctx}/admin/loadEmployeeList?departmentId="+departmentId;
+                $.post(url, '', function(data) {
+                    //清空id为structure_right中的html代码
+                    $("#structure_right").html("");
+                    //往id为structure_right中加入ajax返回的html
+                    $("#structure_right").html(data);
+                }, 'html');
+            } 
+        </script>
+    </head>
+    <body >
+        <div id="structure_left" class="left">
+            <div >
+                <script type="text/javascript">
+                    d = new dTree('d');
+                    d.add(0, -1, '${org.orgName}', "javascript:loadEmployeeList('0');", '', '',
+                    '${ctx}/images/dtree/department.png',
+                    '${ctx}/images/dtree/department.png');
+                    <#list departmentList as department>
+                        d.add('${department.departmentId}', '${department.superiorId}', '${department.departmentName}',"javascript:loadEmployeeList(${department.departmentId});", '', '',
+                        '${ctx}/images/dtree/department.png',
+                        '${ctx}/images/dtree/department.png', false);
+                    </#list>
+                     document.write(d);
+                </script>
+            </div>
+        </div>
+        
+        <div id="structure_right" class="right">
+            <#include "structureMembers.html"/>
+        </div>
+    </body>
+</html>

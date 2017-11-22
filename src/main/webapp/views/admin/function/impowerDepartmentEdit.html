@@ -1,0 +1,81 @@
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ include file="/pages/common/taglib.jsp"%>
+<!DOCTYPE html>
+<html>
+<head>
+<title>JSP Page</title>
+<%@ include file="/pages/common/meta.jsp"%>
+<%@ include file="/pages/common/style.jsp"%>
+<%@ include file="/pages/common/script.jsp"%>
+<script type="text/javascript">
+	$().ready(function() {
+		$("#get_impower_menu_list").submit(function() {
+			var options = {
+				dataType : 'html',
+				target : '#impower_menu_list',
+				url : '${ctx}/admin/impower_findMenuByOption.action',
+				success : function(data) {
+					$("#impower_menu_list").html("");
+					$("#impower_menu_list").html(data);
+				}
+			};
+			$(this).ajaxSubmit(options);
+			return false;
+		});
+	});
+	function addMenu() {
+		var retstr = "";
+		var objs = document.getElementsByName("role_menuId");
+		var j = 0;
+		for ( var i = 0; i < objs.length; i++) {
+			if (objs[i].checked) {
+				j++;
+				retstr += "," + objs[i].value;
+			}
+		}
+		var str = retstr.substring(1, retstr.length);
+		$("#menuIds").val(str);
+		$("#save_role").submit();
+	}
+
+	function menuOnclick(menuId) {
+		//alert(menuId);
+		// $("#"+menuId).attr("checked", "checked")
+	}
+</script>
+</head>
+<body>
+
+	<form id="save_role"
+		action="${ctx}/admin/impower_saveDepartment.action" method="post">
+		<input type="hidden" id="roleId" name="de.departmentId"
+			value="${de.departmentId}" /> <input type="hidden" id="menuIds"
+			name="de.menuIds" value="${de.menuIds}" />
+		<div class="user_editor_table">
+			<table>
+				<tbody>
+					<tr>
+						<td>部门名:</td>
+						<td>${de.departmentName}</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td><span>${message}</span></td>
+					</tr>
+					<tr>
+						<td>部门描述:</td>
+						<td>${de.introduce}</td>
+					</tr>
+					<tr>
+						<td>${menus}</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<p>
+			<input type="button" onclick="addMenu();" class="modal_btn"
+				value="保存" />
+		</p>
+	</form>
+</body>
+</html>

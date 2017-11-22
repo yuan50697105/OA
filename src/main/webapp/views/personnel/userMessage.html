@@ -1,0 +1,59 @@
+<html>
+    <head>
+        <title>通讯录</title>
+        <link rel="stylesheet" type="text/css" href="${ctx}/common/css/admin/main.css">
+        <link rel="stylesheet" type="text/css" href="${ctx}/common/css/dtree/dtree.css" />
+        <script type="text/javascript" src="${ctx}/common/js/dtree/dtree.js"></script>
+        <script type="text/javascript">
+
+            $().ready(function() {
+                $("#get_employee_message_list").submit(function() {
+                    var options = {
+                        dataType:'html', 
+                        target: '#employee_list',
+                        url: '${ctx}/user/user_findEmployeeListByOption.action',
+                        success:function(data) {
+                            $("#employee_message_list").html("");
+                            $("#employee_message_list").html(data);
+                        }
+                    };
+                    $(this).ajaxSubmit(options);
+                    return false;
+                });
+            });
+            //刷新右侧页面
+            function loadEmployeeList(departmentId) {
+                var url = endPoint + "/user/user_findEmployeeListByOption.action?employee.departmentId="+departmentId;
+                $.post(url, '', function(data) {
+                    $("#employee_message_list").html("");
+                    $("#employee_message_list").html(data);
+                }, 'html');
+            }
+        </script>
+    </head>
+    <body>
+        <div id="structure_left" class="left">
+            <div >
+                <script type="text/javascript">
+                    d = new dTree('d');
+                    d.add(0, -1, '${org.orgName}', "javascript:loadEmployeeList('0');", '', '',
+                    '${ctx}/common/images/dtree/department.png',
+                    '${ctx}/common/images/dtree/department.png');
+                    <s:iterator value="departmentList" status="index">
+                        d.add('${departmentId}', '${superiorId}', '${departmentName}',"javascript:loadEmployeeList(${departmentId});", '', '',
+                        '${ctx}/common/images/dtree/department.png',
+                        '${ctx}/common/images/dtree/department.png', false);
+                    </s:iterator>    
+                        document.write(d);
+                </script>
+            </div>
+        </div>
+        <div id="user_message_right" class="right">
+            <form id="get_employee_message_list" action="${ctx}/user/user_findEmployeeListByOption.action">
+                <div id="employee_message_list">
+                    <#include file="userList.html"/>
+                </div>
+            </form>
+        </div>
+    </body>
+</html>

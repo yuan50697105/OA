@@ -1,0 +1,875 @@
+body {
+	margin: 0;
+	padding: 0;
+	text-align: center;
+	background: #FAFAFA;
+}
+
+a {
+	text-decoration: none;
+}
+
+table,fieldset {
+	font-size: 12px;
+}
+
+table th {
+	font-weight: normal;
+	color: #808080;
+}
+
+#sysAdmin {
+	margin: 0 auto;
+	margin: 0 auto;
+	width: 1000px;
+	height: 610px;
+}
+
+#header {
+	width: 1000px;
+	height: 110px;
+}
+
+.logo {
+	width: 1000px;
+	height: 110px;
+	background: url("../../images/login/sys_logo.jpg") no-repeat;
+}
+
+.nav {
+	width: 1000px;
+	height: 30px;
+	text-algin: left;
+	font-size: 14px;
+	color: #716F63;
+	margin-top: -30px;
+	line-height: 28px;
+}
+
+ul li {
+	list-style: none;
+}
+
+.panel_head ul li {
+	padding-left: 5;
+	padding-right: 5;
+	height: 30px;
+	float: left;
+	cursor: pointer;
+	color: #fff;
+	border-right: 1px solid #D2D2D4;
+	width: 80px;
+}
+
+.item_move {
+	width: 80px;
+	height: 328px;
+	background: url("../../images/login/nav.jpg") no-repeat;
+}
+
+#content {
+	height: 500px;
+	border-left: 1px solid #99978B;
+	border-right: 1px solid #99978B;
+	border-bottom: 1px solid #99978B;
+}
+
+.left,.right {
+	padding: 0;
+	marign: 0;
+}
+
+.left {
+	width: 180px;
+	height: 500px;
+	float: left;
+	text-align: left;
+	background: #EDF5F8;
+}
+
+.right {
+	height: 500px;
+	overflow-y: auto;
+}
+
+.left .infor table {
+	width: 180px;
+	font-size: 12px;
+	cursor: pointer;
+}
+
+.infor table tr td {
+	width: 180px;
+	border-bottom: 1px dashed #999933;
+	height: 29px;
+}
+
+.infor table  td a {
+	margin-left: 39px;
+}
+
+.bg {
+	background: #55C3FE;
+	color: white;
+	font-weight: bold;
+}
+
+.txt_right {
+	text-align: right;
+	color: #808080;
+}
+
+.textbox {
+	width: 300px;
+	padding: 2px;
+	height: 22px;
+	border: 1px solid #7F9DB9;
+	float: left;
+}
+
+.pEdit {
+	height: 35px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 5px;
+}
+
+.pEdit ul li {
+	float: left;
+}
+
+.button {
+	width: 55px;
+	height: 24px;
+	font-size: 12px;
+	line-height: 20px;
+}
+
+.save {
+	width: 86px;
+	height: 27px;
+	border: none;
+	cursor: pointer;
+	color: #fff;
+	background: url("../../images/button/modal_btn.png") no-repeat
+		0 0px;
+	display: none;
+}
+
+.infor_show .enter_table {
+	font-size: 12px;
+	margin-left: auto;
+	margin-right: auto;
+	width: 600px;
+}
+
+.infor_show table tr {
+	height: 30px;
+}
+
+.infor_show table tr td span {
+	color: red;
+	float: left;
+	width: 180px;
+}
+
+.infor_set {
+	display: none;
+	font-size: 12px;
+	text-align: left;
+}
+
+
+
+.oper_cont {
+	background: url("../../images/mgt/f2.gif") repeat-x;
+	background-position: 0 -453px;
+	border: 1px solid #87A3C1;
+	cursor: pointer;
+	font-size: 12px;
+	padding-top: 2px;
+	padding-right: 2px;
+	float: left;
+	margin-left: 5px;
+	margin-top: 5px;
+	borde: none;
+}
+
+.str_table {
+	margin-left: auto;
+	margin-right: auto;
+	width: 766px;
+	height: auto;
+	margin-top: 2px;
+	text-align: center;
+	font-size: 12px;
+	border-right: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+}
+
+.str_table tr {
+	height: 24px;
+}
+
+.str_table th {
+	background: url("../../images/mgt/f2.gif") repeat-x scroll 0 -351px
+		transparent;
+	border-left: 1px solid #ccc;
+	height: 24px;
+	font-weight: normal;
+}
+
+.str_table tr td {
+	border-left: 1px solid #ccc;
+	border-top: 1px solid #ccc;
+}
+
+table tr td a {
+	cursor: pointer;
+}
+
+/**模态框样式-前景**/ /***添加员工****/
+#addStaffDiv,#updateStaffDiv {
+	top: 35% !important;
+	left: 35% !important;
+	top: 15%;
+	left: 15%;
+	position: absolute;
+	width: 500px;
+	height: 330px;
+	border: 10px solid #17ACF8;
+	z-index: 2;
+	display: none;
+	background: #FFFFFF;
+}
+
+#addPartDiv,#updatePartDiv {
+	top: 35% !important;
+	left: 35% !important;
+	top: 20%;
+	left: 15%;
+	position: absolute;
+	width: 500px;
+	height: 240px;
+	border: 10px solid #17ACF8;
+	z-index: 2;
+	display: none;
+	background: #FFFFFF;
+}
+
+.str_title {
+	width: 500px;
+	height: 25px;
+	background: url("../../images/common/modal_bg.png") repeat-x;
+}
+
+.str_title table {
+	font-size: 14px;
+	font-weight: bold;
+	color: #0795DE;
+	width: 500px;
+}
+
+.str_title .add_icon {
+	background: url("../../images/common/add_icon.png") no-repeat;
+	width: 16px;
+	height: 16px;
+}
+
+.str_title .close_icon {
+	width: 23px;
+	cursor: pointer;
+	height: 16px;
+	background: url("../../images/common/close_icon.png") no-repeat;
+	border: none;
+	float: right;
+}
+
+.str_infor {
+	width: 420px;
+	height: auto;
+	text-align: center;
+}
+
+.str_infor_part {
+	width: 480px;
+	height: auto;
+	text-align: center;
+}
+
+.str_infor_part table {
+	width: 480px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.str_infor table {
+	color: #808080;
+	width: 400px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+html>body .str_infor table {
+	margin-top: 20px;
+}
+
+html>body .str_infor_part table {
+	margin-top: 20px;
+}
+
+.str_infor table label,.str_infor_part table label {
+	color: red;
+}
+
+.str_infor table  span,.str_infor_part table span {
+	font-size: 12px;
+	color: #B47307;
+	text-align: left;
+	width: 150px;
+}
+
+.str_infor table tr {
+	height: 28px;
+}
+
+.str_infor table .txtInput {
+	width: 170px;
+	height: 22px;
+}
+
+.oright {
+	color: #808080;
+	text-align: right;
+	width: 100px;
+}
+
+.str_infor_part table .part_right {
+	text-align: right;
+}
+
+/***功能模块***/
+#prompt {
+	height: 76px;
+}
+
+#prompt1 {
+	height: 50px;
+}
+
+#prompt1 {
+	background-color: #F9FBF6;
+	border: 1px solid #EFEFEF;
+	margin: 5px;
+	padding: 5px;
+	width: auto;
+	font-size: 12px;
+}
+
+#prompt {
+	background-color: #F9FBF6;
+	border: 1px solid #EFEFEF;
+	margin: 10px;
+	padding: 5px;
+	width: auto;
+	font-size: 12px;
+}
+
+#prompt p.green,span.green,#prompt1 p.green,span.green {
+	color: #278139;
+	font-weight: bold;
+}
+
+#prompt p,#prompt1 p {
+	line-height: 2;
+}
+
+#prompt p,#prompt1 p {
+	display: block;
+	margin: 2px 0 0 24px;
+	paddiing: 0;
+	text-align: left;
+}
+
+.tree_div_border,.main_list_div {
+	float: left;
+}
+
+.tree_div_border {
+	width: 160px;
+	height: 430px;
+	padding-bottom: 0;
+	float: left;
+	margin-left: 5px;
+	background: #EDF5F8;
+	border: 1px solid #92A8BD;
+	text-align: left;
+}
+
+.tree_div_border .table {
+	width: 160px;
+	text-align: left;
+	font-size: 12px;
+	height: auto;
+}
+
+.tree_div_border .table tr {
+	height: 25px;
+}
+
+.tree_div_border .table td {
+	cursor: pointer;
+}
+
+.tree_div_border .table span {
+	margin-left: 3px;
+}
+
+.post_edit {
+	width: 800px;
+	height: 30px;
+}
+
+.clk {
+	background-image: url("../../images/common/f3.gif");
+	background-position: 0 -236px;
+	background-repeat: repeat-x;
+	font-weight: bold;
+}
+
+.main_list_div {
+	width: 825px;
+	height: 430px;
+	border-right: 1px solid #92A8BD;
+	border-bottom: 1px solid #92A8BD;
+	border-top: 1px solid #92A8BD;
+	overflow: auto;
+	background: #fff;
+}
+
+.adminDiv {
+	wdith: 800px;
+	height: auto;
+	display: block;
+}
+
+.postmainDiv {
+	width: 800px;
+	height: auto;
+}
+
+.dialog,fieldset {
+	margin-left: auto;
+	margin-right: auto;
+	width: 700px;
+	height: auto;
+}
+
+.managerDiv,.partmanagerDiv,.staffDiv {
+	wdith: 800px;
+	height: auto;
+	display: none;
+}
+
+.newPostDiv,.editPostDiv {
+	font-size: 12px;
+}
+
+.newPostDiv p,.editPostDiv p {
+	text-align: left;
+	line-height: 24px;
+	font-size: 14px;
+}
+
+.newPostDiv p span,.editPostDiv p span {
+	font-weight: blod;
+	cursor: pointer;
+	color: #031CC3;
+}
+
+.newPostDiv fieldset,.editPostDiv fieldset {
+	text-align: center;
+	margin-left: auto;
+	width: 600px;
+	margin-right: auto;
+}
+
+.moduleDiv {
+	width: 1000px;
+	height: 500px;
+	overflow: auto;
+	background: #EDF5F8;
+}
+
+.moduleTable {
+	width: 700px;
+	height: auto;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.moduleTable .table {
+	width: 100%;
+}
+
+.moduleTable table tr {
+	height: 25px;
+}
+
+.moduleTable .table td table {
+	width: 100px;
+}
+
+.email_title {
+	background: url("../../../common/images/mgt/icon/js_gbj.jpg") no-repeat scroll 0 0
+		transparent;
+	display: block;
+	float: left;
+	font-size: 14px;
+	height: 31px;
+	letter-spacing: 1px;
+	text-align: center;
+	width: 178px;
+	margin-left: 2px;
+	line-height: 24px;
+}
+
+
+.w_letter,.r_letter,.e_letter,.s_letter,.d_letter {
+	background: url("../../../common/images/mgt/icon/mymail.png") no-repeat;
+	float: left;
+	height: 24px;
+	width: 30px;
+	line-height:24px;
+}
+
+
+.w_letter {
+	background-position: 0 -40px;
+	height: 24px;
+	width: 30px;
+}
+
+.r_letter {
+	background-position: -30px -40px;
+	height: 24px;
+	width: 30px;
+}
+
+.e_letter,.s_letter,.d_letter {
+	background-position: -60px -40px;
+}
+
+.jsadbox {
+	margin-left: 5px;
+	margin-top: 50px;
+	background: none repeat scroll 0 0 #D0F7D1;
+	float: left;
+	height: 289px;
+	overflow: hidden;
+	position: relative;
+}
+
+.show_email {
+	width: 350px;
+	height: auto;
+	margin-top: 10px;
+	float: right;
+}
+
+.show_email ol li {
+	margin-top: 10px;
+	border: 2px solid #9CD8AE;
+}
+
+.show_email span {
+	float: left;
+	line-height: 30px;
+	font-size: 14px;
+	margin-left: 10px;
+}
+
+.borbox {
+	background: none repeat scroll 0 0 #FFFFFF;
+	border: 1px solid #9CD8AE;
+	height: auto;
+	margin: 5px;
+	text-align: center;
+}
+
+.borbox p {
+	font-size: 14px;
+	text-align: left;
+	line-height: 24px;
+	margin-left: 10px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+/**邮件信息【写信】和【收信】***/
+.write_l {
+	display: block;
+}
+
+.take_l {
+	display: none;
+}
+
+/**end***/
+.oper_posit {
+	width: 100%;
+	height: 33px;
+}
+
+.send,.temp,.cancel {
+	float: left;
+	width: 70px;
+	height: 24px;
+	margin-left: 15px;
+	margin-top: 10px;
+	font-size: 12px;
+	cursor: pointer;
+	text-align: center;
+	line-height: 24px;
+}
+
+.ico_send,.ico_temp,.ico_cancel {
+	background: url("../../images/decorators/icon/f4.gif") no-repeat;
+	display: block;
+	float: left;
+	font-size: 1px;
+	height: 21px;
+	margin: 0px;
+	width: 21px;
+}
+
+.ico_send {
+	background-position: -105px -553px;
+}
+
+.ico_temp {
+	background-position: -21px -553px;
+}
+
+.ico_cancel {
+	background-position: -168px -553px;
+}
+
+.ico_send span,.ico_temp span,.ico_cancel span {
+	float: left;
+}
+
+.ico_hover {
+	width: 70px;
+	height: 24px;
+	background: url("../../images/button/email_btn.png") no-repeat red;
+}
+
+.mail_send {
+	width: 720px;
+	height: auto;
+}
+
+.mail_send table {
+	width: 100%;
+	height: auto;
+}
+
+.mail_send table tr td {
+	padding-top: 5px;
+	text-align: left;
+}
+
+.email_text {
+	width: 550px !important;
+	width: 560px;
+	border: 1px solid #CCCCCC;
+	height: 295px;
+	overflow: auto;
+	text-align: left;
+}
+
+.mail_send table tr td select {
+	font-size: 12px;
+}
+
+.mceFirst {
+	width: 550px;
+	height: auto;
+	background: #F0F0EE;
+	border: 1px solid #CCCCCC;
+	float: left;
+}
+
+.mceFirst table tr td {
+	margin: 10px;
+}
+
+.mceIcon,.mce_italic,.mce_underline,.mce_strikethrough,.mce_justifycenter,.mce_justifyleft,.mce_justifyright,.mce_justifyfull,.mce_bullist,.mce_numlist,.mce_outdent,.mce_indent
+	{
+	background: url("../../images/mgt/icon/icons.gif") no-repeat scroll
+		transparent;
+	display: block;
+	height: 20px;
+	width: 20px;
+}
+
+.mce_bold {
+	background-position: 0 0;
+}
+
+.mce_italic {
+	background-position: -60px 0;
+}
+
+.mce_underline {
+	background-position: -140px 0;
+}
+
+.mce_strikethrough {
+	background-position: -120px 0;
+}
+
+.mce_justifyleft {
+	background-position: -460px 0;
+}
+
+.mce_justifyright {
+	background-position: -480px 0;
+}
+
+.mce_justifycenter {
+	background-position: -420px 0;
+}
+
+.mce_justifyfull {
+	background-position: -440px 0;
+}
+
+.mce_bullist {
+	background-position: -20px 0;
+}
+
+.mce_numlist {
+	background-position: -80px 0;
+}
+
+.mce_outdent {
+	background-position: -540px 0;
+}
+
+.mce_indent {
+	background-position: -400px 0;
+}
+
+.format input,.font_word input,.font_size input {
+	width: 70px;
+	height: 22px;
+	background: #ffffff;
+	border: 1px solid #A2ABC0;
+	line-height: 19px;
+	padding-left: 2px;
+	color: #878772;
+	cursor: pointer;
+	float: right;
+}
+
+.mceOpen {
+	background: url("../../images/mgt/icon/icons.gif") repeat scroll -741px
+		0 transparent;
+	border: 1px solid #CCCCCC;
+	height: 20 !important;
+	height: 21px;
+	margin-right: 2px;
+	width: 10px;
+	float: left;
+	height: 21px;
+}
+
+.e_commit_btn {
+	float: left;
+	margin-left: 10px;
+	width: 650px;
+	height: 35px;
+	background: #F7F7F7;
+	border: 1px solid #EBEBEB;
+}
+
+.jgcont,.oper_cont,.search_button {
+	background: url("../../images/mgt/f2.gif") repeat-x;
+	background-position: 0 -453px;
+	border: 1px solid #87A3C1;
+	cursor: pointer;
+	font-size: 12px;
+}
+
+.jgcont {
+	width: 60px;
+	margin-left: 8px;
+	height: 23px;
+}
+
+.oper_cont {
+	padding-left: 2px;
+	padding-top: 2px;
+	padding-right: 2px;
+	float: left;
+	margin-left: 5px;
+	margin-top: 8px;
+}
+
+.search_button {
+	height: 23px;
+	float: left;
+}
+
+.take_title {
+	height: 40px;
+}
+
+.take_title p {
+	width: 100px;
+	font-size: 14px;
+	font-weight: bold;
+	text-align: left;
+	line-height: 35px;
+	margin-left: 10px;
+	float: left;
+}
+
+.take_title .e_search {
+	padding: 0px;
+	margin-top: 2px;
+	float: right;
+}
+
+.e_search table {
+	height: 20px;
+	width: 310px;
+}
+
+.oper_list {
+	height: 37px;
+	background: #CCE0F5;
+	border: 1px solid #EBEBEB;
+}
+
+.rtable {
+	width: 750px;
+	font-size: 12px;
+	text-align: center;
+}
+
+.rtable th {
+	border-left: 1px solid #ccc;
+	border-top: 1px solid #ccc;
+	border-bottom: 1px solid #CCCCCC;
+	font-weight: normal;
+	background: url("../../images/mgt/f2.gif") repeat-x 0 -351px;
+	height: 23px;
+}
+
+.rtable tr td {
+	border-left: 1px solid #CCCCCC;
+	border-bottom: 1px solid #CCCCCC;
+}

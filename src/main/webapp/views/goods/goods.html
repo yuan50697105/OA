@@ -1,0 +1,15 @@
+
+<#include "/common/header.html"/>
+	<div class="pTitle">
+		<p>物品管理</p>
+	</div>
+	<form id="findList" action="" method="post">
+		<div class="search_box">
+			物品名:<input name="name" type="text" class="searchinput">
+			&nbsp;&nbsp; 
+			<input type="submit" class="search_btn" value="搜&nbsp;索" />&nbsp;&nbsp;
+		</div>
+		<div id="work_contacts_list">
+			<#include "goodsList.html"/>
+		</div>
+	</form>

@@ -1,0 +1,52 @@
+
+<script type="text/javascript">
+function returnBack() {
+	self.close();
+}
+</script>
+	<div class="title_text">
+		<p>物品管理</p>
+	</div>
+	<form id="save_goods" action="" method="post">
+		<table>
+			<tbody>
+				<tr>
+					<td class="txtright">物品名:</td>
+					<td><input type="text" class="txtinput" name="goodsName"/></td>
+					<td class="txtright">状况:</td>
+					<td>
+					<input type="text" class="txtinput" name="status"/>
+					</td>
+				</tr>
+				<tr>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+				</tr>
+				<tr>
+					<td class="txtright">价格:</td>
+					<td><input type="text" class="txtinput" name="price"/></td>
+						<td>单位：</td>
+					<td><input type="text" class="txtinput" name="units"/></td>
+				</tr>
+				
+				<tr>
+					<td class="txtright">备注:</td>
+					<td><textarea name="remark" rows="4" cols="23"></textarea></td>
+					<td class="txtright">描述:</td>
+					<td><textarea name="introduce" rows="4" cols="23"></textarea></td>
+				</tr>
+				<tr>
+					<td>&nbsp;</td>
+					<td>
+                <p>
+                    <input type="button" class="modal_btn" value=" 保  存 " /> 
+                </p></td>
+                <td>&nbsp;</td>
+					<td><p></p>
+                <p>
+                    <input type="button" class="modal_btn" value=" 关  闭 " onclick="returnBack();" /> 
+                </p></td>
+				</tr>
+			</tbody>
+		</table>
+	</form>

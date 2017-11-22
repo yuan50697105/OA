@@ -1,0 +1,28 @@
+<div class="data_table">
+	<table>
+		<tr>
+			<th>序2号</th>
+			<th>部门</th>
+			<th>职务</th>
+		</tr>
+		<tbody>
+				<#if employeeList??>
+				<#list employeeList as employee>
+				<input type="hidden" name="departmentMembersId" value="${employee.departmentMembersId}"/>
+				<input type="hidden" name="departmentId" value="${employee.departmentId}"/>
+				<tr>
+            <td>${employee_index}</td>
+            <td>${employee.departmentName}</td>
+            <td><select  name="userRoleId">
+                   <#list employee.roleList as role>
+                        <option value="${role.roleId}">${role.roleName}</option>
+                  </#list>
+                </select>
+             </td>
+             </tr>
+			</#list>
+			</#if>
+		</tbody>
+		<!-- 遍历 -->
+	</table>
+</div>

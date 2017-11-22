@@ -29,7 +29,7 @@ ul li {
 }
 
 .regTitle {
-	background:url(../images/regTitle.png) no-repeat center;
+	background: url(../images/login/regTitle.png) no-repeat center;
 	width: 700px;
 	height: 35px;
 	margin-bottom: 20px;
@@ -110,7 +110,7 @@ table .Codefirm {
 }
 
 .bgSpanok {
-	background:url(../images/true.png) no-repeat left center;
+	background: url(../images/common/true.png) no-repeat left center;
 	color: red;
 	font-size: 14px;
 	width: 14px;
@@ -119,7 +119,7 @@ table .Codefirm {
 }
 
 .bgSpanerr {
-	background:url(../images/false.png) no-repeat left center;
+	background: url(../images/common/false.png) no-repeat left center;
 	padding-left: 20px;
 	color: red;
 	font-size: 14px;
@@ -127,7 +127,7 @@ table .Codefirm {
 }
 
 .btnClass {
-	background:url(../images/reg_btn.png) no-repeat;
+	background: url(../images/button/reg_btn.png) no-repeat;
 	width: 106px;
 	height: 41px;
 	cursor: pointer;

@@ -1,0 +1,19 @@
+<div class="data_table">
+	<table class="data_table">
+		<tr>
+			<th>选择</th>
+			<th>编号</th>
+			<th>部门</th>
+			<th>部门描述</th>
+		</tr>
+		<tbody>
+			<#list departmentList as department>
+				<tr>
+					<td><input type="radio" id="departmentId" name="departmentId" value="${department.departmentId}"/></td>
+					<td>${department.departmentId}</td>
+					<td>${department.departmentName}</td>
+					<td>${department.introduce?default('无')}</td>
+			</#list>
+		</tbody>
+	</table>
+</div>

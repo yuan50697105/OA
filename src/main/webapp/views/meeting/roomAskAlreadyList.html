@@ -1,0 +1,40 @@
+<div class="data_table">
+    <table class="listContent">
+        <tr>
+            <th>序号</th>
+            <th>会议室</th>
+            <th>申请人</th>
+            <th>状态</th>
+            <th>操作</th>
+        </tr>
+        	<#if askList??>
+        	<#list askList as ask>
+            <tr>
+                <td>${ask.askId}</td>
+                <td>${ask.roomName}</td>
+                <td>${ask.userName}</td>
+                <td>
+                     <#switch ask.status>
+						<#case "1">
+							 待审
+							<#break>
+						<#case "2">
+							已通过
+							<#break>
+						<#case "3">
+							已完结
+							<#break>
+						<#case "4">
+							未通过
+							<#break>
+					 </#switch> 
+                </td>
+                <td align="center">
+                       <a href="javascript:void(0);" onclick="">『归还会议室』</a>
+					   <a href="javascript:void(0);" onclick="javascript:openWindow('','','')">『查看』</a>
+                </td>
+            </tr>
+            </#list>
+            </#if>
+    </table>
+</div>

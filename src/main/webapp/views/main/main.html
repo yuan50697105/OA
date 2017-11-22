@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>协同办公平台-工作台</title>
+<#include "/common/header.html"/>
+<link rel="stylesheet" type="text/css" href="${ctx}/css/base.css" />
+<link rel="stylesheet" type="text/css" href="${ctx}/css/tab/ui.tabs.css" />
+<link rel="stylesheet" type="text/css" href="${ctx}/css/main/adminhome.css" />
+<link rel="stylesheet" type="text/css" href="${ctx}/css/main/decorators.css" />
+<link rel="stylesheet" type="text/css" href="${ctx}/css/main/pagesbase.css" />
+<script type="text/javascript" src="${ctx}/js/main/jquery-latest.js"></script>
+<script type="text/javascript" src="${ctx}/js/main/ui.tabs.js"></script>
+
+<script type="text/javascript" src="${ctx}/js/main/main.js"></script>
+</head>
+<body>
+	<div id="admin">
+		<!-- header start -->
+		<#include "main_header.html"/>
+		<!-- header end -->
+		<!-- 内容 -->
+		<div id="content">
+			<div id="container">
+				<div class="tab-nav">
+					<ul>
+						<li><a href="#contains-0"><span>工作台</span></a></li>
+					</ul>
+				</div>
+				
+				<div id="contains-0">
+				<!-- content start -->
+				<#include "default.html"/>
+				<!-- content end -->
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

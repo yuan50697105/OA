@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Repository;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import sun.awt.windows.WEmbeddedFrame;
 
 import javax.servlet.http.HttpServletRequest;
@@ -25,11 +26,11 @@ public class UserController {
     public String toLogin(){
         return "user/login";
     }
-    @RequestMapping("/toReg")
+    @RequestMapping("/toRegistor")
     public String toReg(){
         return "user/register";
     }
-    @RequestMapping("/reg")
+    @RequestMapping("/registor")
     public String reg(User user, Organization organization, UserData userData, Model model){
         if(null!=organization &&!"".equals(organization.getOrgName())){
             if(null!=user&&!"".equals(user.getUserName())){
@@ -49,6 +50,7 @@ public class UserController {
         }
         return "user/register";
     }
+    @RequestMapping(value = "/login",method = RequestMethod.POST)
     public String login(User user){
         return "";
     }

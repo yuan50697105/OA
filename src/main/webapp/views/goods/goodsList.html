@@ -1,0 +1,57 @@
+<#assign ctx=request.contextPath>
+<link href="${ctx}/css/list/list_style.css" rel="stylesheet" type="text/css" />
+<div class="tools">
+    
+    	<ul class="toolbar">
+        <li class="click">
+        <a href="javascript:void(0)" onclick="javascript:openWindow('${ctx}/goods/toAdd','550','300')">
+        <span>
+        <img src="${ctx}/images/list/t01.png" />
+        </span>添加</a>
+        </li>
+        <li>
+        <a href="javascript:void(0);" id="deleteBtn">
+        <span>
+        <img src="${ctx}/images/list/t03.png" />
+        </span>删除</a>
+        </li>
+        </ul>
+    
+    </div>
+<div class="data_table">
+    <table class="listContent">
+        <tr>
+            <th>编号</th>
+            <th>物品名</th>
+            <th>价格</th>
+            <th>物品描述</th>
+            <th>状态</th>
+            <th>操作</th>
+        </tr>
+        	<#if goodsList??>
+        	<#list goodsList as goods>
+            <tr>
+                <td>${goods.goodsId}</td>
+                <td>${goods.goodsName}</td>
+                <td>${goods.price}/${goods.units?default("台")}</td>
+                <td>${goods.introduce?default("暂无")}</td>
+                <td>
+                <#if goods.status == "0">
+                	停用
+                <#elseif goods.status == "1">
+                	启用
+                <#else>
+                                          维修
+                </#if>
+                </td>
+                <td align="center">
+                <a href="javascript:void(0);"
+                   onclick="javascript:openWindow('','','')">『编辑』</a>|
+                   <a href="javascript:void(0);"
+                   onclick="javascript:openWindow('','','')">『删除』</a>
+                </td>
+            </tr>
+            </#list>
+            </#if>
+    </table>
+</div>

@@ -1,0 +1,84 @@
+<#include "/common/header.html"/>
+<!-- 导入时间控件My97 -->
+<script type="text/javascript" src="${ctx}/js/My97DatePicker/WdatePicker.js"></script>
+<title>会议室申请</title>
+<script type="text/javascript">
+
+$(function(){
+	//ajax获取会议室对象
+	var url = "${ctx}/meeting/ajaxGetMeetingRoomList";
+	$.post(url,function(list){
+		//清空下拉列表
+		$("#roomId").empty();
+		//遍历会议室对象
+		$.each(list,function(i,item){
+			$("<option></option>").val(item.roomId).text(item.roomName).appendTo("#roomId");
+		});
+	},"json");
+});
+
+$(function(){
+
+	 $("#addBtn").click(function(){
+		    var roomId = $("#roomId").val();
+			var startTime = $("#startTime").val();
+			var endTime = $("#endTime").val();
+			var remark = $("#remark").val();
+			var params = {"roomId":roomId,"startTime":startTime,"endTime":endTime,"remark":remark};
+			var url = "${ctx}/meeting/ajaxAddAsk";
+			$.post(url,params,function(flag){
+					if(flag){
+						var d = dialog({
+							title: '温馨提示',
+						    content: '新增成功',
+						});
+						d.show();
+						setTimeout(function () {
+							$("#startTime").val('');
+							$("#endTime").val('');
+							$("#remark").val('');
+						    d.close().remove();
+						}, 1000);
+					}
+			},"json");
+		});
+});
+</script>
+<form id="form1" action="" method="post">
+    <table>
+          <tbody>
+          	  <tr>
+                  <td>会议室:</td>
+                  <td>
+                  	<select name="roomId" id="roomId"></select>
+                  </td>
+              </tr>
+              <tr>
+                  <td>使用时间:</td>
+                  <td>
+                  	<input id="startTime" class="Wdate"  name="startTime"
+					onfocus="WdatePicker({dateFmt:'yyyy-MM-dd',readOnly:false,maxDate:'#F{$dp.$D(\'endTime\')}'});"/>  
+                  </td>
+              </tr>
+              <tr>
+                  <td>结束时间:</td>
+                  <td>
+                  <input id="endTime" class="Wdate"  name="endTime" 
+				onfocus="WdatePicker({dateFmt:'yyyy-MM-dd',readOnly:true,minDate:'#F{$dp.$D(\'startTime\',{d:+1})}'});"/>
+                  </td>
+              </tr>
+              <tr>
+                  <td>备注:</td>
+                  <td>
+                  <textarea name="remark" id="remark" rows="4" cols="20"></textarea>
+                  </td>
+              </tr>
+                  <tr>
+                  <td><input type="button" id="addBtn" class="modal_btn" value="申&nbsp;请" /></td>
+                  <td>
+                     <input type="button" class="modal_btn" value="关 &nbsp;闭 "/> 
+                  </td>
+              </tr>
+          </tbody>
+     </table>
+</form>
