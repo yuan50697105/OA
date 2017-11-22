@@ -1,0 +1,13 @@
+INSERT INTO oa.hibernate_sequence (nexval, next_val) VALUES (115, null);
+INSERT INTO oa.hibernate_sequence (nexval, next_val) VALUES (115, null);
+INSERT INTO oa.hibernate_sequence (nexval, next_val) VALUES (115, null);
+INSERT INTO oa.hibernate_sequence (nexval, next_val) VALUES (115, null);
+INSERT INTO oa.hibernate_sequence (nexval, next_val) VALUES (115, null);
+INSERT INTO oa.hibernate_sequence (nexval, next_val) VALUES (115, null);
+INSERT INTO oa.hibernate_sequence (nexval, next_val) VALUES (115, null);
+INSERT INTO oa.hibernate_sequence (nexval, next_val) VALUES (115, null);
+INSERT INTO oa.hibernate_sequence (nexval, next_val) VALUES (115, null);
+INSERT INTO oa.hibernate_sequence (nexval, next_val) VALUES (115, null);
+INSERT INTO oa.hibernate_sequence (nexval, next_val) VALUES (115, null);
+INSERT INTO oa.hibernate_sequence (nexval, next_val) VALUES (115, null);
+INSERT INTO oa.hibernate_sequence (nexval, next_val) VALUES (115, null);

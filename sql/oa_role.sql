@@ -1,0 +1,3 @@
+INSERT INTO oa.role (roleId, orgId, departmentId, roleName, permission, duty, introduce, rank, remarks, menuIds) VALUES (1, 4, null, '管理员', null, null, '管理员', 0, null, null);
+INSERT INTO oa.role (roleId, orgId, departmentId, roleName, permission, duty, introduce, rank, remarks, menuIds) VALUES (71, 4, null, '普通员工', null, null, '普通员工', null, null, '181,183,185,190');
+INSERT INTO oa.role (roleId, orgId, departmentId, roleName, permission, duty, introduce, rank, remarks, menuIds) VALUES (92, 4, null, '普通员工2', null, null, '普通员工2', null, null, '181,193');

@@ -1,0 +1,8 @@
+INSERT INTO oa.user (userId, createTime, expireTime, mark, orgId, position, privateKey, spellCode, userName, userPassword, wtu) VALUES (1, '2016-05-19 16:23:00', null, '1', 4, '2', null, null, 'admin', '123456', null);
+INSERT INTO oa.user (userId, createTime, expireTime, mark, orgId, position, privateKey, spellCode, userName, userPassword, wtu) VALUES (63, '2016-05-28 18:41:45', null, '1', 4, '2', null, null, 'tom168', '123456', null);
+INSERT INTO oa.user (userId, createTime, expireTime, mark, orgId, position, privateKey, spellCode, userName, userPassword, wtu) VALUES (65, '2016-05-28 18:49:37', null, '1', 4, '2', null, null, 'tom169', '123456', null);
+INSERT INTO oa.user (userId, createTime, expireTime, mark, orgId, position, privateKey, spellCode, userName, userPassword, wtu) VALUES (67, '2016-05-28 18:57:40', null, '1', 4, '2', null, null, 'tom188', '123488', null);
+INSERT INTO oa.user (userId, createTime, expireTime, mark, orgId, position, privateKey, spellCode, userName, userPassword, wtu) VALUES (79, '2016-05-30 11:33:54', null, '1', 4, '2', null, null, 'wangpo', '123456', null);
+INSERT INTO oa.user (userId, createTime, expireTime, mark, orgId, position, privateKey, spellCode, userName, userPassword, wtu) VALUES (81, '2016-05-30 11:37:16', null, '1', 4, '2', null, null, 'tom9999', '123456', null);
+INSERT INTO oa.user (userId, createTime, expireTime, mark, orgId, position, privateKey, spellCode, userName, userPassword, wtu) VALUES (111, '2016-06-01 13:08:06', null, '1', 4, '2', null, null, 'tom168', '123456', null);
+INSERT INTO oa.user (userId, createTime, expireTime, mark, orgId, position, privateKey, spellCode, userName, userPassword, wtu) VALUES (113, '2016-06-01 13:26:35', null, '1', 4, '2', null, null, 'mm1688', '123456', null);
