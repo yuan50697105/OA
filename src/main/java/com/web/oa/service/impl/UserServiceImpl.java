@@ -22,15 +22,19 @@ public class UserServiceImpl implements UserService {
     private UserDao userDao;
     @Override
     public boolean save(User user, UserData userData, Organization organization) {
+        //组织注册
         organization.setRegisterTime(new Date());
+        organization.setStatus("1");
         boolean flag=organizationDao.save(organization);
         if(flag){
+            //用户注册
             user.setOrgId(organization.getOrgId());
             user.setCreateTime(new Date());
             user.setMark("1");
             user.setPosition("2");
             flag=userDao.save(user);
             if(flag){
+                //用户信息注册
                 userData.setUserId(user.getUserId());
                 flag=userDataDao.save(userData);
                 if (flag){

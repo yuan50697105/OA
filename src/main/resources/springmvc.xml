@@ -11,7 +11,7 @@
     <mvc:view-controller path="/" view-name="redirect:/user/toLogin"/>
     <bean class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
         <property name="defaultEncoding" value="UTF-8"/>
-        <property name="templateLoaderPaths" value="/"/>
+        <property name="templateLoaderPaths" value="/views/"/>
     </bean>
     <bean class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">
         <property name="suffix" value=".html"/>
