@@ -31,7 +31,7 @@ public class UserController {
     }
     @RequestMapping("/reg")
     public String reg(User user, Organization organization, UserData userData, Model model){
-        if(null!=organization && "".equals(organization.getOrgName())){
+        if(null!=organization &&!"".equals(organization.getOrgName())){
             if(null!=user&&!"".equals(user.getUserName())){
                 Map map=userService.reg(user,userData,organization);
                 if(null!=map){
