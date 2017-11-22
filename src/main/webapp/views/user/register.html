@@ -87,6 +87,9 @@
     				/** 重新设置验证码图片的src属性，让它引用一张新的图片 */
     				$("#vimg").attr("src","${ctx}/getAuthCode?random=" + Math.random());
     			});
+    			<#if msg??>
+                    alert("${msg}")
+                </#if>
             });
             
             function reg(){
@@ -217,6 +220,7 @@
                     <p>
                         <input type="button" onClick="reg();" class="btnClass" name="btnClass" value="" />
                     </p>
+
                 </form>
             </div>
 <!-- 公共的页面尾部信息页面 -->

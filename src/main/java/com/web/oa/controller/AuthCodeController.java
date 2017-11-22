@@ -19,6 +19,7 @@ public class AuthCodeController {
     @RequestMapping("/getAuthCode")
     public void getAuthCode(HttpSession session, HttpServletResponse response) {
         String code = AuthCodeUtils.getCode();
+        System.out.println(code);
         session.setAttribute(WebCommons.AUTH_CODE, code);
         try {
             ImageIO.write(AuthCodeUtils.getCodeImg(code), "JPEG", response.getOutputStream());
