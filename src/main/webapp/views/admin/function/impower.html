@@ -1,39 +1,39 @@
 <#include "/common/header.html"/>
 <html>
-    <head>
-        <title>权限管理</title>
-    </head>
-    <script type="text/javascript">
-	//刷新右侧页面
-	function loadImpowerRight(type) {
-		var url = "${ctx}/admin/toImpowerRoleManage";
-		var params = {"type":type};
-		$.post(url,params,function(data) {
-			$("#impower_right").html("");
-			$("#impower_right").html(data);
-		}, 'html');
-	}
+<head>
+    <title>权限管理</title>
+</head>
+<script type="text/javascript">
+    //刷新右侧页面
+    function loadImpowerRight(type) {
+        var url = "${ctx}/admin/toImpowerRoleManage";
+        var params = {"type": type};
+        $.post(url, params, function (data) {
+            $("#impower_right").html("");
+            $("#impower_right").html(data);
+        }, 'html');
+    }
 </script>
-    <body>
+<body>
 
-        <div class="left">
-            <div class="infor">
-                <table>
-                    <tr class="infor enter_infor">
-                        <td onclick="loadImpowerRight('1');"><a>角色权限</a>
-                        </td>
-                    </tr>
-                    <tr class="infor enter_set">
-                        <td onclick="loadImpowerRight('2');" ><a>部门权限</a>
-                        </td>
-                    </tr>
-                </table>
-            </div>
-        </div>
-        <div class="right">
-            <div id="impower_right" class="">
-                <#include "impowerRoleManage.html"/>
-            </div>
-        </div>
-    </body>
+<div class="left">
+    <div class="infor">
+        <table>
+            <tr class="infor enter_infor">
+                <td onclick="loadImpowerRight('1');"><a>角色权限</a>
+                </td>
+            </tr>
+            <tr class="infor enter_set">
+                <td onclick="loadImpowerRight('2');"><a>部门权限</a>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+<div class="right">
+    <div id="impower_right" class="">
+    <#include "impowerRoleManage.html"/>
+    </div>
+</div>
+</body>
 </html>

@@ -1,6 +1,5 @@
-package com.web.oa.controller;
+package com.web.oa.controller.impower;
 
-import com.web.oa.bean.Impower;
 import com.web.oa.service.ImpowerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

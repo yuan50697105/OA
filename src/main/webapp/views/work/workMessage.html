@@ -1,18 +1,18 @@
 <html>
-    <head>
-       <#include "/common/header.html"/>
-    </head>
-    <body>
-        <div class="pTitle">
-            <p>工作计划</p>
-        </div>
-        <form id="get_work" action="" method="post">
-            <div class="search_box">标题:<input name="workName" value="" type="text" class="searchinput">
-                <input type="submit" class="search_btn" value="搜&nbsp;索" />
-            </div>
-            <div id="get_work_list">
-                <#include "workList.html"/>
-            </div>
-        </form>
-    </body>
+<head>
+<#include "/common/header.html"/>
+</head>
+<body>
+<div class="pTitle">
+    <p>工作计划</p>
+</div>
+<form id="get_work" action="" method="post">
+    <div class="search_box">标题:<input name="workName" value="" type="text" class="searchinput">
+        <input type="submit" class="search_btn" value="搜&nbsp;索"/>
+    </div>
+    <div id="get_work_list">
+    <#include "workList.html"/>
+    </div>
+</form>
+</body>
 </html>

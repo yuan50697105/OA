@@ -1,22 +1,22 @@
 <div class="data_table">
-	<table class="listContent">
-		<tr>
-			<th>选    择</th>
-			<th>父菜单名</th>
-			<th>菜单名</th>
-			<th>菜单描述</th>
-		</tr>
-		<#if menuList??>
-		<#list menuList as menu>
-		<tr>
-			<td>
-				<input type="checkbox" name="menuId" id="menuId" value=${menu.menuId}>
-			</td>
-			<td>${menu.superiorName?default('')}</td>
-			<td>${menu.menuName}</td>
-			<td>${menu.functionIntroduce?default('')}</td>
-		</tr>
-		</#list>
-		</#if>
-	</table>
+    <table class="listContent">
+        <tr>
+            <th>选 择</th>
+            <th>父菜单名</th>
+            <th>菜单名</th>
+            <th>菜单描述</th>
+        </tr>
+    <#if menuList??>
+        <#list menuList as menu>
+            <tr>
+                <td>
+                    <input type="checkbox" name="menuId" id="menuId" value=${menu.menuId}>
+                </td>
+                <td>${menu.superiorName?default('')}</td>
+                <td>${menu.menuName}</td>
+                <td>${menu.functionIntroduce?default('')}</td>
+            </tr>
+        </#list>
+    </#if>
+    </table>
 </div>

@@ -1,33 +1,33 @@
 <div class="data_table">
-	<table class="listContent">
-		<tr>
-			<th>序号</th>
-			<th>会议室</th>
-			<th>介绍</th>
-			<th>状态</th>
-			<th>操作</th>
-		</tr>
-			<#if mettingRoomList??>
-			<#list mettingRoomList as mr>
-			<tr>
-				<td>${mr.roomId}</td>
-				<td>${mr.roomName}</td>
-				<td>${mr.remark?default("暂无")}</td>
-				<td>
-				 <#if mr.status == "1">
-                	空闲中
-                <#elseif mr.status == "2">
-                	使用中
-                <#else>
-                                          保洁中
-                </#if>
+    <table class="listContent">
+        <tr>
+            <th>序号</th>
+            <th>会议室</th>
+            <th>介绍</th>
+            <th>状态</th>
+            <th>操作</th>
+        </tr>
+    <#if mettingRoomList??>
+        <#list mettingRoomList as mr>
+            <tr>
+                <td>${mr.roomId}</td>
+                <td>${mr.roomName}</td>
+                <td>${mr.remark?default("暂无")}</td>
+                <td>
+                    <#if mr.status == "1">
+                        空闲中
+                    <#elseif mr.status == "2">
+                        使用中
+                    <#else>
+                        保洁中
+                    </#if>
                 </td>
-				<td align="center">
-				<a href="javascript:void(0);" onclick="javascript:openWindow('','','')">『编辑』</a>
-				<a href="javascript:void(0);" onclick="javascript:openWindow('','','')">『删除』</a>
-				</td>
-			</tr>
-			</#list>
-			</#if>
-	</table>
+                <td align="center">
+                    <a href="javascript:void(0);" onclick="javascript:openWindow('','','')">『编辑』</a>
+                    <a href="javascript:void(0);" onclick="javascript:openWindow('','','')">『删除』</a>
+                </td>
+            </tr>
+        </#list>
+    </#if>
+    </table>
 </div>

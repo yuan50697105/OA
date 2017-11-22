@@ -1,14 +1,14 @@
 <#include "/common/header.html"/>
 <div class="pTitle">
-	<p>会议室审批</p>
+    <p>会议室审批</p>
 </div>
 <form id="get_room_ask_manage_list" action="" method="post">
-	<div class="search_box">
-		会议室名:<input type="text" class="searchinput" name="roomName" /> 使用人名:
-		<input class="searchinput" type="text" name="name" /> 
-		<input type="submit" class="search_btn" value="搜&nbsp;索" />
-	</div>
-	<div id="room_ask_manage_list">
-	<#include "roomAskManageList.html"/>
-	</div>
+    <div class="search_box">
+        会议室名:<input type="text" class="searchinput" name="roomName"/> 使用人名:
+        <input class="searchinput" type="text" name="name"/>
+        <input type="submit" class="search_btn" value="搜&nbsp;索"/>
+    </div>
+    <div id="room_ask_manage_list">
+    <#include "roomAskManageList.html"/>
+    </div>
 </form>

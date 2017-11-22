@@ -1,32 +1,31 @@
-
 <html>
 <head>
-<title>表单管理</title>
+    <title>表单管理</title>
 
-<script type="text/javascript">
-	$().ready(function() {
-		$("#find_role").submit(function() {
-			var options = {
-				dataType : 'html',
-				target : '#role_list',
-				url : '${ctx}/admin/impower_findRoleByOption.action',
-				success : function(data) {
-					$("#department_list").html("");
-					$("#department_list").html(data);
-				}
-			};
-			$(this).ajaxSubmit(options);
-			return false;
-		});
-	});
-</script>
+    <script type="text/javascript">
+        $().ready(function () {
+            $("#find_role").submit(function () {
+                var options = {
+                    dataType: 'html',
+                    target: '#role_list',
+                    url: '${ctx}/admin/impower_findRoleByOption.action',
+                    success: function (data) {
+                        $("#department_list").html("");
+                        $("#department_list").html(data);
+                    }
+                };
+                $(this).ajaxSubmit(options);
+                return false;
+            });
+        });
+    </script>
 </head>
 <body>
-	<form id="find_department" method="post">
-		<div id="department_list">
-			<s:action name="impower_loadDepartmentList" namespace="/admin"
-				executeResult="true"></s:action>
-		</div>
-	</form>
+<form id="find_department" method="post">
+    <div id="department_list">
+        <s:action name="impower_loadDepartmentList" namespace="/admin"
+                  executeResult="true"></s:action>
+    </div>
+</form>
 </body>
 </html>

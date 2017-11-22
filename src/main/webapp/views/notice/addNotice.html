@@ -1,123 +1,126 @@
 <#assign ctx=request.contextPath>
 <html>
 <head>
-<title>新增公告</title>
-<link rel="shortcut icon" href="${ctx}/images/logo/logo.ico" />
-<link rel="Bookmark" href="${ctx}/images/logo/logo.ico" />
-<script type="text/javascript" src="${ctx}/js/jquery/jquery-1.11.0.js"></script>
-<!-- TinyMCE -->
-<script type="text/javascript" src="${ctx}/js/tiny_mce/tiny_mce.js"></script>
-<script type="text/JavaScript" src="${ctx}/js/My97DatePicker/WdatePicker.js"></script>
+    <title>新增公告</title>
+    <link rel="shortcut icon" href="${ctx}/images/logo/logo.ico"/>
+    <link rel="Bookmark" href="${ctx}/images/logo/logo.ico"/>
+    <script type="text/javascript" src="${ctx}/js/jquery/jquery-1.11.0.js"></script>
+    <!-- TinyMCE -->
+    <script type="text/javascript" src="${ctx}/js/tiny_mce/tiny_mce.js"></script>
+    <script type="text/JavaScript" src="${ctx}/js/My97DatePicker/WdatePicker.js"></script>
 
-<!-- 引入对话框 -->
-<script src="${ctx}/js/artDialog-6.0.2/dist/dialog-min.js"></script>
-<link rel="stylesheet" href="${ctx}/js/artDialog-6.0.2/css/ui-dialog.css">
+    <!-- 引入对话框 -->
+    <script src="${ctx}/js/artDialog-6.0.2/dist/dialog-min.js"></script>
+    <link rel="stylesheet" href="${ctx}/js/artDialog-6.0.2/css/ui-dialog.css">
 
-<script type="text/javascript">
-	tinyMCE.init({
-				mode : "exact", // mode:指定附加的模式 textareas : html页面上所有的textarea元素都附加上.
-				elements : "notice", // exact:精确的模式， 需要指定html元素id属性值
-				theme : "advanced", // 主题：advanced(高级的) 、simple(简单的)
-				language : "zh-cn", // 国际化
-				/** 指定工具按钮资源文件存放的文件夹 */
-				plugins : "autolink,lists,pagebreak,style,layer,table,save,advhr,advimage,advlink,emotions,iespell,inlinepopups,insertdatetime,preview,media,searchreplace,print,contextmenu,paste,directionality,fullscreen,noneditable,visualchars,nonbreaking,xhtmlxtras,template,wordcount,advlist,autosave",
+    <script type="text/javascript">
+        tinyMCE.init({
+            mode: "exact", // mode:指定附加的模式 textareas : html页面上所有的textarea元素都附加上.
+            elements: "notice", // exact:精确的模式， 需要指定html元素id属性值
+            theme: "advanced", // 主题：advanced(高级的) 、simple(简单的)
+            language: "zh-cn", // 国际化
+            /** 指定工具按钮资源文件存放的文件夹 */
+            plugins: "autolink,lists,pagebreak,style,layer,table,save,advhr,advimage,advlink,emotions,iespell,inlinepopups,insertdatetime,preview,media,searchreplace,print,contextmenu,paste,directionality,fullscreen,noneditable,visualchars,nonbreaking,xhtmlxtras,template,wordcount,advlist,autosave",
 
-				/** 指定工具按钮在上面放四排 */
-				theme_advanced_buttons1 : "save,newdocument,|,bold,italic,underline,strikethrough,|,justifyleft,justifycenter,justifyright,justifyfull,styleselect,formatselect,fontselect,fontsizeselect",
-				theme_advanced_buttons2 : "cut,copy,paste,pastetext,pasteword,|,search,replace,|,bullist,numlist,|,outdent,indent,blockquote,|,undo,redo,|,link,unlink,anchor,image,cleanup,help,code,|,insertdate,inserttime,preview,|,forecolor,backcolor",
-				theme_advanced_buttons3 : "tablecontrols,|,hr,removeformat,visualaid,|,sub,sup,|,charmap,emotions,iespell,media,advhr,|,print,|,ltr,rtl,|,fullscreen",
-				theme_advanced_buttons4 : "insertlayer,moveforward,movebackward,absolute,|,styleprops,|,cite,abbr,acronym,del,ins,attribs,|,visualchars,nonbreaking,template,pagebreak,restoredraft",
+            /** 指定工具按钮在上面放四排 */
+            theme_advanced_buttons1: "save,newdocument,|,bold,italic,underline,strikethrough,|,justifyleft,justifycenter,justifyright,justifyfull,styleselect,formatselect,fontselect,fontsizeselect",
+            theme_advanced_buttons2: "cut,copy,paste,pastetext,pasteword,|,search,replace,|,bullist,numlist,|,outdent,indent,blockquote,|,undo,redo,|,link,unlink,anchor,image,cleanup,help,code,|,insertdate,inserttime,preview,|,forecolor,backcolor",
+            theme_advanced_buttons3: "tablecontrols,|,hr,removeformat,visualaid,|,sub,sup,|,charmap,emotions,iespell,media,advhr,|,print,|,ltr,rtl,|,fullscreen",
+            theme_advanced_buttons4: "insertlayer,moveforward,movebackward,absolute,|,styleprops,|,cite,abbr,acronym,del,ins,attribs,|,visualchars,nonbreaking,template,pagebreak,restoredraft",
 
-				/** 指定工具按钮上下的位置 top、bottom */
-				theme_advanced_toolbar_location : "top",
-				/** 指定工具按钮左、中、右显示的位置 left、center、right */
-				theme_advanced_toolbar_align : "left",
-				/** 指定状态栏的位置 (top、bottom) */
-				theme_advanced_statusbar_location : "bottom",
-				/** 指定编辑器是否可以拖动 */
-				theme_advanced_resizing : true
-			});
+            /** 指定工具按钮上下的位置 top、bottom */
+            theme_advanced_toolbar_location: "top",
+            /** 指定工具按钮左、中、右显示的位置 left、center、right */
+            theme_advanced_toolbar_align: "left",
+            /** 指定状态栏的位置 (top、bottom) */
+            theme_advanced_statusbar_location: "bottom",
+            /** 指定编辑器是否可以拖动 */
+            theme_advanced_resizing: true
+        });
 
-	/** 当前文档加载完 */
-	$(function() {
-		/** 表单输入校验 */
-		$("#addBtn").click(function() {
-			var noticeName = $("#noticeName").val();
-			var noticeType = $("#noticeType").val();
-			var publishTime = $("#publishTime").val();
-			var notice = tinyMCE.get('notice').getContent();
-			var msg = "";
-			if ($.trim(noticeName) == "") {
-				msg = "标题不能为空！";
-			} else if ($.trim(notice) == "") {
-				msg = "内容不能为空！";
-			}
-			if (msg != "") {
-				alert(msg);
-				return false;
-			} else {
-				//提交表单的方法
-				var params = {"noticeName":noticeName,"noticeType":noticeType,
-						"publishTime":publishTime,"notice":notice};
-				var url = "${ctx}/notice/ajaxAdd";
-				$.post(url,params,function(flag){
-						if(flag){
-							var d = dialog({
-								title: '温馨提示',
-							    content: '新增成功',
-							});
-							d.show();
-							setTimeout(function () {
-							    d.close().remove();
-							    returnBack();
-							}, 1000);
-						}
-				},"json");
-			}
-		});
-	});
-	function returnBack() {
-		window.opener.location.href=window.opener.location.href;
-		self.close();
-	}
-</script>
+        /** 当前文档加载完 */
+        $(function () {
+            /** 表单输入校验 */
+            $("#addBtn").click(function () {
+                var noticeName = $("#noticeName").val();
+                var noticeType = $("#noticeType").val();
+                var publishTime = $("#publishTime").val();
+                var notice = tinyMCE.get('notice').getContent();
+                var msg = "";
+                if ($.trim(noticeName) == "") {
+                    msg = "标题不能为空！";
+                } else if ($.trim(notice) == "") {
+                    msg = "内容不能为空！";
+                }
+                if (msg != "") {
+                    alert(msg);
+                    return false;
+                } else {
+                    //提交表单的方法
+                    var params = {
+                        "noticeName": noticeName, "noticeType": noticeType,
+                        "publishTime": publishTime, "notice": notice
+                    };
+                    var url = "${ctx}/notice/ajaxAdd";
+                    $.post(url, params, function (flag) {
+                        if (flag) {
+                            var d = dialog({
+                                title: '温馨提示',
+                                content: '新增成功',
+                            });
+                            d.show();
+                            setTimeout(function () {
+                                d.close().remove();
+                                returnBack();
+                            }, 1000);
+                        }
+                    }, "json");
+                }
+            });
+        });
+
+        function returnBack() {
+            window.opener.location.href = window.opener.location.href;
+            self.close();
+        }
+    </script>
 
 </head>
 <body class="windDiv">
 <body>
-	<form id="form1" method="post">
-		<table>
-			<tr>
-				<td>公告标题:</td>
-				<td>
-				<input type="text" name="noticeName" id="noticeName" value="好消息"/>
-				</td>
-			</tr>
-			<tr>
-				<td>公告类型:</td>
-				<td><label for="select"></label> 
-				<select name="noticeType" id="noticeType">
-						<option value="1">制度
-						<option value="2">通知
-						<option value="3">新闻
-				</select></td>
-			</tr>
-			<tr>
-				<td>发布时间:</td>
-				<td><input id="publishTime" class="Wdate"  name="publishTime" 
-				onfocus="WdatePicker({dateFmt:'yyyy-MM-dd'});"/> 
-				</td>
-			</tr>
-			<tr>
-				<td>内容:</td>
-				<td><textarea name="notice" id="notice" cols="40" rows="7">好消息</textarea>
-				</td>
-			</tr>
-		</table>
-		<p>
-			<input type="button" id="addBtn" value="新&nbsp;增" />
-			<input type="button" onclick="returnBack()" value=" 关  闭 "/>
-		</p>
-	</form>
+<form id="form1" method="post">
+    <table>
+        <tr>
+            <td>公告标题:</td>
+            <td>
+                <input type="text" name="noticeName" id="noticeName" value="好消息"/>
+            </td>
+        </tr>
+        <tr>
+            <td>公告类型:</td>
+            <td><label for="select"></label>
+                <select name="noticeType" id="noticeType">
+                    <option value="1">制度
+                    <option value="2">通知
+                    <option value="3">新闻
+                </select></td>
+        </tr>
+        <tr>
+            <td>发布时间:</td>
+            <td><input id="publishTime" class="Wdate" name="publishTime"
+                       onfocus="WdatePicker({dateFmt:'yyyy-MM-dd'});"/>
+            </td>
+        </tr>
+        <tr>
+            <td>内容:</td>
+            <td><textarea name="notice" id="notice" cols="40" rows="7">好消息</textarea>
+            </td>
+        </tr>
+    </table>
+    <p>
+        <input type="button" id="addBtn" value="新&nbsp;增"/>
+        <input type="button" onclick="returnBack()" value=" 关  闭 "/>
+    </p>
+</form>
 </body>
 </html>

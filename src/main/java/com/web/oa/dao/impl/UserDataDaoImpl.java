@@ -10,12 +10,13 @@ import org.springframework.stereotype.Repository;
 public class UserDataDaoImpl implements UserDataDao {
     @Autowired
     private HibernateTemplate hibernateTemplate;
+
     @Override
     public boolean save(UserData userData) {
         try {
             hibernateTemplate.save(userData);
             return true;
-        }catch (RuntimeException e){
+        } catch (RuntimeException e) {
             e.printStackTrace();
             return false;
         }
@@ -26,7 +27,7 @@ public class UserDataDaoImpl implements UserDataDao {
         try {
             hibernateTemplate.delete(getById(id));
             return true;
-        }catch (RuntimeException e){
+        } catch (RuntimeException e) {
             e.printStackTrace();
             return false;
         }
@@ -37,7 +38,7 @@ public class UserDataDaoImpl implements UserDataDao {
         try {
             hibernateTemplate.update(userData);
             return true;
-        }catch (RuntimeException e){
+        } catch (RuntimeException e) {
             e.printStackTrace();
             return false;
         }
@@ -45,6 +46,6 @@ public class UserDataDaoImpl implements UserDataDao {
 
     @Override
     public UserData getById(Long id) {
-       return hibernateTemplate.get(UserData.class,id);
+        return hibernateTemplate.get(UserData.class, id);
     }
 }

@@ -2,23 +2,16 @@ package com.web.oa.dao.impl;
 
 import com.web.oa.bean.User;
 import com.web.oa.dao.UserDao;
-import org.hibernate.Criteria;
-import org.hibernate.HibernateException;
-import org.hibernate.Session;
 import org.hibernate.criterion.DetachedCriteria;
-import org.hibernate.criterion.Example;
 import org.hibernate.criterion.MatchMode;
 import org.hibernate.criterion.Restrictions;
-import org.hibernate.query.Query;
-import org.hibernate.transform.Transformers;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.orm.hibernate5.HibernateCallback;
 import org.springframework.orm.hibernate5.HibernateTemplate;
 import org.springframework.stereotype.Repository;
 import org.springframework.util.StringUtils;
 
-import javax.print.DocFlavor;
 import java.util.List;
+
 @Repository
 public class UserDaoImpl implements UserDao {
     @Autowired
@@ -30,7 +23,7 @@ public class UserDaoImpl implements UserDao {
         try {
             hibernateTemplate.save(user);
             return true;
-        }catch (RuntimeException e){
+        } catch (RuntimeException e) {
             e.printStackTrace();
             return false;
         }
@@ -41,7 +34,7 @@ public class UserDaoImpl implements UserDao {
         try {
             hibernateTemplate.delete(getById(id));
             return true;
-        }catch (RuntimeException e){
+        } catch (RuntimeException e) {
             e.printStackTrace();
             return false;
         }
@@ -52,7 +45,7 @@ public class UserDaoImpl implements UserDao {
         try {
             hibernateTemplate.update(user);
             return true;
-        }catch (RuntimeException e){
+        } catch (RuntimeException e) {
             e.printStackTrace();
             return false;
         }
@@ -60,27 +53,27 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public User getById(Long id) {
-        return hibernateTemplate.get(User.class,id);
+        return hibernateTemplate.get(User.class, id);
     }
 
     @Override
     public User getByUserNameAndUserPassword(String userName, String userPssword) {
-        DetachedCriteria detachedCriteria=DetachedCriteria.forClass(User.class);
-        detachedCriteria.add(Restrictions.eq("userName",userName));
-        detachedCriteria.add(Restrictions.eq("userPassword",userPssword));
+        DetachedCriteria detachedCriteria = DetachedCriteria.forClass(User.class);
+        detachedCriteria.add(Restrictions.eq("userName", userName));
+        detachedCriteria.add(Restrictions.eq("userPassword", userPssword));
         return (User) hibernateTemplate.findByCriteria(detachedCriteria).get(0);
     }
 
     @Override
     public List<User> findByUserName(String userName) {
-        DetachedCriteria detachedCriteria=DetachedCriteria.forClass(User.class);
-        detachedCriteria.add(Restrictions.eq("userName",userName));
+        DetachedCriteria detachedCriteria = DetachedCriteria.forClass(User.class);
+        detachedCriteria.add(Restrictions.eq("userName", userName));
         return (List<User>) hibernateTemplate.findByCriteria(detachedCriteria);
     }
 
     @Override
     public List<User> findAll() {
-        DetachedCriteria detachedCriteria=DetachedCriteria.forClass(User.class);
+        DetachedCriteria detachedCriteria = DetachedCriteria.forClass(User.class);
         return (List<User>) hibernateTemplate.findByCriteria(detachedCriteria);
     }
 
@@ -91,20 +84,20 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public List<User> findByUserName(String userName, int page, int size) {
-        DetachedCriteria detachedCriteria=DetachedCriteria.forClass(User.class);
-        if(!StringUtils.isEmpty(userName)){
-            detachedCriteria.add(Restrictions.like("userName",userName,MatchMode.ANYWHERE));
+        DetachedCriteria detachedCriteria = DetachedCriteria.forClass(User.class);
+        if (!StringUtils.isEmpty(userName)) {
+            detachedCriteria.add(Restrictions.like("userName", userName, MatchMode.ANYWHERE));
         }
-        return (List<User>) hibernateTemplate.findByCriteria(detachedCriteria,page,size);
+        return (List<User>) hibernateTemplate.findByCriteria(detachedCriteria, page, size);
     }
 
     @Override
     public User getByUser(User user) {
-      try {
-          return hibernateTemplate.findByExample(user).get(0);
-      }catch (Exception e){
-          e.printStackTrace();
-          return null;
-      }
+        try {
+            return hibernateTemplate.findByExample(user).get(0);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 }

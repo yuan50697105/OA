@@ -7,9 +7,11 @@ public class PageModel<T> {
     private int pageSize;
     private long totalRecords;
     private List<T> t;
-    public PageModel(){
-        this.pageSize=5;
+
+    public PageModel() {
+        this.pageSize = 5;
     }
+
     public long getStartIndex() {
         return (pageIndex - 1) * pageSize;
     }

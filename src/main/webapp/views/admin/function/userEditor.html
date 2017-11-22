@@ -1,104 +1,108 @@
 <#include "/common/header.html"/>
 <html>
-    <head>
-        <title>员工编辑</title>
-<script type="text/javascript">
-    function returnBack() {
-    	window.opener.location.href=window.opener.location.href;
-		self.close();
-	}
+<head>
+    <title>员工编辑</title>
+    <script type="text/javascript">
+        function returnBack() {
+            window.opener.location.href = window.opener.location.href;
+            self.close();
+        }
 
-    $(function(){
-	    	$("#addBtn").click(function(){
-	    	if($('input[name="roleId"]:checked').val()==undefined){
-	    		showMsg(0,"请选择需要设置的角色");
-	    		return false;
-	    	}
-	    	var roleId = $('input[name="roleId"]:checked').val();
-	    	var userId = $("#userId").val();
-	    	var name = $("#name").val();
-	    	var userName = $("#userName").val();
-	    	var userPassword = $("#userPassword").val();
-	    	var url = "${ctx}/admin/ajaxUpdateUser";
-	    	
-	    	var params = {
-					"roleId":roleId,"userId":userId,
-					"name":name,"userName":userName,
-					"userPassword":userPassword};
-			$.post(url,params,function(flag){
-					if(flag){
-						showMsg(1,"更新成功");
-					}
-			},"json");
-	    });
-    });
-    function showMsg(type,msg){
-    	var d = dialog({
-    		title: '温馨提示',
-    	    content: msg,
-    	});
-    	d.show();
-    	setTimeout(function () {
-    	    d.close().remove();
-    	    if(type == 1){
-    	    	returnBack();
-    		}
-    	}, 1000);
-    } 
-</script>
-    </head>
-    <body class="windDiv">
-        <div class="title_text">
-            <p>您现在所在位置：组织结构&gt;&gt;员工管理&gt;&gt;</p>
+        $(function () {
+            $("#addBtn").click(function () {
+                if ($('input[name="roleId"]:checked').val() == undefined) {
+                    showMsg(0, "请选择需要设置的角色");
+                    return false;
+                }
+                var roleId = $('input[name="roleId"]:checked').val();
+                var userId = $("#userId").val();
+                var name = $("#name").val();
+                var userName = $("#userName").val();
+                var userPassword = $("#userPassword").val();
+                var url = "${ctx}/admin/ajaxUpdateUser";
+
+                var params = {
+                    "roleId": roleId, "userId": userId,
+                    "name": name, "userName": userName,
+                    "userPassword": userPassword
+                };
+                $.post(url, params, function (flag) {
+                    if (flag) {
+                        showMsg(1, "更新成功");
+                    }
+                }, "json");
+            });
+        });
+
+        function showMsg(type, msg) {
+            var d = dialog({
+                title: '温馨提示',
+                content: msg,
+            });
+            d.show();
+            setTimeout(function () {
+                d.close().remove();
+                if (type == 1) {
+                    returnBack();
+                }
+            }, 1000);
+        }
+    </script>
+</head>
+<body class="windDiv">
+<div class="title_text">
+    <p>您现在所在位置：组织结构&gt;&gt;员工管理&gt;&gt;</p>
+</div>
+<form id="form1" action="" method="post">
+    <input type="hidden" name="userId" id="userId" value="${employee.userId}"/>
+    <div class="user_editor_table">
+        <table>
+
+            <tr>
+                <td class="txtright">姓名:</td>
+                <td>
+                    <input type="text" name="name" id="name" class="txtinput" value="${employee.name?default('')}"/>
+
+                </td>
+            </tr>
+            <tr>
+                <td class="txtright">登录帐号:</td>
+                <td><input type="text" name="userName" id="userName" class="txtinput"
+                           value="${employee.userName?default('')}"/>
+                    <div id="userName_mesage"></div>
+                </td>
+            </tr>
+            <tr>
+                <td class="txtright">登录密码:</td>
+                <td><input type="password" name="userPassword" class="txtinput" id="userPassword"
+                           value="${employee.userPassword?default('')}"/></td>
+            </tr>
+
+        </table>
+
+        <div class="data_table">
+            <table class="listContent">
+                <tr>
+                    <th>选择</th>
+                    <th>角色名称</th>
+                    <th>角色描述</th>
+                </tr>
+            <#if roleList??>
+                <#list roleList as role>
+                    <tr>
+                        <td><input type="radio" name="roleId" value="${role.roleId}"/></td>
+                        <td>${role.roleName}</td>
+                        <td>${role.introduce}</td>
+                    </tr>
+                </#list>
+            </#if>
+            </table>
         </div>
-        <form id="form1" action="" method="post">
-            <input type="hidden" name="userId" id="userId" value="${employee.userId}" />
-            <div class="user_editor_table">
-                <table>
-      
-                    <tr>
-                        <td class="txtright">姓名:</td>
-                        <td>
-                            <input type="text" name="name" id="name"  class="txtinput" value="${employee.name?default('')}" />
-                            
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="txtright">登录帐号:</td>
-                        <td><input type="text" name="userName" id="userName" class="txtinput" value="${employee.userName?default('')}" />
-                        <div id="userName_mesage"></div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="txtright">登录密码:</td>
-                        <td><input type="password" name="userPassword" class="txtinput" id="userPassword" value="${employee.userPassword?default('')}" /></td>
-                    </tr>
-                    
-                </table>
-                
-                <div class="data_table">
-					<table class="listContent">
-						<tr>
-							<th>选择</th>
-							<th>角色名称</th>
-							<th>角色描述</th>
-						</tr>
-						<#if roleList??>
-						<#list roleList as role>
-							<tr>
-								<td><input type="radio" name="roleId" value="${role.roleId}"/></td>
-								<td>${role.roleName}</td>
-								<td>${role.introduce}</td>
-							</tr>
-						</#list>
-						</#if>
-					</table>
-				</div>
-                <p>
-                    <input type="button" id="addBtn" class="modal_btn" value=" 保  存 " /> 
-                    <input type="button" class="modal_btn" value=" 关  闭 " onclick="returnBack();" /> 
-                </p>
-            </div>
-        </form>
-    </body>
+        <p>
+            <input type="button" id="addBtn" class="modal_btn" value=" 保  存 "/>
+            <input type="button" class="modal_btn" value=" 关  闭 " onclick="returnBack();"/>
+        </p>
+    </div>
+</form>
+</body>
 </html>

@@ -1,461 +1,459 @@
 body {
-	margin-left: auto;
-	margin-right: auto;
-	text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
 }
 
-a,img {
-	star: expression(this.onFocus =             this.blur () );
-	outline: none;
+a, img {
+    star: expression(this.onFocus =             this.blur () );
+    outline: none;
 }
 
 * {
-	font-size: 14px;
-	margin: 0 auto;
+    font-size: 14px;
+    margin: 0 auto;
 }
 
 table tr td a {
-	color: #000;
-	font-size: 12px;
+    color: #000;
+    font-size: 12px;
 }
 
 table tr td a:hover {
-	color: #000;
+    color: #000;
 }
 
-table,select,textarea {
-	font-size: 12px;
+table, select, textarea {
+    font-size: 12px;
 }
 
 fieldset {
-	width: 85%;
-	margin-left: auto;
-	margin-right: auto;
-	background: #FAFAFA;
-	padding: 10px;
+    width: 85%;
+    margin-left: auto;
+    margin-right: auto;
+    background: #FAFAFA;
+    padding: 10px;
 }
 
 fieldset legend {
-	font-size: 14px;
-	font-weight: bold;
-	color: #000;
+    font-size: 14px;
+    font-weight: bold;
+    color: #000;
 }
 
 .windDiv {
-	background: #FAFAFA;
+    background: #FAFAFA;
 }
 
 .oper_table {
-	padding-top: 5px;
-	padding-bottom: 5px;
-	height: 30px;
-	margin-left: auto;
-	margin-right: auto;
-	width: 800px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    height: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 800px;
 }
 
 .oper_table table td {
-	padding-left: 8px;
+    padding-left: 8px;
 }
 
 .data_table table {
-	text-align: center;
-	width: 100%;
-	font-size: 12px;
-	height: auto;
-	border-collapse: collapse;
+    text-align: center;
+    width: 100%;
+    font-size: 12px;
+    height: auto;
+    border-collapse: collapse;
 }
 
 .operation {
-	margin-top: 2px;
-	width: 766px;
-	height: 35px;
-	background: #DAEBF0;
-	border: 1px solid #B5D7E1;
-	margin-left: auto;
-	margin-right: auto;
-	margin-top: 5px;
-	margin-bottom: 5px;
+    margin-top: 2px;
+    width: 766px;
+    height: 35px;
+    background: #DAEBF0;
+    border: 1px solid #B5D7E1;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 
 .txtemail {
-	width: 400px;
-	height: 28px;
+    width: 400px;
+    height: 28px;
 }
 
-.data_table  table th {
-	background: url("../../images/mgt/f2.gif") repeat-x scroll 0 -351px
-		transparent;
-	font-weight: normal;
-	height: 24px;
-	border: 1px solid #BBBBBB;
-	font-size: 14px;
-	font-weight: normal;
-	color: rgb(49, 49, 49);
-	text-align: center;
-	color: #000;
+.data_table table th {
+    background: url("../../images/mgt/f2.gif") repeat-x scroll 0 -351px transparent;
+    font-weight: normal;
+    height: 24px;
+    border: 1px solid #BBBBBB;
+    font-size: 14px;
+    font-weight: normal;
+    color: rgb(49, 49, 49);
+    text-align: center;
+    color: #000;
 }
 
 .data_table table td {
-	height: 27px;
-	font-size: 12px !important;
-	border: 1px solid #D5D5D5;
+    height: 27px;
+    font-size: 12px !important;
+    border: 1px solid #D5D5D5;
 }
 
 .add_tabletable {
-	width: 100%;
+    width: 100%;
 }
 
 .add_table table tr {
-	height: 30px;
+    height: 30px;
 }
 
 .add_table table label {
-	color: red;
+    color: red;
 }
 
 .txtright {
-	text-align: right;
+    text-align: right;
 }
 
 .txtinput {
-	width: 180px;
-	height: 24px;
-	line-height: 18px;
-	float: left;
+    width: 180px;
+    height: 24px;
+    line-height: 18px;
+    float: left;
 }
 
 .searchinput {
-	width: 180px;
-	height: 24px;
-	line-height: 18px;
+    width: 180px;
+    height: 24px;
+    line-height: 18px;
 }
 
 .add_table table select {
-	width: 170px;
-	height: 20px;
-	line-height: 18px;
-	float: left;
+    width: 170px;
+    height: 20px;
+    line-height: 18px;
+    float: left;
 }
 
 .textarea {
-	width: 180px;
-	height: 50px;
-	float: left;
+    width: 180px;
+    height: 50px;
+    float: left;
 }
 
 .user_editor_table table {
-	font-size: 12px;
-	margin-left: auto;
-	margin-right: auto;
+    font-size: 12px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .user_editor_table p {
-	width: 600px;
-	height: auto;
-	margin-left: auto;
-	margin-right: auto;
-	text-align: center;
+    width: 600px;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
 }
 
 .user_editor_table table td {
-	padding: 3px 6px;
+    padding: 3px 6px;
 }
 
 .txtright {
-	text-align: right;
+    text-align: right;
 }
 
 .search_box {
-	height: 35px;
-	margin-top: 5px;
-	margin-bottom: 5px;
+    height: 35px;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 
 .modal_btn {
-	width: 86px;
-	height: 30px;
-	border: none;
-	cursor: pointer;
-	padding-top: 0px !important;
-	color: #fff;
-	background: url("../../images/button/modal_btn.png") no-repeat
-		0 -45px;
+    width: 86px;
+    height: 30px;
+    border: none;
+    cursor: pointer;
+    padding-top: 0px !important;
+    color: #fff;
+    background: url("../../images/button/modal_btn.png") no-repeat 0 -45px;
 }
 
 .modal_btn1 {
-	margin-top: 2px;
-	line-height: 24px;
-	width: 86px;
-	height: 27px;
-	border: none;
-	cursor: pointer;
-	padding-top: 0px !important;
-	color: #fff;
-	background: url("../../images/button/modal_btn.png") no-repeat
-		0 0px;
+    margin-top: 2px;
+    line-height: 24px;
+    width: 86px;
+    height: 27px;
+    border: none;
+    cursor: pointer;
+    padding-top: 0px !important;
+    color: #fff;
+    background: url("../../images/button/modal_btn.png") no-repeat 0 0px;
 }
 
 .search_btn {
-	width: 72px;
-	height: 23px;
-	border: none;
-	background: url("../../images/button/search_btn.png")
-		no-repeat;
-	cursor: pointer;
-	font-size: 12px;
-	color: #fff;
+    width: 72px;
+    height: 23px;
+    border: none;
+    background: url("../../images/button/search_btn.png") no-repeat;
+    cursor: pointer;
+    font-size: 12px;
+    color: #fff;
 }
 
 .add_btn {
-	width: 120px;
-	height: 22px;
-	border: none;
-	background: url("../../images/button/add_btn.png") no-repeat;
-	cursor: pointer;
-	font-size: 12px;
+    width: 120px;
+    height: 22px;
+    border: none;
+    background: url("../../images/button/add_btn.png") no-repeat;
+    cursor: pointer;
+    font-size: 12px;
 }
 
 .new_btn {
-	width: 72px;
-	height: 24px;
-	border: none;
-	background: url("../../images/button/new_btn.png") no-repeat;
-	cursor: pointer;
-	font-size: 12px;
-	padding-left: 28px;
-	padding-top: 4px;
-	float: left;
-	color: #fff;
+    width: 72px;
+    height: 24px;
+    border: none;
+    background: url("../../images/button/new_btn.png") no-repeat;
+    cursor: pointer;
+    font-size: 12px;
+    padding-left: 28px;
+    padding-top: 4px;
+    float: left;
+    color: #fff;
 }
 
 .title_text {
-	width: 100%;
-	height: 30px;
-	background: #EAEAEA;
-	border: 1px solid #E8E8E8;
-	margin: 8px;
+    width: 100%;
+    height: 30px;
+    background: #EAEAEA;
+    border: 1px solid #E8E8E8;
+    margin: 8px;
 }
 
 .title_text p {
-	font-size: 14px;
-	line-height: 24px;
-	margin-top: 2px;
-	margin-left: 5px;
-	color: #666666;
-	text-align: left;
+    font-size: 14px;
+    line-height: 24px;
+    margin-top: 2px;
+    margin-left: 5px;
+    color: #666666;
+    text-align: left;
 }
 
 .toolsMenu {
-	font-size: 14px;
-	width: 100%;
-	height: 20px;
-	text-align: center;
-	margin-left: auto;
-	margin-right: auto;
-	padding: 2px;
+    font-size: 14px;
+    width: 100%;
+    height: 20px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 2px;
 }
 
 .oper_cont {
-	background: url("../../images/mgt/f2.gif") repeat-x;
-	background-position: 0 -453px;
-	border: 1px solid #87A3C1;
-	cursor: pointer;
-	font-size: 12px;
-	padding-top: 2px;
-	padding-right: 2px;
-	float: left;
-	margin-left: 5px;
-	margin-top: 5px;
-	borde: none;
+    background: url("../../images/mgt/f2.gif") repeat-x;
+    background-position: 0 -453px;
+    border: 1px solid #87A3C1;
+    cursor: pointer;
+    font-size: 12px;
+    padding-top: 2px;
+    padding-right: 2px;
+    float: left;
+    margin-left: 5px;
+    margin-top: 5px;
+    borde: none;
 }
+
 /*前台管理样式*/
-.common_left,.common_right {
-	float: left;
+.common_left, .common_right {
+    float: left;
 }
 
 .common_left {
-	border-right: 1px solid #D4E4F2;
-	height: 100%;
-	margin-top: 0;
-	padding: 0;
-	width: 180px;
-	float: left;
-	text-align: left;
-	background: #EDF5F8;
+    border-right: 1px solid #D4E4F2;
+    height: 100%;
+    margin-top: 0;
+    padding: 0;
+    width: 180px;
+    float: left;
+    text-align: left;
+    background: #EDF5F8;
 }
 
 .left_nav {
-	text-align: left;
-	width: 180px;
-	height: auto;
-	margin-left: auto;
-	margin-right: auto;
+    text-align: left;
+    width: 180px;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .left_nav tr {
-	height: 35px;
+    height: 35px;
 }
 
 .left_nav tr td {
-	cursor: pointer;
+    cursor: pointer;
 }
 
 .left_bg {
-	width: 194px;
-	height: 28px;
-	line-height: 24px;
-	color: #000;
-	background: url("../../images/common/attend_move.jpeg")
-		no-repeat;
+    width: 194px;
+    height: 28px;
+    line-height: 24px;
+    color: #000;
+    background: url("../../images/common/attend_move.jpeg") no-repeat;
 }
 
 .common_right {
-	margin-top: 5px;
-	width: 770px;
-	height: 490px;
-	float: right;
-	overflow-y: auto;
-	margin-left: 3px;
-	margin-right: 10px;
-	margin-left: auto;
-	margin-right: auto;
+    margin-top: 5px;
+    width: 770px;
+    height: 490px;
+    float: right;
+    overflow-y: auto;
+    margin-left: 3px;
+    margin-right: 10px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .common_left .infor table {
-	width: 200px;
-	font-size: 12px;
+    width: 200px;
+    font-size: 12px;
 }
 
 .infor table tr td {
-	width: 180px;
-	border-bottom: 1px dashed #999933;
-	height: 29px;
-	cursor: pointer;
+    width: 180px;
+    border-bottom: 1px dashed #999933;
+    height: 29px;
+    cursor: pointer;
 }
 
-.infor table  td a {
-	margin-left: 39px;
-	curosr: pointer;
+.infor table td a {
+    margin-left: 39px;
+    curosr: pointer;
 }
 
 .datashowtable {
-	height: auto;
-	width: 770px;
+    height: auto;
+    width: 770px;
 }
 
 .doc_btn {
-	width: 64px;
-	height: 25px;
-	float: left;
+    width: 64px;
+    height: 25px;
+    float: left;
 }
 
 .pTitle {
-	margin-top: 4px;
-	width: 760px;
-	height: 25px;
-	font-size: 14px;
-	line-height: 27px;
-	text-align: left;
-	background: #ececec;
+    margin-top: 4px;
+    width: 760px;
+    height: 25px;
+    font-size: 14px;
+    line-height: 27px;
+    text-align: left;
+    background: #ececec;
 }
 
 .pTitle p {
-	margin-left: 8px;
+    margin-left: 8px;
 }
+
 /*邮件*/
-.enter_email{
-	width:970px;
-	height:100px;
-	margin-left:auto;
-	margin-right:auto;
-	font-size:16px;
-	background: url("../../images/common/new_email.png") no-repeat
-		center;
+.enter_email {
+    width: 970px;
+    height: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 16px;
+    background: url("../../images/common/new_email.png") no-repeat center;
 }
-.email_bottom{
-	width:970px;
-	height:100px;
-	margin-left:auto;
-	margin-right:auto;
-	background: url("../../images/common/email_bottom.png") no-repeat
-		center;
+
+.email_bottom {
+    width: 970px;
+    height: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    background: url("../../images/common/email_bottom.png") no-repeat center;
 }
-.enter_email p{
-	font-size:16px;
-	font-weight:bold;
-	padding-top:30px;
-	color:#4DA844;
+
+.enter_email p {
+    font-size: 16px;
+    font-weight: bold;
+    padding-top: 30px;
+    color: #4DA844;
 }
+
 .email_hot {
-	width: 750px;
-	height: auto;
-	margin-left: auto;
-	margin-right: auto;
+    width: 750px;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .email_hot .e_content {
-	width: 750px;
-	height: auto;
-	padding-bottom: 5px;
-	border: 1px solid #A1E6FF;
+    width: 750px;
+    height: auto;
+    padding-bottom: 5px;
+    border: 1px solid #A1E6FF;
 }
 
 .email_hot_title {
-	width: 750px;
-	height: 30px;
-	background: #D5F4FF
+    width: 750px;
+    height: 30px;
+    background: #D5F4FF
 }
 
 .email_hot_title table {
-	line-height: 24px;
-	float: left;
+    line-height: 24px;
+    float: left;
 }
 
 .email_hot_title table td {
-	padding-left: 2px;
-	padding-right: 5px;
-	cursor: pointer;
+    padding-left: 2px;
+    padding-right: 5px;
+    cursor: pointer;
 }
 
-.email_express_content,.email_myinfor_content {
-	display: none;
+.email_express_content, .email_myinfor_content {
+    display: none;
 }
 
-.email_express_content p,.email_myinfor_content p {
-	font-size: 14px;
-	line-height: 24px;
-	text-align: left;
-	margin-left: 15px;
-	margin-top: 10px;
+.email_express_content p, .email_myinfor_content p {
+    font-size: 14px;
+    line-height: 24px;
+    text-align: left;
+    margin-left: 15px;
+    margin-top: 10px;
 }
 
 .email_myinfor_content p span {
-	font-size: 16px;
-	color: #0A9B9C;
+    font-size: 16px;
+    color: #0A9B9C;
 }
 
 .email_myinfor_content h3 {
-	margin-top: 3px;
+    margin-top: 3px;
 }
 
 .exress_bg {
-	background: url("../../images/common/express_bg.png") repeat-x;
-	width: 750px;
-	height: 83px;
+    background: url("../../images/common/express_bg.png") repeat-x;
+    width: 750px;
+    height: 83px;
 }
 
 .expressimg {
-	background: url("../../images/common/express.jpg") no-repeat
-		left;
-	width: 469px;
-	height: 83px;
-	float: left;
+    background: url("../../images/common/express.jpg") no-repeat left;
+    width: 469px;
+    height: 83px;
+    float: left;
 }
 
 .email_bg {
-	background: #fff;
+    background: #fff;
 }
+
 /*出错页面
 .error_status{
 	background:url("../../images/common"/error.gif) no-repeat center;

@@ -1,122 +1,122 @@
 <#assign ctx=request.contextPath>
-<link href="${ctx}/css/list/list_style.css" rel="stylesheet" type="text/css" />
+<link href="${ctx}/css/list/list_style.css" rel="stylesheet" type="text/css"/>
 <script>
-	$(function(){
-		$("#checkAll").click(function(){
-			//设置复选框全选或反选
-			$("input[type='checkbox'][id^='box_']").attr("checked", this.checked);
-		});
+    $(function () {
+        $("#checkAll").click(function () {
+            //设置复选框全选或反选
+            $("input[type='checkbox'][id^='box_']").attr("checked", this.checked);
+        });
 
-		$("#deleteBtn").click(function(){
-			//获取所有选中的复选框
-			var boxs = $("input[id^='box_']:checked");
-			if(boxs.length==0){
-				var d = dialog({
-					title: '温馨提示',
-				    content: '请选择需要删除的计划!',
-				});
-				d.show();
-				setTimeout(function () {
-				    d.close().remove();
-				}, 1000);
-			}else{
-				var d = dialog({
-					title: '温馨提示',
-				    content: '您确定要删除所选的工作计划?',
-				    okValue:'确定',
-				    ok:function(){
-						//删除操作
-				    	delWork();
-					},
-					cancelValue:'取消',
-					cancel:function(){
-						d.close().remove();
-					}
-				});
-				d.show();
-			}
-		});
-	});
+        $("#deleteBtn").click(function () {
+            //获取所有选中的复选框
+            var boxs = $("input[id^='box_']:checked");
+            if (boxs.length == 0) {
+                var d = dialog({
+                    title: '温馨提示',
+                    content: '请选择需要删除的计划!',
+                });
+                d.show();
+                setTimeout(function () {
+                    d.close().remove();
+                }, 1000);
+            } else {
+                var d = dialog({
+                    title: '温馨提示',
+                    content: '您确定要删除所选的工作计划?',
+                    okValue: '确定',
+                    ok: function () {
+                        //删除操作
+                        delWork();
+                    },
+                    cancelValue: '取消',
+                    cancel: function () {
+                        d.close().remove();
+                    }
+                });
+                d.show();
+            }
+        });
+    });
 
-	function delWork(){
-		var boxs = $("input[id^='box_']:checked");
-		var ids = boxs.map(function(i, item) {
-			return item.value;
-		});
-		
-		var params = {"workIds":ids.get().join('-')};
-		var url = "${ctx}/work/ajaxDelWork";
-		$.post(url,params,function(flag){
-				if(flag){
-					var d = dialog({
-						title: '温馨提示',
-					    content: '删除成功',
-					});
-					d.show();
-					setTimeout(function () {
-					    d.close().remove();
-					    //刷新当前界面
-					    window.location.href=window.location.href;
-					}, 1000);
-				}
-		},"json");
-	}
+    function delWork() {
+        var boxs = $("input[id^='box_']:checked");
+        var ids = boxs.map(function (i, item) {
+            return item.value;
+        });
+
+        var params = {"workIds": ids.get().join('-')};
+        var url = "${ctx}/work/ajaxDelWork";
+        $.post(url, params, function (flag) {
+            if (flag) {
+                var d = dialog({
+                    title: '温馨提示',
+                    content: '删除成功',
+                });
+                d.show();
+                setTimeout(function () {
+                    d.close().remove();
+                    //刷新当前界面
+                    window.location.href = window.location.href;
+                }, 1000);
+            }
+        }, "json");
+    }
 </script>
 
-    <div class="rightinfo">
-    
+<div class="rightinfo">
+
     <div class="tools">
-    
-    	<ul class="toolbar">
-        <li class="click">
-        <a href="javascript:void(0)" onclick="javascript:openWindow('${ctx}/work/toAddWork','850','500')">
+
+        <ul class="toolbar">
+            <li class="click">
+                <a href="javascript:void(0)" onclick="javascript:openWindow('${ctx}/work/toAddWork','850','500')">
         <span>
-        <img src="${ctx}/images/list/t01.png" />
+        <img src="${ctx}/images/list/t01.png"/>
         </span>添加</a>
-        </li>
-        <li>
-        <a href="javascript:void(0);" id="deleteBtn">
+            </li>
+            <li>
+                <a href="javascript:void(0);" id="deleteBtn">
         <span>
-        <img src="${ctx}/images/list/t03.png" />
+        <img src="${ctx}/images/list/t03.png"/>
         </span>删除</a>
-        </li>
+            </li>
         </ul>
-    
+
     </div>
-  
+
     <table class="tablelist">
-    	<thead>
-    	<tr>
-        <th><input name="checkAll" id="checkAll" type="checkbox" /></th>
-        <th style="width:40px;">编号</th>
-        <th>工作计划标题</th>
-        <th>工作计划内容</th>
-        <th>计划开始时间</th>
-        <th>计划结束时间</th>
-        <th>操作</th>
+        <thead>
+        <tr>
+            <th><input name="checkAll" id="checkAll" type="checkbox"/></th>
+            <th style="width:40px;">编号</th>
+            <th>工作计划标题</th>
+            <th>工作计划内容</th>
+            <th>计划开始时间</th>
+            <th>计划结束时间</th>
+            <th>操作</th>
         </tr>
         </thead>
-        
-        <#if workList??>
-		<#list workList as work>
-        <tbody id="tbody_${work.workId}">
-        <tr>
-        <td style="width:25px;">
-        <input id="box_${work.workId}" name="box_${work.workId}" type="checkbox" value="${work.workId}" />
-        </td>
-        <td>${work.workId}</td>
-        <td style="width:150px;">${work.workName?default('')}</td>
-        <td style="width:250px;">${work.work?default('')}</td>
-        <td style="width:100px;">${work.planStartDate?string("yyyy-MM-dd")}</td>
-        <td style="width:100px;">${work.planEndDate?string("yyyy-MM-dd")}</td>
-        <td>
-        	<a href="#" class="tablelink">查看</a>&nbsp;|&nbsp;
-        	<a href="javascript:void(0);" id="deleteBtn2" class="tablelink">删除</a>
-        	</td>
-        </tr> 
-        
-        </tbody>
+
+    <#if workList??>
+        <#list workList as work>
+            <tbody id="tbody_${work.workId}">
+            <tr>
+                <td style="width:25px;">
+                    <input id="box_${work.workId}" name="box_${work.workId}" type="checkbox" value="${work.workId}"/>
+                </td>
+                <td>${work.workId}</td>
+                <td style="width:150px;">${work.workName?default('')}</td>
+                <td style="width:250px;">${work.work?default('')}</td>
+                <td style="width:100px;">${work.planStartDate?string("yyyy-MM-dd")}</td>
+                <td style="width:100px;">${work.planEndDate?string("yyyy-MM-dd")}</td>
+                <td>
+                    <a href="#" class="tablelink">查看</a>&nbsp;|&nbsp;
+                    <a href="javascript:void(0);" id="deleteBtn2" class="tablelink">删除</a>
+                </td>
+            </tr>
+
+            </tbody>
         </#list>
-		</#if>
+    </#if>
     </table>
-    </div>
+</div>

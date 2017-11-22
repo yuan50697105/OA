@@ -1,14 +1,14 @@
 <#include "/common/header.html"/>
-	<div class="pTitle">
-		<p>个人通讯录</p>
-	</div>
-	<form id="findContactsList" action="" method="post">
-		<div class="search_box">
-			姓名:<input name="contacts.name" type="text" class="searchinput">
-			&nbsp;&nbsp; 
-			<input type="submit" class="search_btn" value="搜&nbsp;索" />&nbsp;&nbsp;
-		</div>
-		<div id="work_contacts_list">
-			<#include "contactsList.html"/>
-		</div>
-	</form>
+<div class="pTitle">
+    <p>个人通讯录</p>
+</div>
+<form id="findContactsList" action="" method="post">
+    <div class="search_box">
+        姓名:<input name="contacts.name" type="text" class="searchinput">
+        &nbsp;&nbsp;
+        <input type="submit" class="search_btn" value="搜&nbsp;索"/>&nbsp;&nbsp;
+    </div>
+    <div id="work_contacts_list">
+    <#include "contactsList.html"/>
+    </div>
+</form>

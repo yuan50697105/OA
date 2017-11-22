@@ -1,136 +1,139 @@
 <#include "/common/header.html"/>
 <html>
-    <head>
-        <title><#if menu.menuId??>菜单编辑<#else>菜单新增</#if></title>
-        <script type="text/javascript">
+<head>
+    <title><#if menu.menuId??>菜单编辑<#else>菜单新增</#if></title>
+    <script type="text/javascript">
         function returnBack() {
-        	window.opener.location.href=window.opener.location.href;
-        	self.close();
+            window.opener.location.href = window.opener.location.href;
+            self.close();
         }
-        
-        $(function(){
-        	$("#operBtn").click(function(){
-			//判断菜单级别是否是子菜单，如果是子菜单就必须选择员工父菜单
-        	if($("#grade").val()==2){
-        		if($('input[name="superiorId"]:checked').val()==undefined){
-            		showMsg(0,"请选择父菜单");
-            		return false;
-            	}
-            }
-         
-        	var formData = new FormData();
-        	
-        	formData.append("menuName",$("#menuName").val());
-        	formData.append("functionIntroduce",$("#functionIntroduce").val());
 
-        	formData.append("status",$("#status").val());
-        	formData.append("type",$("#type").val());
-        	formData.append("url",$("#url").val());
-        	formData.append("parameter",$("#parameter").val());
-        	formData.append("menuId",$("#menuId").val());
-        	
-        	formData.append("grade",$("#grade").val());
-        	formData.append("superiorId",$('input[name="superiorId"]:checked').val());
+        $(function () {
+            $("#operBtn").click(function () {
+                //判断菜单级别是否是子菜单，如果是子菜单就必须选择员工父菜单
+                if ($("#grade").val() == 2) {
+                    if ($('input[name="superiorId"]:checked').val() == undefined) {
+                        showMsg(0, "请选择父菜单");
+                        return false;
+                    }
+                }
 
-        	var url = "${ctx}/admin/ajaxAddMenu";
-        	 $.ajax({  
-                  url: url,  
-                  type: 'POST',  
-                  data: formData,
-                  contentType:false,
-                  processData: false,
-                  success: function (flag) {  
-                	  if(flag){
-                		  showMsg(1,"成功");
-        			  }
-                  }  
-             });
+                var formData = new FormData();
+
+                formData.append("menuName", $("#menuName").val());
+                formData.append("functionIntroduce", $("#functionIntroduce").val());
+
+                formData.append("status", $("#status").val());
+                formData.append("type", $("#type").val());
+                formData.append("url", $("#url").val());
+                formData.append("parameter", $("#parameter").val());
+                formData.append("menuId", $("#menuId").val());
+
+                formData.append("grade", $("#grade").val());
+                formData.append("superiorId", $('input[name="superiorId"]:checked').val());
+
+                var url = "${ctx}/admin/ajaxAddMenu";
+                $.ajax({
+                    url: url,
+                    type: 'POST',
+                    data: formData,
+                    contentType: false,
+                    processData: false,
+                    success: function (flag) {
+                        if (flag) {
+                            showMsg(1, "成功");
+                        }
+                    }
+                });
+            });
         });
-        });
-        function showMsg(type,msg){
-        	var d = dialog({
-        		title: '温馨提示',
-        	    content: msg,
-        	});
-        	d.show();
-        	setTimeout(function () {
-        	    d.close().remove();
-        	    if(type == 1){
-        	    	returnBack();
-        		}
-        	}, 1000);
-        } 	
-        </script>
-    </head>
-    <body class="windDiv">
-        <div class="title_text">
-            <p>您现在所在位置：功能模块&gt;&gt;<#if menu.menuId??>编辑<#else>新增</#if>功能模块&gt;&gt;</p>
-        </div>
-        <form id="form1" method="post">
 
-            <input type="hidden" id="menuId" name="menuId" value="${menu.menuId?default('')}" />
+        function showMsg(type, msg) {
+            var d = dialog({
+                title: '温馨提示',
+                content: msg,
+            });
+            d.show();
+            setTimeout(function () {
+                d.close().remove();
+                if (type == 1) {
+                    returnBack();
+                }
+            }, 1000);
+        }
+    </script>
+</head>
+<body class="windDiv">
+<div class="title_text">
+    <p>您现在所在位置：功能模块&gt;&gt;<#if menu.menuId??>编辑<#else>新增</#if>功能模块&gt;&gt;</p>
+</div>
+<form id="form1" method="post">
 
-            <div class="user_editor_table">
-                <table>
-                    <tbody>
-                        <tr>
-                            <td class="txtright">菜单名:</td>
-                            <td><input type="text" name="menuName" id="menuName"  class="txtinput" value="${menu.menuName?default('')}" /></td>
-                        </tr>
-                        <tr>
-                            <td class="txtright">菜单类别:</td>
-                            <td>
-                            <select name="type" id="type">
-                            	<option value="1" <#if menu.type?? && menu.type=='1'>selected</#if>>系统菜单
-                            	<option value="2" <#if menu.type?? && menu.type=='2'>selected</#if>>自定义菜单
-                            </select>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="txtright">菜单级别:</td>
-                            <td>
-                            <select name="grade" id="grade">
-                            	<option value="1" <#if menu.grade?? && menu.grade=='1'>selected</#if>>基础菜单
-                            	<option value="2" <#if menu.grade?? && menu.grade=='2'>selected</#if>>子菜单
-                            </select>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="txtright">功能描述:</td>
-                            <td><textarea  id="functionIntroduce" name="functionIntroduce" class="textarea">${menu.functionIntroduce?default('')}</textarea></td>
-                        </tr> 
-                        <tr>
-                            <td class="txtright">启用标志:</td>
-                            <td>
-	                            <select name="status" id="status">
-	                            	<option value="1" <#if menu.status?? && menu.status=='1'>selected</#if>>启用
-	                            	<option value="2" <#if menu.status?? && menu.status=='2'>selected</#if>>停用
-	                            </select>
-                            </td>
-                        </tr>
+    <input type="hidden" id="menuId" name="menuId" value="${menu.menuId?default('')}"/>
 
-                        <tr>
-                            <td class="txtright">菜单请求URL</td>
-                            <td>
-                                <input type="text" id="url" name="url" value="${menu.url?default('')}" />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="txtright">请求参数</td>
-                            <td>
-                                <input type="text" id="parameter" name="parameter" value="${menu.parameter?default('')}" />
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <p>
-                <input type="button" id="operBtn" class="modal_btn" value="保&nbsp;存" /> 
-                <input type="button" class="modal_btn" value=" 关  闭 " onclick="returnBack();" /> 
-            </p>
-        </form>
-		 <div id="superior_menu_list">
-              <#include "menuList.html"/>
-         </div>
-    </body>
+    <div class="user_editor_table">
+        <table>
+            <tbody>
+            <tr>
+                <td class="txtright">菜单名:</td>
+                <td><input type="text" name="menuName" id="menuName" class="txtinput"
+                           value="${menu.menuName?default('')}"/></td>
+            </tr>
+            <tr>
+                <td class="txtright">菜单类别:</td>
+                <td>
+                    <select name="type" id="type">
+                        <option value="1" <#if menu.type?? && menu.type=='1'>selected</#if>>系统菜单
+                        <option value="2" <#if menu.type?? && menu.type=='2'>selected</#if>>自定义菜单
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td class="txtright">菜单级别:</td>
+                <td>
+                    <select name="grade" id="grade">
+                        <option value="1" <#if menu.grade?? && menu.grade=='1'>selected</#if>>基础菜单
+                        <option value="2" <#if menu.grade?? && menu.grade=='2'>selected</#if>>子菜单
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td class="txtright">功能描述:</td>
+                <td><textarea id="functionIntroduce" name="functionIntroduce"
+                              class="textarea">${menu.functionIntroduce?default('')}</textarea></td>
+            </tr>
+            <tr>
+                <td class="txtright">启用标志:</td>
+                <td>
+                    <select name="status" id="status">
+                        <option value="1" <#if menu.status?? && menu.status=='1'>selected</#if>>启用
+                        <option value="2" <#if menu.status?? && menu.status=='2'>selected</#if>>停用
+                    </select>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="txtright">菜单请求URL</td>
+                <td>
+                    <input type="text" id="url" name="url" value="${menu.url?default('')}"/>
+                </td>
+            </tr>
+            <tr>
+                <td class="txtright">请求参数</td>
+                <td>
+                    <input type="text" id="parameter" name="parameter" value="${menu.parameter?default('')}"/>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <p>
+        <input type="button" id="operBtn" class="modal_btn" value="保&nbsp;存"/>
+        <input type="button" class="modal_btn" value=" 关  闭 " onclick="returnBack();"/>
+    </p>
+</form>
+<div id="superior_menu_list">
+<#include "menuList.html"/>
+</div>
+</body>
 </html>

@@ -2,227 +2,232 @@
 <!-- 导入时间控件My97 -->
 <script type="text/javascript" src="${ctx}/js/My97DatePicker/WdatePicker.js"></script>
 <html>
-    <head>
-        <title>新增员工</title>
-        <script type="text/javascript">
+<head>
+    <title>新增员工</title>
+    <script type="text/javascript">
         function returnBack() {
-        	window.opener.location.href=window.opener.location.href;
-    		self.close();
-    	}
-        $(function(){
-    		$("#addBtn").click(function(){
-            
-    		var formData = new FormData();
-    		formData.append("name",$("#name").val());
-    		formData.append("userName",$("#userName").val());
-    		formData.append("userPassword",$("#userPassword").val());
-    		formData.append("sex",$('input[name="sex"]:checked').val());
-    		formData.append("QQ",$("#QQ").val());
-    		formData.append("birthdate",$("#birthdate").val());
-    		formData.append("nation",$("#nation").val());
-    		formData.append("nativePlace",$("#nativePlace").val());
-    		formData.append("identityCard",$("#identityCard").val());
-    		formData.append("politicsStatus",$("#politicsStatus").val());
-    		formData.append("maritalStatus",$('input[name="maritalStatus"]:checked').val());
-    		formData.append("school",$("#school").val());
-    		formData.append("education",$("#education").val());
-    		formData.append("graduationDate",$("#graduationDate").val());
-    		formData.append("major",$("#major").val());
-    		formData.append("workTime",$("#workTime").val());
-    		formData.append("address",$("#address").val());
-    		formData.append("mark",$("#mark").val());
-    		formData.append("mobilePhone",$("#mobilePhone").val());
-    		formData.append("zipCode",$("#zipCode").val());
-    		formData.append("telephone",$("#telephone").val());
-    		formData.append("email",$("#email").val());
-    		formData.append("remark",$("#remark").val());
-    		
-    		if($('input[name="departmentId"]:checked').val()==undefined){
-    			showMsg(0,"请选择所属部门");
-				return false;
-        	}
-    		formData.append("departmentId",$('input[name="departmentId"]:checked').val());
-			
-    		if($("#headFiles")[0].files[0] == undefined){
-    			showMsg(0,"请选择需要上传的头像文件");
-				return false;
-        	}
-    		//获取需要上传的文件数据
-    		formData.append("headFiles",$("#headFiles")[0].files[0]);
-    		var url = "${ctx}/admin/ajaxAddEmployee";
-   		 	$.ajax({  
-   	          url: url,  
-   	          type: 'POST',  
-   	          data: formData,
-   	          contentType:false,
-   	          processData: false,
-   	          success: function (flag) {  
-   	        	  if(flag){
-   	        		showMsg(1,"新增成功");	
-   				  }
-   	          }  
-   	     });
-    		
-    	});
-    	});
+            window.opener.location.href = window.opener.location.href;
+            self.close();
+        }
 
-		//显示对话框函数
-		function showMsg(type,msg){
-			var d = dialog({
-				title: '温馨提示',
-			    content: msg,
-			});
-			d.show();
-			setTimeout(function () {
-			    d.close().remove();
-			    if(type==1){
-				    returnBack();
-				}
-			}, 1000);
-		}
-        
-        </script>
-    </head>
-    <body class="windDiv">
-        <div class="title_text">
-            <p>您现在所在位置：组织结构&gt;&gt;员工管理&gt;&gt;新增员工</p>
-        </div>
-        <form id="form1" method="post" enctype="multipart/form-data">
-            <div class="user_editor_table">
-                <table>
-                    <tr>
-                        <td class="txtright">&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td rowspan="7" class="txtright">照片</td>
-                        <td rowspan="6">
-                            <label>
-                               <img width=100 height=100 src="${ctx}/images/common/user_default.png" /> 
-                            </label>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="txtright">&nbsp;</td>
-                        <td>&nbsp;</td>
-                    </tr>
-                    <tr>
-                        <td class="txtright">姓名:</td>
-                        <td>
-                            <input type="text" name="name" id="name" value="张三" class="txtinput"/>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="txtright">性别:</td>
-                        <td>
-                        <input type="radio" name="sex" value="1" checked/>男
-                        <input type="radio" name="sex" value="2"/>女
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="txtright">登录帐号:</td>
-                        <td><input type="text" name="userName" id="userName" value="tom168" class="txtinput" />
-                        <div id="userName_mesage"></div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="txtright">登录密码:</td>
-                        <td><input type="password" name="userPassword" value="123456" id="userPassword" class="txtinput" /></td>
-                    </tr>
-                    <tr>
-                        <td class="txtright">出生日期:</td>
-                        <td>
-                        	<input id="birthdate" class="Wdate"  name="birthdate" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd'});"/>  
-                        </td>
-                        <td><span class="txtright">
-                        	<input type="file" name="headFiles" id="headFiles" /> 
+        $(function () {
+            $("#addBtn").click(function () {
+
+                var formData = new FormData();
+                formData.append("name", $("#name").val());
+                formData.append("userName", $("#userName").val());
+                formData.append("userPassword", $("#userPassword").val());
+                formData.append("sex", $('input[name="sex"]:checked').val());
+                formData.append("QQ", $("#QQ").val());
+                formData.append("birthdate", $("#birthdate").val());
+                formData.append("nation", $("#nation").val());
+                formData.append("nativePlace", $("#nativePlace").val());
+                formData.append("identityCard", $("#identityCard").val());
+                formData.append("politicsStatus", $("#politicsStatus").val());
+                formData.append("maritalStatus", $('input[name="maritalStatus"]:checked').val());
+                formData.append("school", $("#school").val());
+                formData.append("education", $("#education").val());
+                formData.append("graduationDate", $("#graduationDate").val());
+                formData.append("major", $("#major").val());
+                formData.append("workTime", $("#workTime").val());
+                formData.append("address", $("#address").val());
+                formData.append("mark", $("#mark").val());
+                formData.append("mobilePhone", $("#mobilePhone").val());
+                formData.append("zipCode", $("#zipCode").val());
+                formData.append("telephone", $("#telephone").val());
+                formData.append("email", $("#email").val());
+                formData.append("remark", $("#remark").val());
+
+                if ($('input[name="departmentId"]:checked').val() == undefined) {
+                    showMsg(0, "请选择所属部门");
+                    return false;
+                }
+                formData.append("departmentId", $('input[name="departmentId"]:checked').val());
+
+                if ($("#headFiles")[0].files[0] == undefined) {
+                    showMsg(0, "请选择需要上传的头像文件");
+                    return false;
+                }
+                //获取需要上传的文件数据
+                formData.append("headFiles", $("#headFiles")[0].files[0]);
+                var url = "${ctx}/admin/ajaxAddEmployee";
+                $.ajax({
+                    url: url,
+                    type: 'POST',
+                    data: formData,
+                    contentType: false,
+                    processData: false,
+                    success: function (flag) {
+                        if (flag) {
+                            showMsg(1, "新增成功");
+                        }
+                    }
+                });
+
+            });
+        });
+
+        //显示对话框函数
+        function showMsg(type, msg) {
+            var d = dialog({
+                title: '温馨提示',
+                content: msg,
+            });
+            d.show();
+            setTimeout(function () {
+                d.close().remove();
+                if (type == 1) {
+                    returnBack();
+                }
+            }, 1000);
+        }
+
+    </script>
+</head>
+<body class="windDiv">
+<div class="title_text">
+    <p>您现在所在位置：组织结构&gt;&gt;员工管理&gt;&gt;新增员工</p>
+</div>
+<form id="form1" method="post" enctype="multipart/form-data">
+    <div class="user_editor_table">
+        <table>
+            <tr>
+                <td class="txtright">&nbsp;</td>
+                <td>&nbsp;</td>
+                <td rowspan="7" class="txtright">照片</td>
+                <td rowspan="6">
+                    <label>
+                        <img width=100 height=100 src="${ctx}/images/common/user_default.png"/>
+                    </label>
+                </td>
+            </tr>
+            <tr>
+                <td class="txtright">&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td class="txtright">姓名:</td>
+                <td>
+                    <input type="text" name="name" id="name" value="张三" class="txtinput"/>
+                </td>
+            </tr>
+            <tr>
+                <td class="txtright">性别:</td>
+                <td>
+                    <input type="radio" name="sex" value="1" checked/>男
+                    <input type="radio" name="sex" value="2"/>女
+                </td>
+            </tr>
+            <tr>
+                <td class="txtright">登录帐号:</td>
+                <td><input type="text" name="userName" id="userName" value="tom168" class="txtinput"/>
+                    <div id="userName_mesage"></div>
+                </td>
+            </tr>
+            <tr>
+                <td class="txtright">登录密码:</td>
+                <td><input type="password" name="userPassword" value="123456" id="userPassword" class="txtinput"/></td>
+            </tr>
+            <tr>
+                <td class="txtright">出生日期:</td>
+                <td>
+                    <input id="birthdate" class="Wdate" name="birthdate"
+                           onfocus="WdatePicker({dateFmt:'yyyy-MM-dd'});"/>
+                </td>
+                <td><span class="txtright">
+                        	<input type="file" name="headFiles" id="headFiles"/>
                         	</span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="txtright">民族:</td>
-                        <td><input type="text" name="nation" value="汉" id="nation" class="txtinput"  /></td>
-                        <td class="txtright">籍贯:</td>
-                        <td><input type="text" name="nativePlace" value="湖南长沙" class="txtinput" id="nativePlace" /></td>
-                    </tr>
-                    <tr>
-                        <td class="txtright">身份证号码:</td>
-                        <td><input type="text" name="identityCard" value="43215456854" id="identityCard" class="txtinput"/></td>
-                        <td class="txtright">政治面貌:</td>
-                        <td><input type="text" name="politicsStatus" value="民主人士" class="txtinput" id="politicsStatus" /></td>
-                    </tr>
-                    <tr>
-                        <td class="txtright">婚姻状况:</td>
-                        <td>
-                         <input type="radio" name="maritalStatus" value="1" />已婚
-                         <input type="radio" name="maritalStatus" value="2" checked/>未婚
-                        </td>
-                        <td class="txtright">毕业学校:</td>
-                        <td><input type="text" name="school" value="广东工大" class="txtinput" id="school"/></td>
-                    </tr>
-                    <tr>
-                        <td class="txtright">学历:</td>
-                        <td><input type="text" name="education" value="本科" class="txtinput" id="education" />
-                        </td>
-                        <td class="txtright">毕业时间:</td>
-                        <td>
-                        <input id="graduationDate" class="Wdate"  name="graduationDate" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd'});"/>  
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="txtright">专业:</td>
-                        <td><input type="text" name="major" value="计算机科学" id="major" class="txtinput"/></td>
-                        <td class="txtright">参加工作时间:</td>
-                        <td>
-                         <input id="workTime" class="Wdate"  name="workTime" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd'});"/>  
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="txtright">地址:</td>
-                        <td colspan="3">
-                        <input style="width:500px;" type="text"name="address"  value="广东广州天河公园"  class="txtinput" id="address"/>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="txtright">邮政编码:</td>
-                        <td><input type="text" name="zipCode" id="zipCode"  value="510000"  class="txtinput"/></td>
-                        <td class="txtright">联系电话:</td>
-                        <td><input type="text" name="telephone"class="txtinput" value="020-5251852" id="telephone"/>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="txtright">手机:</td>
-                        <td><input type="text" name="mobilePhone" value="186642515" class="txtinput" id="mobilePhone"/>
-                        </td>
-                        <td class="txtright">电子信箱:</td>
-                        <td><input type="text" name="email" value="186642515@qq.com" id="email"class="txtinput"/></td>
-                    </tr>
-                    <tr>
-                        <td class="txtright">状态:</td>
-                        <td>
-                        	<select name="mark" id="mark">
-                        		<option value="1" selected>启用
-                        		<option value="2">停用
-                        	</select>
-                        </td>
-                        <td class="txtright">QQ:</td>
-                        <td>
-                        	<input type="text" name="QQ" id="QQ" value="55642515" class="txtinput"/>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="txtright">备注:</td>
-                        <td colspan="3">
-                        <textarea name="remark" id="remark"class="textarea" style="width:500px;height:50px;">贫下中农</textarea>
-                        </td>
-                    </tr>
-                </table>
-            </div>
-           <div id="user_department">
-               	<#include "structureDepartmentList.html"/>
-           </div>
-            <p>
-               <input type="button" id="addBtn" class="modal_btn" value=" 保  存 " /> 
-               <input type="button" class="modal_btn" value=" 关  闭 " onclick="returnBack();" /> 
-            </p>
-        </form>
-    </body>
+                </td>
+            </tr>
+            <tr>
+                <td class="txtright">民族:</td>
+                <td><input type="text" name="nation" value="汉" id="nation" class="txtinput"/></td>
+                <td class="txtright">籍贯:</td>
+                <td><input type="text" name="nativePlace" value="湖南长沙" class="txtinput" id="nativePlace"/></td>
+            </tr>
+            <tr>
+                <td class="txtright">身份证号码:</td>
+                <td><input type="text" name="identityCard" value="43215456854" id="identityCard" class="txtinput"/></td>
+                <td class="txtright">政治面貌:</td>
+                <td><input type="text" name="politicsStatus" value="民主人士" class="txtinput" id="politicsStatus"/></td>
+            </tr>
+            <tr>
+                <td class="txtright">婚姻状况:</td>
+                <td>
+                    <input type="radio" name="maritalStatus" value="1"/>已婚
+                    <input type="radio" name="maritalStatus" value="2" checked/>未婚
+                </td>
+                <td class="txtright">毕业学校:</td>
+                <td><input type="text" name="school" value="广东工大" class="txtinput" id="school"/></td>
+            </tr>
+            <tr>
+                <td class="txtright">学历:</td>
+                <td><input type="text" name="education" value="本科" class="txtinput" id="education"/>
+                </td>
+                <td class="txtright">毕业时间:</td>
+                <td>
+                    <input id="graduationDate" class="Wdate" name="graduationDate"
+                           onfocus="WdatePicker({dateFmt:'yyyy-MM-dd'});"/>
+                </td>
+            </tr>
+            <tr>
+                <td class="txtright">专业:</td>
+                <td><input type="text" name="major" value="计算机科学" id="major" class="txtinput"/></td>
+                <td class="txtright">参加工作时间:</td>
+                <td>
+                    <input id="workTime" class="Wdate" name="workTime" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd'});"/>
+                </td>
+            </tr>
+            <tr>
+                <td class="txtright">地址:</td>
+                <td colspan="3">
+                    <input style="width:500px;" type="text" name="address" value="广东广州天河公园" class="txtinput"
+                           id="address"/>
+                </td>
+            </tr>
+            <tr>
+                <td class="txtright">邮政编码:</td>
+                <td><input type="text" name="zipCode" id="zipCode" value="510000" class="txtinput"/></td>
+                <td class="txtright">联系电话:</td>
+                <td><input type="text" name="telephone" class="txtinput" value="020-5251852" id="telephone"/>
+                </td>
+            </tr>
+            <tr>
+                <td class="txtright">手机:</td>
+                <td><input type="text" name="mobilePhone" value="186642515" class="txtinput" id="mobilePhone"/>
+                </td>
+                <td class="txtright">电子信箱:</td>
+                <td><input type="text" name="email" value="186642515@qq.com" id="email" class="txtinput"/></td>
+            </tr>
+            <tr>
+                <td class="txtright">状态:</td>
+                <td>
+                    <select name="mark" id="mark">
+                        <option value="1" selected>启用
+                        <option value="2">停用
+                    </select>
+                </td>
+                <td class="txtright">QQ:</td>
+                <td>
+                    <input type="text" name="QQ" id="QQ" value="55642515" class="txtinput"/>
+                </td>
+            </tr>
+            <tr>
+                <td class="txtright">备注:</td>
+                <td colspan="3">
+                    <textarea name="remark" id="remark" class="textarea"
+                              style="width:500px;height:50px;">贫下中农</textarea>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div id="user_department">
+    <#include "structureDepartmentList.html"/>
+    </div>
+    <p>
+        <input type="button" id="addBtn" class="modal_btn" value=" 保  存 "/>
+        <input type="button" class="modal_btn" value=" 关  闭 " onclick="returnBack();"/>
+    </p>
+</form>
+</body>
 </html>

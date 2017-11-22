@@ -1,35 +1,35 @@
 <script type="text/javascript" src="${ctx}/js/adminHome.js"></script>
 <div class="fun_help">
-	<div class="fun_help title">
-		<ul>
-			${menu}
-			<li>|</li>
-			<li><a href="${ctx}/user/logout">退出</a></li>
-		</ul>
-	</div>
+    <div class="fun_help title">
+        <ul>
+        ${menu}
+            <li>|</li>
+            <li><a href="${ctx}/user/logout">退出</a></li>
+        </ul>
+    </div>
 </div>
 <div class="function">
-	<div class="corp_user">
-		<!-- 登录企业名称 -->
-		<h5>${org.orgName}</h5>
-	</div>
-	<#if menuList??>
-	<div class="fun_title">
-		<ul>
-			<#list menuList as menu>
-				<li id="${menu.menuId}">
-				<#if menu.menuIcon=='0'>
-					<div class=""></div>
-				</#if>
-				<a id="${menu.menuId}" rel="${ctx}${menu.url}${menu.parameter}" title="${menu.menuName}">
-				<#if menu.menuIcon!='0'>
-				<div class=""><img src="${ctx}/${menu.menuIcon}"/></div>
-				</#if>
-				${menu.menuName}
-				</a>
-				</li>
-			</#list>
-		</ul>
-	</div>
-	</#if>
+    <div class="corp_user">
+        <!-- 登录企业名称 -->
+        <h5>${org.orgName}</h5>
+    </div>
+<#if menuList??>
+    <div class="fun_title">
+        <ul>
+            <#list menuList as menu>
+                <li id="${menu.menuId}">
+                    <#if menu.menuIcon=='0'>
+                        <div class=""></div>
+                    </#if>
+                    <a id="${menu.menuId}" rel="${ctx}${menu.url}${menu.parameter}" title="${menu.menuName}">
+                        <#if menu.menuIcon!='0'>
+                            <div class=""><img src="${ctx}/${menu.menuIcon}"/></div>
+                        </#if>
+                    ${menu.menuName}
+                    </a>
+                </li>
+            </#list>
+        </ul>
+    </div>
+</#if>
 </div>

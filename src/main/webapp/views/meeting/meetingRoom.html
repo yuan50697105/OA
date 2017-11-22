@@ -1,20 +1,21 @@
 <#include "/common/header.html"/>
 <div class="pTitle">
-	<p>会议室管理</p>
+    <p>会议室管理</p>
 </div>
 <form id="form1" action="" method="post">
-	<div class="search_box">
-		会议室:<input name="roomName" value="" class="searchinput" type="text">&nbsp;&nbsp; 状态:
-		<select value="status" id="status" name="status">
-			<option value="0">全部
-			<option value="1">空闲中
-			<option value="2">使用中
-			<option value="3">保洁中
-		</select>
-		<input type="submit" class="search_btn" value="搜&nbsp;索" />&nbsp;&nbsp;
-		<input type="button" class="add_btn" onclick="javascript:openWindow('${ctx}/meeting/toAdd','300','250');" value="添加会议室" />
-	</div>
-	<div id="room_manage_list">
-		 <#include "meetingRoomList.html"/>
-	</div>
+    <div class="search_box">
+        会议室:<input name="roomName" value="" class="searchinput" type="text">&nbsp;&nbsp; 状态:
+        <select value="status" id="status" name="status">
+            <option value="0">全部
+            <option value="1">空闲中
+            <option value="2">使用中
+            <option value="3">保洁中
+        </select>
+        <input type="submit" class="search_btn" value="搜&nbsp;索"/>&nbsp;&nbsp;
+        <input type="button" class="add_btn" onclick="javascript:openWindow('${ctx}/meeting/toAdd','300','250');"
+               value="添加会议室"/>
+    </div>
+    <div id="room_manage_list">
+    <#include "meetingRoomList.html"/>
+    </div>
 </form>

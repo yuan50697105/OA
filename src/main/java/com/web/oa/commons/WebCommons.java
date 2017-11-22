@@ -7,9 +7,9 @@ public class WebCommons {
     public final static String AUTH_FLAG = "flag";
     public final static String AUTH_MSG = "msg";
     //操作信息
-    public final static String OP_MSG="msg";
-    public final static String USER="user";
-    public final static String ORG="org";
-    public final static String USER_DATA="userData";
-    public final static String MENU_LIST="menuList";
+    public final static String OP_MSG = "msg";
+    public final static String USER = "user";
+    public final static String ORG = "org";
+    public final static String USER_DATA = "userData";
+    public final static String MENU_LIST = "menuList";
 }

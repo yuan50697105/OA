@@ -1,99 +1,101 @@
 <#include "/common/header.html"/>
 <html>
 <head>
-<title>新增角色</title>
-<script type="text/javascript">
-function returnBack() {
-	window.opener.location.href=window.opener.location.href;
-	self.close();
-}
-$(function(){
-	$("#addBtn").click(function(){
-	if($('input[name="menuId"]:checked').val()==undefined){
-		showMsg(0,"请选择菜单");
-		return false;
-	}
-    //获取选择的菜单id
-	var retstr = "";
-	var objs = document.getElementsByName("menuId");
-	var j = 0;
-	for ( var i = 0; i < objs.length; i++) {
-		if (objs[i].checked) {
-			j++;
-			retstr += "," + objs[i].value;
-		}
-	}
-	var str = retstr.substring(1, retstr.length);
-	$("#menuIds").val(str);
-	    
-	var formData = new FormData();
-	formData.append("roleName",$("#roleName").val());
-	formData.append("introduce",$("#introduce").val());
-	formData.append("menuIds",$("#menuIds").val());
+    <title>新增角色</title>
+    <script type="text/javascript">
+        function returnBack() {
+            window.opener.location.href = window.opener.location.href;
+            self.close();
+        }
 
-	var url = "${ctx}/admin/ajaxAddRole";
-	 $.ajax({  
-          url: url,  
-          type: 'POST',  
-          data: formData,
-          contentType:false,
-          processData: false,
-          success: function (flag) {  
-        	  if(flag){
-        		  showMsg(1,"新增成功");
-			  }
-          }  
-     });
-});
-});
-function showMsg(type,msg){
-	var d = dialog({
-		title: '温馨提示',
-	    content: msg,
-	});
-	d.show();
-	setTimeout(function () {
-	    d.close().remove();
-	    if(type == 1){
-	    	returnBack();
-		}
-	}, 1000);
-} 
+        $(function () {
+            $("#addBtn").click(function () {
+                if ($('input[name="menuId"]:checked').val() == undefined) {
+                    showMsg(0, "请选择菜单");
+                    return false;
+                }
+                //获取选择的菜单id
+                var retstr = "";
+                var objs = document.getElementsByName("menuId");
+                var j = 0;
+                for (var i = 0; i < objs.length; i++) {
+                    if (objs[i].checked) {
+                        j++;
+                        retstr += "," + objs[i].value;
+                    }
+                }
+                var str = retstr.substring(1, retstr.length);
+                $("#menuIds").val(str);
 
-</script>
+                var formData = new FormData();
+                formData.append("roleName", $("#roleName").val());
+                formData.append("introduce", $("#introduce").val());
+                formData.append("menuIds", $("#menuIds").val());
+
+                var url = "${ctx}/admin/ajaxAddRole";
+                $.ajax({
+                    url: url,
+                    type: 'POST',
+                    data: formData,
+                    contentType: false,
+                    processData: false,
+                    success: function (flag) {
+                        if (flag) {
+                            showMsg(1, "新增成功");
+                        }
+                    }
+                });
+            });
+        });
+
+        function showMsg(type, msg) {
+            var d = dialog({
+                title: '温馨提示',
+                content: msg,
+            });
+            d.show();
+            setTimeout(function () {
+                d.close().remove();
+                if (type == 1) {
+                    returnBack();
+                }
+            }, 1000);
+        }
+
+    </script>
 </head>
 <body class="windDiv">
-	<div class="title_text">
-		<p>您现在所在位置:职务权限&gt;&gt;角色权限&gt;&gt;</p>
-	</div>
-	<form id="form1" action="" method="post">
-		<input class="txtinput" type="hidden" name="menuIds" id="menuIds"/>
-		<div class="user_editor_table">
-			<table >
-				<tbody>
-					<tr>
-						<td class="txtright">角色名:</td>
-						<td><input class="txtinput" type="text" name="roleName" id="roleName"/>
-						</td>
-					</tr>
-					<tr>
-						<td class="txtright">角色描述:</td>
-						<td><textarea class="textarea" name="introduce" id="introduce"></textarea>
-						</td>
-					</tr>
-				</tbody>
-			</table>
-		</div>
-		<p>
-			<input type="button" id="addBtn" class="modal_btn" value="保存"/>
-			<input type="button" class="modal_btn" value=" 关  闭 " onclick="returnBack();"/>
-		</p>
-	</form>
+<div class="title_text">
+    <p>您现在所在位置:职务权限&gt;&gt;角色权限&gt;&gt;</p>
+</div>
+<form id="form1" action="" method="post">
+    <input class="txtinput" type="hidden" name="menuIds" id="menuIds"/>
+    <div class="user_editor_table">
+        <table>
+            <tbody>
+            <tr>
+                <td class="txtright">角色名:</td>
+                <td><input class="txtinput" type="text" name="roleName" id="roleName"/>
+                </td>
+            </tr>
+            <tr>
+                <td class="txtright">角色描述:</td>
+                <td><textarea class="textarea" name="introduce" id="introduce"></textarea>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <p>
+        <input type="button" id="addBtn" class="modal_btn" value="保存"/>
+        <input type="button" class="modal_btn" value=" 关  闭 " onclick="returnBack();"/>
+    </p>
+</form>
 
-	<div id="choose_impower_menu_list">
-		<div id="impower_menu_list">
-			<#include "impowerMenuList.html"/>
-		</div>
-	</div>
+<div id="choose_impower_menu_list">
+    <div id="impower_menu_list">
+    <#include "impowerMenuList.html"/>
+    </div>
+</div>
 </body>
 </html>

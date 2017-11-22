@@ -1,36 +1,36 @@
 <#include "/common/header.html"/>
 <title>会议室编辑</title>
 <script type="text/javascript">
-	function returnBack() {
-		self.close();
-	}
+    function returnBack() {
+        self.close();
+    }
 </script>
 <form id="form1" action="" method="post">
-	<input type="hidden" name="roomId" value="" />
-	<table>
-		<tr>
-			<td>会议室名:</td>
-			<td><input class="txtinput" type="text" name="roomName" value=""/></td>
-		</tr>
-		<tr>
-			<td>会议室名:</td>
-			<td>
-			<select value="status" id="status" name="status">
-				<option value="0">全部
-				<option value="1">空闲中
-				<option value="2">使用中
-				<option value="3">保洁中
-			</select>
-		</td>
-		</tr>
-		<tr>
-			<td>备注:</td>
-			<td><textarea name="remark" rows="4" cols="20"></textarea></td>
-		</tr>
-		<tr>
-			<td><input type="submit" class="modal_btn" value="保&nbsp;存" /></td>
-			<td><input type="button" class="modal_btn" value=" 关  闭 "
-				onclick="returnBack();" /></td>
-		</tr>
-	</table>
+    <input type="hidden" name="roomId" value=""/>
+    <table>
+        <tr>
+            <td>会议室名:</td>
+            <td><input class="txtinput" type="text" name="roomName" value=""/></td>
+        </tr>
+        <tr>
+            <td>会议室名:</td>
+            <td>
+                <select value="status" id="status" name="status">
+                    <option value="0">全部
+                    <option value="1">空闲中
+                    <option value="2">使用中
+                    <option value="3">保洁中
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>备注:</td>
+            <td><textarea name="remark" rows="4" cols="20"></textarea></td>
+        </tr>
+        <tr>
+            <td><input type="submit" class="modal_btn" value="保&nbsp;存"/></td>
+            <td><input type="button" class="modal_btn" value=" 关  闭 "
+                       onclick="returnBack();"/></td>
+        </tr>
+    </table>
 </form>

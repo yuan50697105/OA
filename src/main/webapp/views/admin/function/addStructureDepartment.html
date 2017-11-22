@@ -1,82 +1,83 @@
 <#include "/common/header.html"/>
 <title>新增部门</title>
 <script type="text/javascript">
-function returnBack() {
-	window.opener.location.href=window.opener.location.href;
-	self.close();
-}
+    function returnBack() {
+        window.opener.location.href = window.opener.location.href;
+        self.close();
+    }
 
-/** 当前文档加载完 */
-$(function() {
-	/** 表单输入校验 */
-	$("#addBtn").click(function() {
-		var superiorId = $("#superiorId").val();
-		var departmentName = $("#departmentName").val();
-		var introduce = $("#introduce").val();
+    /** 当前文档加载完 */
+    $(function () {
+        /** 表单输入校验 */
+        $("#addBtn").click(function () {
+            var superiorId = $("#superiorId").val();
+            var departmentName = $("#departmentName").val();
+            var introduce = $("#introduce").val();
 
-		var msg = "";
-		if ($.trim(departmentName) == "") {
-			msg = "部门名称不能为空！";
-		} 
-		if (msg != "") {
-			alert(msg);
-			return false;
-		} else {
-			var params = {
-					"superiorId":superiorId,"departmentName":departmentName,
-					"introduce":introduce};
-			var url = "${ctx}/admin/ajaxAddDepartment";
-			$.post(url,params,function(flag){
-					if(flag){
-						var d = dialog({
-							title: '温馨提示',
-						    content: '新增成功',
-						});
-						d.show();
-						setTimeout(function () {
-						    d.close().remove();
-						    returnBack();
-						}, 1000);
-					}
-			},"json");
-		}
-	});
-});
+            var msg = "";
+            if ($.trim(departmentName) == "") {
+                msg = "部门名称不能为空！";
+            }
+            if (msg != "") {
+                alert(msg);
+                return false;
+            } else {
+                var params = {
+                    "superiorId": superiorId, "departmentName": departmentName,
+                    "introduce": introduce
+                };
+                var url = "${ctx}/admin/ajaxAddDepartment";
+                $.post(url, params, function (flag) {
+                    if (flag) {
+                        var d = dialog({
+                            title: '温馨提示',
+                            content: '新增成功',
+                        });
+                        d.show();
+                        setTimeout(function () {
+                            d.close().remove();
+                            returnBack();
+                        }, 1000);
+                    }
+                }, "json");
+            }
+        });
+    });
 
 </script>
 <!-- 添加部门 -->
 <div id="department_editor" title="部门管理">
-	<form id="form1"  method="post">
-		<div class="add_table">
-			<table>
-				<tr>
-					<td class="txtright"><label>*</label> 父级部门名称:</td>
-					<td>
-						<select name="superiorId" id="superiorId">
-							<option value="0">${org.orgName}</option>
-							<#list departmentList as department>
-								<option value="${department.departmentId}">${department.departmentName}</option>
-							</#list>
-						</select>
-					</td>
-				</tr>
-				<tr>
-					<td class="txtright"><label>*</label> 部门名称:</td>
-					<td><input class="txtinput" id="departmentName"
-						name="departmentName"  type="text" />
-						<div id="show_departmentName" ></div>
-					</td>
-				</tr>
-				<tr>
-					<td class="txtright">部门描述:</td>
-					<td><textarea class="textarea" id="introduce" name="introduce"></textarea>
-					</td>
-				</tr>
-				<tr>
-					<td><input type="button" id="addBtn" value=" 新增 " /> </td>
-					<td><input type="button"  value=" 关  闭 " onclick="returnBack();" /> </td>
-				</tr>
-			</table>
-		</div>
-	</form>
+    <form id="form1" method="post">
+        <div class="add_table">
+            <table>
+                <tr>
+                    <td class="txtright"><label>*</label> 父级部门名称:</td>
+                    <td>
+                        <select name="superiorId" id="superiorId">
+                            <option value="0">${org.orgName}</option>
+                        <#list departmentList as department>
+                            <option value="${department.departmentId}">${department.departmentName}</option>
+                        </#list>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="txtright"><label>*</label> 部门名称:</td>
+                    <td><input class="txtinput" id="departmentName"
+                               name="departmentName" type="text"/>
+                        <div id="show_departmentName"></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="txtright">部门描述:</td>
+                    <td><textarea class="textarea" id="introduce" name="introduce"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td><input type="button" id="addBtn" value=" 新增 "/></td>
+                    <td><input type="button" value=" 关  闭 " onclick="returnBack();"/></td>
+                </tr>
+            </table>
+        </div>
+    </form>
 </div>

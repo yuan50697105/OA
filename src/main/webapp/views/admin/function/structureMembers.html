@@ -1,9 +1,12 @@
 <#assign ctx=request.contextPath>
 <div class="operation">
-    <input type="button" class="oper_cont" onclick="javascript:openWindow('${ctx}/admin/toAddEmployee','700','900');" value="添加员工" />
-    <input type="button" class="oper_cont" onclick="javascript:openWindow('${ctx}/admin/toAddDepartment','340','200');" value="添加部门" />
-    <input type="button" class="oper_cont" onclick="javascript:openWindow('${ctx}/admin/toEditDepartment','340','200');" value="编辑部门" />
+    <input type="button" class="oper_cont" onclick="javascript:openWindow('${ctx}/admin/toAddEmployee','700','900');"
+           value="添加员工"/>
+    <input type="button" class="oper_cont" onclick="javascript:openWindow('${ctx}/admin/toAddDepartment','340','200');"
+           value="添加部门"/>
+    <input type="button" class="oper_cont" onclick="javascript:openWindow('${ctx}/admin/toEditDepartment','340','200');"
+           value="编辑部门"/>
 </div>
 <div id="employee_list">
-     <#include "structureMembersList.html"/>
+<#include "structureMembersList.html"/>
 </div>

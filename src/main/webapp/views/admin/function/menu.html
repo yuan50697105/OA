@@ -1,34 +1,34 @@
 <#include "/common/header.html"/>
 <html>
 <head>
-<title>功能模块</title>
+    <title>功能模块</title>
 </head>
 <body>
-	<div id="menu_left" class="left">
-		<div class="infor">
-			<table >
-			<tr class="infor enter_infor">
-					<td><a>功能管理</a>
-					</td>
-				</tr>
-				<!-- <tr class="infor enter_infor">
-					<td><a>系统功能</a>
-					</td>
-				</tr>
-				<tr class="infor enter_set">
-					<td><a>自定义功能</a>
-					</td>
-				</tr> -->
-			</table>
-		</div>
-	</div>
-	<div id="menu_right" class="right">
-		<div id="system_menu" class="infor_show">
-			<#include "menuCustom.html"/>
-		</div>
-		<div id="custom_menu" class="infor_set">
-			<#include "menuCustom.html"/>
-		</div>
-	</div>
+<div id="menu_left" class="left">
+    <div class="infor">
+        <table>
+            <tr class="infor enter_infor">
+                <td><a>功能管理</a>
+                </td>
+            </tr>
+            <!-- <tr class="infor enter_infor">
+                <td><a>系统功能</a>
+                </td>
+            </tr>
+            <tr class="infor enter_set">
+                <td><a>自定义功能</a>
+                </td>
+            </tr> -->
+        </table>
+    </div>
+</div>
+<div id="menu_right" class="right">
+    <div id="system_menu" class="infor_show">
+    <#include "menuCustom.html"/>
+    </div>
+    <div id="custom_menu" class="infor_set">
+    <#include "menuCustom.html"/>
+    </div>
+</div>
 </body>
 </html>

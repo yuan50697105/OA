@@ -2,136 +2,136 @@
 <html>
 <title>注册提示</title>
 <head>
-	<#include "/common/header.html"/>
-      <link rel="stylesheet" type="text/css" href="${ctx}/css/index.css">
-<style>
-#bodyContent {
-	margin-left: auto;
-	margin-right: auto;
-	height: auto;
-	width: 970px;
-}
+<#include "/common/header.html"/>
+    <link rel="stylesheet" type="text/css" href="${ctx}/css/index.css">
+    <style>
+        #bodyContent {
+            margin-left: auto;
+            margin-right: auto;
+            height: auto;
+            width: 970px;
+        }
 
-.reg_box {
-	margin-left: auto;
-	margin-right: auto;
-	width: 712px;
-	height: auto;
-}
+        .reg_box {
+            margin-left: auto;
+            margin-right: auto;
+            width: 712px;
+            height: auto;
+        }
 
-.top_img {
-	background: url("../images/login/top.png") no-repeat center;
-	width: 712px;
-	height: 91px;
-}
+        .top_img {
+            background: url("../images/login/top.png") no-repeat center;
+            width: 712px;
+            height: 91px;
+        }
 
-.body_img {
-	background: url("../images/login/body.png") repeat-y center;
-	width: 712px;
-	height: auto;
-}
+        .body_img {
+            background: url("../images/login/body.png") repeat-y center;
+            width: 712px;
+            height: auto;
+        }
 
-.bottom_img {
-	background: url("../images/login/bottom.png") no-repeat center;
-	width: 712px;
-	height: 8px;
-}
+        .bottom_img {
+            background: url("../images/login/bottom.png") no-repeat center;
+            width: 712px;
+            height: 8px;
+        }
 
-.top_img p {
-	color: #005700;
-	font-family: Arial;
-	font-size: 22px;
-	font-weight: bold;
-	margin-top: 45px;
-}
+        .top_img p {
+            color: #005700;
+            font-family: Arial;
+            font-size: 22px;
+            font-weight: bold;
+            margin-top: 45px;
+        }
 
-html>body .top_img p {
-	color: #005700;
-	font-family: Arial;
-	font-size: 22px;
-	font-weight: bold;
-	padding-top: 40px;
-}
+        html > body .top_img p {
+            color: #005700;
+            font-family: Arial;
+            font-size: 22px;
+            font-weight: bold;
+            padding-top: 40px;
+        }
 
-.body_img table {
-	margin-left: auto;
-	margin-right: auto;
-}
+        .body_img table {
+            margin-left: auto;
+            margin-right: auto;
+        }
 
-.body_img table tr {
-	height: 30px;
-}
+        .body_img table tr {
+            height: 30px;
+        }
 
-.body_img table tr span {
-	color: #9C9C9C;
-}
+        .body_img table tr span {
+            color: #9C9C9C;
+        }
 
-.body_img table tr a {
-	font-size: 12px;
-	color: #318080;
-}
+        .body_img table tr a {
+            font-size: 12px;
+            color: #318080;
+        }
 
-.body_img p {
-	color: #005700;
-	font-family: Arial;
-	font-size: 18px;
-	font-weight: bold;
-}
-</style>
+        .body_img p {
+            color: #005700;
+            font-family: Arial;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
-	<div id="bodyContent">
-		<div id="header">
-			<div class="headertop">
-				<div class="logo" title="Today Aim"></div>
-				<div class="text">
-					<ul>
-						<li><a href="">首页</a>
-						</li>
-						<li>|</li>
-						<li><a href="${ctx}/user/toLogin">登录</a>
-						</li>
-						<li>|</li>
-						<li><a href="#">帮助中心</a>
-						</li>
-					</ul>
-				</div>
-			</div>
-		</div>
+<div id="bodyContent">
+    <div id="header">
+        <div class="headertop">
+            <div class="logo" title="Today Aim"></div>
+            <div class="text">
+                <ul>
+                    <li><a href="">首页</a>
+                    </li>
+                    <li>|</li>
+                    <li><a href="${ctx}/user/toLogin">登录</a>
+                    </li>
+                    <li>|</li>
+                    <li><a href="#">帮助中心</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
 
-		<div class="reg_box">
-		     <h1><font color="red">${msg}</font></h1>
-		     
-			<div class="top_img">
-				<p>您的机构号&nbsp;${org.orgId},请注意保管好</p>
-			</div>
-			<div class="body_img">
-				<table>
-					<tr>
-						<td colspan="2"><p></p></td>
-					</tr>
-					<tr>
-						<td>您的登录帐号为 :</td>
-						<td><p>${user.userName}</p>
-						</td>
-					</tr>
-					<tr>
-						<td colspan="2"><span>进入系统后可以修改您公司的详细信息</span></td>
-					</tr>
-					<tr>
-						<td><a href="${ctx}/user/toLogin">进入系统</a></td>
-						<td></td>
-					</tr>
-					<tr>
-						<td colspan="2"><p></p></td>
-					</tr>
-				</table>
-			</div>
-			
-			<div class="bottom_img"></div>
-		</div>
-		<#include "/common/footer.html"/>
-	</div>
+    <div class="reg_box">
+        <h1><font color="red">${msg}</font></h1>
+
+        <div class="top_img">
+            <p>您的机构号&nbsp;${org.orgId},请注意保管好</p>
+        </div>
+        <div class="body_img">
+            <table>
+                <tr>
+                    <td colspan="2"><p></p></td>
+                </tr>
+                <tr>
+                    <td>您的登录帐号为 :</td>
+                    <td><p>${user.userName}</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2"><span>进入系统后可以修改您公司的详细信息</span></td>
+                </tr>
+                <tr>
+                    <td><a href="${ctx}/user/toLogin">进入系统</a></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><p></p></td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="bottom_img"></div>
+    </div>
+<#include "/common/footer.html"/>
+</div>
 </body>
 </html>
 

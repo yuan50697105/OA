@@ -7,33 +7,35 @@
             <th>菜单级别</th>
             <th>状态</th>
             <th>功能描述</th>
-            <#if !flag??>
+        <#if !flag??>
             <th>操作</th>
-            </#if>
+        </#if>
         </tr>
-            <#if menuList??>
-            <#list menuList as m>
+    <#if menuList??>
+        <#list menuList as m>
             <tr>
                 <td>
-                  	<#if menu??>
-                    	<input type="radio" name="superiorId"  value="${m.menuId}" <#if menu.superiorId?? && menu.superiorId == m.menuId>checked</#if>/>
+                    <#if menu??>
+                        <input type="radio" name="superiorId" value="${m.menuId}"
+                               <#if menu.superiorId?? && menu.superiorId == m.menuId>checked</#if>/>
                     <#else>
-                    	<input type="radio" name="superiorId"  value="${m.menuId}"/>
+                        <input type="radio" name="superiorId" value="${m.menuId}"/>
                     </#if>
                 </td>
                 <td>${m.menuName}</td>
                 <td><#if m.type=='1'>系统菜单<#else>自定义菜单</#if></td>
-                <td><#if m.grade=='0'>系统管理<#elseif m.grade=='1'><font color="red">基础菜单</font><#else><font color="green">子菜单</font></#if></td>
+                <td><#if m.grade=='0'>系统管理<#elseif m.grade=='1'><font color="red">基础菜单</font><#else><font color="green">子菜单</font></#if>
+                </td>
                 <td><#if m.status=='1'><font color="green">启用</font><#else><font color="red">停用</font></#if></td>
                 <td>${m.functionIntroduce}</td>
                 <#if !flag??>
-                <td align="center">
-                <a href="javascript:void(0);"
-                  onclick="javascript:openWindow('${ctx}/admin/loadMenu?menuId=${m.menuId}','1000','400')">『查看/编辑』</a>
-                </td>
+                    <td align="center">
+                        <a href="javascript:void(0);"
+                           onclick="javascript:openWindow('${ctx}/admin/loadMenu?menuId=${m.menuId}','1000','400')">『查看/编辑』</a>
+                    </td>
                 </#if>
             </tr>
-            </#list>
-            </#if>
+        </#list>
+    </#if>
     </table>
 </div>

@@ -1,61 +1,61 @@
 <#include "/common/header.html"/>
 <title>新增会议室</title>
 <script type="text/javascript">
-	function returnBack() {
-		window.opener.location.href=window.opener.location.href;
-		self.close();
-	}
+    function returnBack() {
+        window.opener.location.href = window.opener.location.href;
+        self.close();
+    }
 
-	$(function(){
-		  $("#addBtn").click(function(){
-			    var roomName = $("#roomName").val();
-				var status = $("#status").val();
-				var remark = $("#remark").val();
-				var params = {"roomName":roomName,"status":status,"remark":remark};
-				var url = "${ctx}/meeting/ajaxAdd";
-				$.post(url,params,function(flag){
-						if(flag){
-							var d = dialog({
-								title: '温馨提示',
-							    content: '新增成功',
-							});
-							d.show();
-							setTimeout(function () {
-							    d.close().remove();
-							    returnBack();
-							}, 1000);
-						}
-				},"json");
-			});
-			
-	});
-	
+    $(function () {
+        $("#addBtn").click(function () {
+            var roomName = $("#roomName").val();
+            var status = $("#status").val();
+            var remark = $("#remark").val();
+            var params = {"roomName": roomName, "status": status, "remark": remark};
+            var url = "${ctx}/meeting/ajaxAdd";
+            $.post(url, params, function (flag) {
+                if (flag) {
+                    var d = dialog({
+                        title: '温馨提示',
+                        content: '新增成功',
+                    });
+                    d.show();
+                    setTimeout(function () {
+                        d.close().remove();
+                        returnBack();
+                    }, 1000);
+                }
+            }, "json");
+        });
+
+    });
+
 </script>
 <form id="form1" action="" method="post">
-	<table>
-		<tr>
-			<td>会议室名:</td>
-			<td><input class="txtinput" type="text" name="roomName" id="roomName" value=""/></td>
-		</tr>
-		<tr>
-			<td>会议室状态:</td>
-			<td>
-			<select value="status" id="status" name="status">
-				<option value="0">全部
-				<option value="1" selected>空闲中
-				<option value="2">使用中
-				<option value="3">保洁中
-			</select>
-		</td>
-		</tr>
-		<tr>
-			<td>备注:</td>
-			<td><textarea name="remark" id="remark" rows="4" cols="20"></textarea></td>
-		</tr>
-		<tr>
-			<td><input type="button" id="addBtn" class="modal_btn" value="保&nbsp;存" /></td>
-			<td><input type="button" class="modal_btn" value=" 关  闭 "
-				onclick="returnBack();" /></td>
-		</tr>
-	</table>
+    <table>
+        <tr>
+            <td>会议室名:</td>
+            <td><input class="txtinput" type="text" name="roomName" id="roomName" value=""/></td>
+        </tr>
+        <tr>
+            <td>会议室状态:</td>
+            <td>
+                <select value="status" id="status" name="status">
+                    <option value="0">全部
+                    <option value="1" selected>空闲中
+                    <option value="2">使用中
+                    <option value="3">保洁中
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>备注:</td>
+            <td><textarea name="remark" id="remark" rows="4" cols="20"></textarea></td>
+        </tr>
+        <tr>
+            <td><input type="button" id="addBtn" class="modal_btn" value="保&nbsp;存"/></td>
+            <td><input type="button" class="modal_btn" value=" 关  闭 "
+                       onclick="returnBack();"/></td>
+        </tr>
+    </table>
 </form>

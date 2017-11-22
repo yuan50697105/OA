@@ -1,4 +1,4 @@
-package com.web.oa.controller;
+package com.web.oa.controller.base;
 
 import com.web.oa.commons.WebCommons;
 import com.web.oa.utils.AuthCodeUtils;

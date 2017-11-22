@@ -1,6 +1,5 @@
-package com.web.oa.controller;
+package com.web.oa.controller.department;
 
-import com.web.oa.bean.Department;
 import com.web.oa.service.DepartmentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

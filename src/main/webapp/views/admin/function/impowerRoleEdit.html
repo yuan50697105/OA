@@ -1,96 +1,97 @@
 <html>
 <head>
-<title>角色编辑</title>
-<script type="text/javascript">
-	$().ready(function() {
-		$("#get_impower_menu_list").submit(function() {
-			var options = {
-				dataType : 'html',
-				target : '#impower_menu_list',
-				url : '${path}/admin/impower_findMenuByOption.action',
-				success : function(data) {
-					$("#impower_menu_list").html("");
-					$("#impower_menu_list").html(data);
-				}
-			};
-			$(this).ajaxSubmit(options);
-			return false;
-		});
-	});
-	function addMenu() {
-		var retstr = "";
-		var objs = document.getElementsByName("role_menuId");
-		var j = 0;
-		for ( var i = 0; i < objs.length; i++) {
-			if (objs[i].checked) {
-				j++;
-				retstr += "," + objs[i].value;
-			}
-		}
-		var str = retstr.substring(1, retstr.length);
-		$("#menuIds").val(str);
-		$("#save_role").submit();
-	}
+    <title>角色编辑</title>
+    <script type="text/javascript">
+        $().ready(function () {
+            $("#get_impower_menu_list").submit(function () {
+                var options = {
+                    dataType: 'html',
+                    target: '#impower_menu_list',
+                    url: '${path}/admin/impower_findMenuByOption.action',
+                    success: function (data) {
+                        $("#impower_menu_list").html("");
+                        $("#impower_menu_list").html(data);
+                    }
+                };
+                $(this).ajaxSubmit(options);
+                return false;
+            });
+        });
 
-	function menuOnclick(menuId) {
-		//alert(menuId);
-		// $("#"+menuId).attr("checked", "checked")
-	}
-</script>
+        function addMenu() {
+            var retstr = "";
+            var objs = document.getElementsByName("role_menuId");
+            var j = 0;
+            for (var i = 0; i < objs.length; i++) {
+                if (objs[i].checked) {
+                    j++;
+                    retstr += "," + objs[i].value;
+                }
+            }
+            var str = retstr.substring(1, retstr.length);
+            $("#menuIds").val(str);
+            $("#save_role").submit();
+        }
+
+        function menuOnclick(menuId) {
+            //alert(menuId);
+            // $("#"+menuId).attr("checked", "checked")
+        }
+    </script>
 </head>
 <script type="text/javascript">
-           function returnBack() {
-		self.close();
-	}
-        </script>
+    function returnBack() {
+        self.close();
+    }
+</script>
 <body class="windDiv">
-	<div class="title_text">
-		<p>您现在所在位置:职务权限&gt;&gt;角色权限&gt;&gt;</p>
-	</div>
-	<%@ include file="/pages/common/validate.jsp"%>
-	<form id="save_role" action="${path}/admin/impower_saveRole.action"
-		method="post">
-		<input type="hidden" id="roleId" name="role.roleId"
-			value="${role.roleId}" /> <input type="hidden" id="menuIds"
-			name="role.menuIds" value="${role.menuIds}" />
-		<div class="user_editor_table">
-			<table >
-				<tbody>
-					<tr>
-						<td class="txtright">角色名:</td>
-						<td><input class="txtinput" type="text" name="role.roleName"
-							value="${role.roleName}" />
-						</td>
-					</tr>
-					<tr>
-						<td></td>
-						<td><span>${message}</span></td>
-					</tr>
-					<tr>
-						<td class="txtright">角色描述:</td>
-						<td><textarea class="textarea" name="role.introduce">${role.introduce}</textarea>
-						</td>
-					</tr>
-					<tr>
-						<td>${menus}</td>
-					</tr>
-				</tbody>
-			</table>
-		</div>
-		<p>
-			<input type="button" onclick="addMenu();" class="modal_btn"
-				value="保存" />
-				<input type="button" class="modal_btn" value=" 关  闭 " onclick="returnBack();" />
-		</p>
-	</form>
+<div class="title_text">
+    <p>您现在所在位置:职务权限&gt;&gt;角色权限&gt;&gt;</p>
+</div>
+<%@ include file="/pages/common/validate.jsp"%>
+<form id="save_role" action="${path}/admin/impower_saveRole.action"
+      method="post">
+    <input type="hidden" id="roleId" name="role.roleId"
+           value="${role.roleId}"/> <input type="hidden" id="menuIds"
+                                           name="role.menuIds" value="${role.menuIds}"/>
+    <div class="user_editor_table">
+        <table>
+            <tbody>
+            <tr>
+                <td class="txtright">角色名:</td>
+                <td><input class="txtinput" type="text" name="role.roleName"
+                           value="${role.roleName}"/>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><span>${message}</span></td>
+            </tr>
+            <tr>
+                <td class="txtright">角色描述:</td>
+                <td><textarea class="textarea" name="role.introduce">${role.introduce}</textarea>
+                </td>
+            </tr>
+            <tr>
+                <td>${menus}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <p>
+        <input type="button" onclick="addMenu();" class="modal_btn"
+               value="保存"/>
+        <input type="button" class="modal_btn" value=" 关  闭 " onclick="returnBack();"/>
+    </p>
+</form>
 
-	<div id="choose_impower_menu_list" style="display:none;">
-		<form id="get_impower_menu_list"
-			action="${path}/admin/impower_findMenuByOption.action" method="post">
-			<div id="impower_menu_list">
-				<%@ include file="impower_menu_list.jsp"%>
-			</div>
-		</form>
-	</div>
+<div id="choose_impower_menu_list" style="display:none;">
+    <form id="get_impower_menu_list"
+          action="${path}/admin/impower_findMenuByOption.action" method="post">
+        <div id="impower_menu_list">
+            <%@ include file="impower_menu_list.jsp"%>
+        </div>
+    </form>
+</div>
 </body>
 </html>

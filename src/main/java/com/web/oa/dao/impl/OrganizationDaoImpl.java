@@ -10,12 +10,13 @@ import org.springframework.stereotype.Repository;
 public class OrganizationDaoImpl implements OrganizationDao {
     @Autowired
     private HibernateTemplate hibernateTemplate;
+
     @Override
     public boolean save(Organization organization) {
         try {
             hibernateTemplate.save(organization);
             return true;
-        }catch (RuntimeException e){
+        } catch (RuntimeException e) {
             e.printStackTrace();
             return false;
         }
@@ -26,7 +27,7 @@ public class OrganizationDaoImpl implements OrganizationDao {
         try {
             hibernateTemplate.delete(getById(id));
             return true;
-        }catch (RuntimeException e){
+        } catch (RuntimeException e) {
             e.printStackTrace();
             return false;
         }
@@ -37,7 +38,7 @@ public class OrganizationDaoImpl implements OrganizationDao {
         try {
             hibernateTemplate.update(organization);
             return true;
-        }catch (RuntimeException e){
+        } catch (RuntimeException e) {
             e.printStackTrace();
             return false;
         }
@@ -45,6 +46,6 @@ public class OrganizationDaoImpl implements OrganizationDao {
 
     @Override
     public Organization getById(Long id) {
-        return hibernateTemplate.get(Organization.class,id);
+        return hibernateTemplate.get(Organization.class, id);
     }
 }

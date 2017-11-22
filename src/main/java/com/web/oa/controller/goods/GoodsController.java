@@ -1,4 +1,4 @@
-package com.web.oa.controller;
+package com.web.oa.controller.goods;
 
 import com.web.oa.service.GoodsService;
 import org.springframework.beans.factory.annotation.Autowired;
