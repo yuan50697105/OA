@@ -8,6 +8,7 @@ import org.hibernate.annotations.DynamicUpdate;
 import javax.persistence.*;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Map;
 
 @Entity
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE, region = "myCache")
@@ -27,6 +28,23 @@ public class User {
     private String wtu; //五笔码
     private String privateKey;// 私钥
     private String position;// 职位 1：管理员 2：普通用户
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "userId=" + userId +
+                ", orgId=" + orgId +
+                ", userName='" + userName + '\'' +
+                ", userPassword='" + userPassword + '\'' +
+                ", createTime=" + createTime +
+                ", expireTime=" + expireTime +
+                ", mark='" + mark + '\'' +
+                ", spellCode='" + spellCode + '\'' +
+                ", wtu='" + wtu + '\'' +
+                ", privateKey='" + privateKey + '\'' +
+                ", position='" + position + '\'' +
+                '}';
+    }
 
     public Long getUserId() {
         return userId;

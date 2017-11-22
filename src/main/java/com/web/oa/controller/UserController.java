@@ -11,9 +11,11 @@ import org.springframework.stereotype.Repository;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import sun.awt.windows.WEmbeddedFrame;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -26,32 +28,41 @@ public class UserController {
     public String toLogin(){
         return "user/login";
     }
+    @RequestMapping("/login")
+    public String login(User user, HttpSession session){
+        Map<String,Object> map=userService.login(user);
+        session.setAttribute(WebCommons.USER,map.get(WebCommons.USER));
+        session.setAttribute(WebCommons.ORG,map.get(WebCommons.ORG));
+        session.setAttribute(WebCommons.USER_DATA,map.get(WebCommons.USER_DATA));
+        return "main/main";
+    }
+    @RequestMapping("/loginOut")
+    public String loginOut(HttpSession session){
+        session.invalidate();
+        return "redirect:/user/login";
+    }
     @RequestMapping("/toRegistor")
     public String toReg(){
         return "user/register";
     }
-    @RequestMapping("/registor")
+    @RequestMapping(value = "/registor",method = RequestMethod.POST)
     public String reg(User user, Organization organization, UserData userData, Model model){
-        if(null!=organization &&!"".equals(organization.getOrgName())){
-            if(null!=user&&!"".equals(user.getUserName())){
-                Map map=userService.reg(user,userData,organization);
-                if(null!=map){
-                    user= (User) map.get(WebCommons.USER);
-                    organization= (Organization) map.get(WebCommons.ORG);
-                    model.addAttribute(WebCommons.USER,user);
-                    model.addAttribute(WebCommons.ORG,organization);
-                    model.addAttribute(WebCommons.OP_MSG,"恭喜注册成功");
-                    return "user/reg_msg";
-                }else {
-                    model.addAttribute(WebCommons.OP_MSG,"注册失败");
-
-                }
-            }
+        System.out.println(organization);
+        System.out.println(user);
+        System.out.println(userData);
+        Map map=userService.reg(user,userData,organization);
+        if(null!=map){
+            user= (User) map.get(WebCommons.USER);
+            organization= (Organization) map.get(WebCommons.ORG);
+            model.addAttribute(WebCommons.USER,user);
+            model.addAttribute(WebCommons.ORG,organization);
+            model.addAttribute(WebCommons.OP_MSG,"恭喜注册成功");
+            return "user/register_message";
+        }else {
+            model.addAttribute(WebCommons.OP_MSG,"注册失败");
+            return "user/register";
         }
-        return "user/register";
+
     }
-    @RequestMapping(value = "/login",method = RequestMethod.POST)
-    public String login(User user){
-        return "";
-    }
+
 }

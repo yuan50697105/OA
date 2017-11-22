@@ -23,4 +23,7 @@ public interface UserDao {
     Long countByUserName(String userName);
 
     List<User> findByUserName(String userName,int page,int size);
+
+    User getByUser(User user);
+
 }

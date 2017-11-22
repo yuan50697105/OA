@@ -43,6 +43,38 @@ public class UserData {
     private File headFile;//
     private String headFileNmae;// 姓名
 
+    @Override
+    public String toString() {
+        return "UserData{" +
+                "userId=" + userId +
+                ", orgId=" + orgId +
+                ", name='" + name + '\'' +
+                ", sex='" + sex + '\'' +
+                ", head='" + head + '\'' +
+                ", nation='" + nation + '\'' +
+                ", birthdate=" + birthdate +
+                ", age='" + age + '\'' +
+                ", identityCard='" + identityCard + '\'' +
+                ", politicsStatus='" + politicsStatus + '\'' +
+                ", maritalStatus='" + maritalStatus + '\'' +
+                ", school='" + school + '\'' +
+                ", education='" + education + '\'' +
+                ", graduationDate=" + graduationDate +
+                ", workTime=" + workTime +
+                ", major='" + major + '\'' +
+                ", nativePlace='" + nativePlace + '\'' +
+                ", zipCode='" + zipCode + '\'' +
+                ", address='" + address + '\'' +
+                ", telephone='" + telephone + '\'' +
+                ", mobilePhone='" + mobilePhone + '\'' +
+                ", email='" + email + '\'' +
+                ", QQ='" + QQ + '\'' +
+                ", remark='" + remark + '\'' +
+                ", headFile=" + headFile +
+                ", headFileNmae='" + headFileNmae + '\'' +
+                '}';
+    }
+
     public Long getUserId() {
         return userId;
     }

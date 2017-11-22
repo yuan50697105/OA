@@ -2,16 +2,22 @@ package com.web.oa.dao.impl;
 
 import com.web.oa.bean.User;
 import com.web.oa.dao.UserDao;
-import com.web.oa.utils.PageModel;
+import org.hibernate.Criteria;
+import org.hibernate.HibernateException;
+import org.hibernate.Session;
 import org.hibernate.criterion.DetachedCriteria;
+import org.hibernate.criterion.Example;
 import org.hibernate.criterion.MatchMode;
-import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
+import org.hibernate.query.Query;
+import org.hibernate.transform.Transformers;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.orm.hibernate5.HibernateCallback;
 import org.springframework.orm.hibernate5.HibernateTemplate;
 import org.springframework.stereotype.Repository;
 import org.springframework.util.StringUtils;
 
+import javax.print.DocFlavor;
 import java.util.List;
 @Repository
 public class UserDaoImpl implements UserDao {
@@ -92,5 +98,13 @@ public class UserDaoImpl implements UserDao {
         return (List<User>) hibernateTemplate.findByCriteria(detachedCriteria,page,size);
     }
 
-
+    @Override
+    public User getByUser(User user) {
+      try {
+          return hibernateTemplate.findByExample(user).get(0);
+      }catch (Exception e){
+          e.printStackTrace();
+          return null;
+      }
+    }
 }

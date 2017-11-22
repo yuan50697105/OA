@@ -37,6 +37,27 @@ public class Organization implements Serializable {
     private String businessLicenseNo;// 营业执照号
     private String remark;// 备注
 
+    @Override
+    public String toString() {
+        return "Organization{" +
+                "orgId=" + orgId +
+                ", superiorId='" + superiorId + '\'' +
+                ", orgName='" + orgName + '\'' +
+                ", type='" + type + '\'' +
+                ", introduction='" + introduction + '\'' +
+                ", registeredCapital='" + registeredCapital + '\'' +
+                ", registerTime=" + registerTime +
+                ", status='" + status + '\'' +
+                ", corporation='" + corporation + '\'' +
+                ", telephone='" + telephone + '\'' +
+                ", zipCode='" + zipCode + '\'' +
+                ", email='" + email + '\'' +
+                ", address='" + address + '\'' +
+                ", businessLicenseNo='" + businessLicenseNo + '\'' +
+                ", remark='" + remark + '\'' +
+                '}';
+    }
+
     public Long getOrgId() {
         return orgId;
     }

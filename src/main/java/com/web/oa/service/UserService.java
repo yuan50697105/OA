@@ -10,4 +10,8 @@ public interface UserService {
     boolean save(User user, UserData userData, Organization organization);
 
     Map<String,Object> reg(User user, UserData userData, Organization organization);
+
+
+    Map<String,Object> login(User user);
+
 }

@@ -66,11 +66,27 @@ public class UserServiceImpl implements UserService {
                     userData.setUserId(user.getUserId());
                     flag=userDataDao.save(userData);
                     if(flag){
-                        map.put(WebCommons.USERDATA,userData);
+                        map.put(WebCommons.USER_DATA,userData);
                     }
                 }
             }
         }
-        return null;
+        return map;
     }
+
+    @Override
+    public Map<String, Object> login(User user) {
+        Map<String,Object> map=new HashMap<>();
+        user=userDao.getByUser(user);
+        if(null!=user){
+            map.put(WebCommons.USER,user);
+            Organization organization=organizationDao.getById(user.getOrgId());
+            map.put(WebCommons.ORG,organization);
+            UserData userData=userDataDao.getById(user.getUserId());
+            map.put(WebCommons.USER_DATA,userData);
+        }
+        return map;
+    }
+
+
 }

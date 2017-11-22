@@ -6,7 +6,7 @@ import java.util.Random;
 
 public class AuthCodeUtils {
     public static String getCode() {
-        String string = "123456789QWERTYUIOPASDFGHJKLZXCVBNM";
+        String string = "123456789QWERTYUIPASDFGHJKLZXCVBNM";
         Random random = new Random();
         StringBuilder stringBuilder = new StringBuilder();
         for (int i = 0; i < 4; i++) {

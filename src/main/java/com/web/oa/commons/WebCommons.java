@@ -10,5 +10,5 @@ public class WebCommons {
     public final static String OP_MSG="msg";
     public final static String USER="user";
     public final static String ORG="org";
-    public final static String USERDATA="user_data";
+    public final static String USER_DATA="userData";
 }
