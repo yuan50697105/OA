@@ -39,7 +39,7 @@ public class UserController {
     @RequestMapping("/loginOut")
     public String loginOut(HttpSession session){
         session.invalidate();
-        return "redirect:/user/login";
+        return "redirect:/user/toLogin";
     }
     @RequestMapping("/toRegistor")
     public String toReg(){

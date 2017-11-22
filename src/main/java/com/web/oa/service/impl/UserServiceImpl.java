@@ -1,9 +1,11 @@
 package com.web.oa.service.impl;
 
+import com.web.oa.bean.Menu;
 import com.web.oa.bean.Organization;
 import com.web.oa.bean.User;
 import com.web.oa.bean.UserData;
 import com.web.oa.commons.WebCommons;
+import com.web.oa.dao.MenuDao;
 import com.web.oa.dao.OrganizationDao;
 import com.web.oa.dao.UserDao;
 import com.web.oa.dao.UserDataDao;
@@ -13,6 +15,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Service
@@ -23,6 +26,8 @@ public class UserServiceImpl implements UserService {
     private UserDataDao userDataDao;
     @Autowired
     private UserDao userDao;
+    @Autowired
+    private MenuDao menuDao;
     @Override
     public boolean save(User user, UserData userData, Organization organization) {
         //组织注册
@@ -84,6 +89,8 @@ public class UserServiceImpl implements UserService {
             map.put(WebCommons.ORG,organization);
             UserData userData=userDataDao.getById(user.getUserId());
             map.put(WebCommons.USER_DATA,userData);
+            List<Menu> menus=menuDao.listByUserId(user.getUserId());
+            map.put(WebCommons.MENU_LIST,menus);
         }
         return map;
     }

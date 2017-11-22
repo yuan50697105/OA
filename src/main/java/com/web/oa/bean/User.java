@@ -16,7 +16,7 @@ import java.util.Map;
 @DynamicUpdate(value = true)
 public class User {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long userId; //用户Id
     private Long orgId; //机构Id
     private String userName; //帐号

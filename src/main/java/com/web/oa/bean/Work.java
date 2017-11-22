@@ -14,7 +14,7 @@ import java.util.Date;
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE, region = "myCache")
 public class Work {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long workId;
     private Long orgId;
     private Long userId;

@@ -3619,7 +3619,6 @@
       <Position>1</Position>
       <DataType>bigint(20)|0</DataType>
       <NotNull>1</NotNull>
-      <SequenceIdentity>1</SequenceIdentity>
     </column>
     <column id="831" parent="88" name="createTime">
       <Position>2</Position>
@@ -3780,7 +3779,6 @@
       <Position>1</Position>
       <DataType>bigint(20)|0</DataType>
       <NotNull>1</NotNull>
-      <SequenceIdentity>1</SequenceIdentity>
     </column>
     <column id="870" parent="90" name="endDate">
       <Position>2</Position>
