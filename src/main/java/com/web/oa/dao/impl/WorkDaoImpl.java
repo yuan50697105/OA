@@ -59,4 +59,17 @@ public class WorkDaoImpl implements WorkDao {
             return false;
         }
     }
+
+    @Override
+    public boolean delete(Long workId) {
+        try {
+            Work work=new Work();
+            work.setWorkId(workId);
+            hibernateTemplate.delete(work);
+            return true;
+        }catch (RuntimeException e){
+            e.printStackTrace();
+            return false;
+        }
+    }
 }

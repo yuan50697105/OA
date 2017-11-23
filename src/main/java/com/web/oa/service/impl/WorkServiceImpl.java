@@ -31,4 +31,9 @@ public class WorkServiceImpl implements WorkService {
     public boolean update(Work work) {
         return workDao.update(work);
     }
+
+    @Override
+    public boolean delete(Long workId) {
+       return workDao.delete(workId);
+    }
 }

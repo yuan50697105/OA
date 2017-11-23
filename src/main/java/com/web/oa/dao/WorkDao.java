@@ -28,4 +28,6 @@ public interface WorkDao {
     Work getById(Long id);
 
     boolean update(Work work);
+
+    boolean delete(Long workId);
 }

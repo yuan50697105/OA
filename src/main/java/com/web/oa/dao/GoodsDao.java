@@ -1,10 +1,10 @@
-package com.web.oa.service;
+package com.web.oa.dao;
 
 import com.web.oa.bean.Goods;
 
 import java.util.List;
 
-public interface GoodsService {
+public interface GoodsDao {
     List<Goods> getGoodsList();
 
     boolean save(Goods goods);

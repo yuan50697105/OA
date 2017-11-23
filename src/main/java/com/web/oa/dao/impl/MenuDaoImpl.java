@@ -23,35 +23,18 @@ public class MenuDaoImpl implements MenuDao {
     private HibernateTemplate hibernateTemplate;
 
 
-    public List<Menu> listByUserId1(Long userId) {
-        String hql = "select m from Menu m where m.menuId in(select i.menuId from Impower i where i.roleId in(select dm.roleId from DepartmentMembers dm where dm.userId =:userid))";
-        Session session = hibernateTemplate.getSessionFactory().getCurrentSession();
-        Query<Menu> query = session.createQuery(hql, Menu.class);
-        query.setParameter("userid", userId);
-        return query.list();
-    }
-    public List<Menu> listByUserId2(Long userId){
-       DetachedCriteria department=DetachedCriteria.forClass(DepartmentMembers.class);
-       department.add(Property.forName("userId").eq(userId));
-       department.setProjection(Projections.property("roleId"));
-       DetachedCriteria impower=DetachedCriteria.forClass(Impower.class);
-       impower.add(Property.forName("roleId").in(department));
-       impower.setProjection(Projections.property("menuId"));
-       DetachedCriteria menu=DetachedCriteria.forClass(Menu.class);
-       menu.add(Property.forName("menuId").in(impower));
-       return (List<Menu>) hibernateTemplate.findByCriteria(menu);
-    }
     @Override
     public List<Menu> listByUserId(Long userId) {
-        return listByUserId2(userId);
+        Session session=hibernateTemplate.getSessionFactory().getCurrentSession();
+        String hql="select m from Menu m where m.menuId in (select i.menuId from Impower i where i.roleId in (select dm.roleId from DepartmentMembers dm where dm.userId=:userid)) and m.grade!='0' and m.status='1' and m.superiorId=0";
+        Query<Menu> query=session.createQuery(hql,Menu.class);
+        query.setParameter("userid",userId);
+        return query.list();
     }
 
     @Override
     public List<Menu> lisByName(String menuName, long startIndex, int pageSize) {
-        DetachedCriteria detachedCriteria=DetachedCriteria.forClass(Menu.class);
-        if(!StringUtils.isEmpty(menuName)){
-            detachedCriteria.add(Restrictions.like("menuName",menuName, MatchMode.ANYWHERE));
-        }
-        return (List<Menu>) hibernateTemplate.findByCriteria(detachedCriteria,Integer.valueOf(String.valueOf(startIndex)),pageSize);
+        return null;
     }
+
 }

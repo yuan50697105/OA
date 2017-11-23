@@ -49,4 +49,18 @@ public class WorkController {
     public boolean update(Work work){
         return workService.update(work);
     }
+    public String toAddWork(){
+        return "work/addWork";
+    }
+    @RequestMapping("/save")
+    @ResponseBody
+    public boolean addWork(Work work,HttpSession session){
+        User user= (User) session.getAttribute(WebCommons.USER);
+        work.setUserId(user.getUserId());
+        return workService.save(work);
+    }
+    @RequestMapping("/delete")
+    public boolean deleteWork(Long workId){
+        return workService.delete(workId);
+    }
 }

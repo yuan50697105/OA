@@ -12,4 +12,6 @@ public interface WorkService {
     Work getWork(Long id);
 
     boolean update(Work work);
+
+    boolean delete(Long workId);
 }
