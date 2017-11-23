@@ -1,6 +1,7 @@
-package com.web.oa.dao;
+package com.web.oa.dao.impl;
 
 import com.web.oa.bean.Role;
+import com.web.oa.dao.RoleDao;
 import org.hibernate.criterion.DetachedCriteria;
 import org.hibernate.criterion.MatchMode;
 import org.hibernate.criterion.Projections;
