@@ -15,9 +15,4 @@ import java.util.List;
 public class NoticeController {
     @Autowired
     private NoticeService noticeService;
-    private String getNoticeManage(String noticeType, String noticeName, HttpSession session,Model model){
-        List<Notice> noticeList=noticeService.getNoticeList(noticeType,noticeName);
-        model.addAttribute("noticeList",noticeList);
-        return "notice/noticeManage";
-    }
 }
