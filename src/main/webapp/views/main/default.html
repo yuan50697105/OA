@@ -78,7 +78,7 @@
         <table id="works"></table>
         <script>
             //配置ajax获取工作计划的url
-            var url = "${ctx}/work/ajaxGetWorkList?r=" + Math.random();
+            var url = "${ctx}/work/listByUseridAjax?r=" + Math.random();
             //执行ajax请求
             $.post(url, function (data) {
                 //处理返回的字符串数据，转换为json格式数据

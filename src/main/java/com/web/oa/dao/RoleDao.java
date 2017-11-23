@@ -2,6 +2,7 @@ package com.web.oa.dao;
 
 import com.web.oa.bean.Role;
 
+import javax.persistence.Lob;
 import java.util.List;
 
 public interface RoleDao {
@@ -16,5 +17,5 @@ public interface RoleDao {
 
     boolean update(Role role);
 
-    Object count(String name);
+    Long count(String name);
 }

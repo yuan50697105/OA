@@ -79,7 +79,7 @@
                     "workName": workName, "work": work,
                     "planStartDate": planStartDate, "planEndDate": planEndDate
                 };
-                var url = "${ctx}/work/ajaxUpdateWork";
+                var url = "${ctx}/work/update";
                 $.post(url, params, function (flag) {
                     if (flag) {
                         var d = dialog({
