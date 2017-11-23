@@ -89,6 +89,7 @@ public class WorkController {
      * @return
      */
     @RequestMapping("/delete")
+    @ResponseBody
     public boolean deleteWork(Long workId){
         return workService.delete(workId);
     }
