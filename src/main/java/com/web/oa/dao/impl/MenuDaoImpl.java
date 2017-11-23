@@ -6,16 +6,16 @@ import com.web.oa.bean.Impower;
 import com.web.oa.bean.Menu;
 import com.web.oa.dao.MenuDao;
 import org.hibernate.Session;
-import org.hibernate.criterion.DetachedCriteria;
-import org.hibernate.criterion.Projections;
-import org.hibernate.criterion.Property;
-import org.hibernate.criterion.Restrictions;
+import org.hibernate.criterion.*;
 import org.hibernate.query.Query;
 import org.hibernate.transform.Transformers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate5.HibernateTemplate;
 import org.springframework.stereotype.Repository;
+import org.springframework.util.StringUtils;
 
+import java.lang.reflect.Member;
+import java.text.DecimalFormat;
 import java.util.List;
 @Repository
 public class MenuDaoImpl implements MenuDao {
@@ -44,5 +44,14 @@ public class MenuDaoImpl implements MenuDao {
     @Override
     public List<Menu> listByUserId(Long userId) {
         return listByUserId2(userId);
+    }
+
+    @Override
+    public List<Menu> lisByName(String menuName, long startIndex, int pageSize) {
+        DetachedCriteria detachedCriteria=DetachedCriteria.forClass(Menu.class);
+        if(!StringUtils.isEmpty(menuName)){
+            detachedCriteria.add(Restrictions.like("menuName",menuName, MatchMode.ANYWHERE));
+        }
+        return (List<Menu>) hibernateTemplate.findByCriteria(detachedCriteria,Integer.valueOf(String.valueOf(startIndex)),pageSize);
     }
 }

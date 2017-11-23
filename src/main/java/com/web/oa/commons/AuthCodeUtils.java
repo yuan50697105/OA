@@ -1,4 +1,4 @@
-package com.web.oa.utils;
+package com.web.oa.commons;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;

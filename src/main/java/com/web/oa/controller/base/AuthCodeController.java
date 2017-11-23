@@ -1,7 +1,7 @@
 package com.web.oa.controller.base;
 
 import com.web.oa.commons.WebCommons;
-import com.web.oa.utils.AuthCodeUtils;
+import com.web.oa.commons.AuthCodeUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;

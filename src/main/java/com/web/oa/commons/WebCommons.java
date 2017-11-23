@@ -12,4 +12,5 @@ public class WebCommons {
     public final static String ORG = "org";
     public final static String USER_DATA = "userData";
     public final static String MENU_LIST = "menuList";
+    public final static String TIP="tip";
 }
