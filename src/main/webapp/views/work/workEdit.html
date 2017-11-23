@@ -2,7 +2,7 @@
 <html>
 <head>
     <title>工作计划</title>
-<#assign ctx=request.contextPath>
+    <#assign ctx=request.contextPath>
     <link rel="shortcut icon" href="${ctx}/images/logo/logo.ico"/>
     <link rel="Bookmark" href="${ctx}/images/logo/logo.ico"/>
     <script type="text/javascript" src="${ctx}/js/jquery/jquery-1.11.0.js"></script>
@@ -121,7 +121,7 @@
             <td>计划开始时间:</td>
             <td>
                 <span id="planStartDate_Error"></span>
-                <input id="planStartDate" class="Wdate" name="planStartDate" value="${work.planStartDate?default('')}"
+                <input id="planStartDate" class="Wdate" name="planStartDate" value="${(work.planStartDate?string('yyyy-MM-dd'))?default('')}"
                        onfocus="WdatePicker({dateFmt:'yyyy-MM-dd',readOnly:false,maxDate:'#F{$dp.$D(\'planEndDate\')}'});"/>
             </td>
         </tr>
@@ -129,7 +129,7 @@
             <td>计划完成时间:</td>
             <td>
                 <span id="planEndDate_Error"></span>
-                <input id="planEndDate" class="Wdate" name="planEndDate" value="${work.planEndDate?default('')}"
+                <input id="planEndDate" class="Wdate" name="planEndDate" value="${(work.planEndDate?string('yyyy-MM-dd'))?default('')}"
                        onfocus="WdatePicker({dateFmt:'yyyy-MM-dd',readOnly:true,minDate:'#F{$dp.$D(\'planStartDate\',{d:+1})}'});"/>
             </td>
         </tr>

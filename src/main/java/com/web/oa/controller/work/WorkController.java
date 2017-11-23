@@ -20,45 +20,74 @@ import java.util.List;
 public class WorkController {
     @Autowired
     private WorkService workService;
-    @RequestMapping("/listByUseridAjax")
+
+    /**
+     * 通过Ajax获取工作计划
+     * @param session 获取session中的User
+     * @return 工作计划列表
+     */
+    @RequestMapping("/ajaxGetWorkList")
     @ResponseBody
-    public List<Work> list(HttpSession session){
+    public List<Work> ajaxGetWorkList(HttpSession session){
         User user= (User) session.getAttribute(WebCommons.USER);
         return workService.list(user.getUserId());
     }
+
+    /**
+     * @param session
+     * @return
+     */
+    @RequestMapping("/getWorkList")
+    public String getWorkList(HttpSession session,Model model){
+        User user= (User) session.getAttribute(WebCommons.USER);
+        List<Work> workList =workService.list(user.getUserId());
+        model.addAttribute("workList",workList);
+        return "work/workList";
+    }
+    /**
+     * 查看工作一个工作计划
+     * @param workId 工作计划编号
+     * @param model
+     * @return
+     */
     @RequestMapping("/getWork")
     public String getWork(Long workId, Model model){
         Work work=workService.getWork(workId);
         model.addAttribute("work",work);
         return "work/workEdit";
     }
-    @RequestMapping("/toSave")
-    public String toSave(){
-        return null;
-    }
-    @RequestMapping("/save")
-    public String save(Work work, HttpSession session, RedirectAttributes attributes){
-        User user= (User) session.getAttribute(WebCommons.USER);
-        work.setUserId(user.getUserId());
-        boolean flag=workService.save(work);
-        attributes.addFlashAttribute(WebCommons.TIP, SQLTip.save(flag));
-        return null;
-    }
+
+    /**
+     * @param work
+     * @return
+     */
     @RequestMapping("/update")
     @ResponseBody
     public boolean update(Work work){
         return workService.update(work);
     }
+    @RequestMapping("/toAddWork")
     public String toAddWork(){
         return "work/addWork";
     }
-    @RequestMapping("/save")
+
+    /**
+     * @param work
+     * @param session
+     * @return
+     */
+    @RequestMapping("/add")
     @ResponseBody
     public boolean addWork(Work work,HttpSession session){
         User user= (User) session.getAttribute(WebCommons.USER);
         work.setUserId(user.getUserId());
         return workService.save(work);
     }
+
+    /**
+     * @param workId
+     * @return
+     */
     @RequestMapping("/delete")
     public boolean deleteWork(Long workId){
         return workService.delete(workId);

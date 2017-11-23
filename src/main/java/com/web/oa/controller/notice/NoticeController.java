@@ -15,4 +15,7 @@ import java.util.List;
 public class NoticeController {
     @Autowired
     private NoticeService noticeService;
+    public List<Notice> ajaxGetNoticeList(){
+        return null;
+    }
 }

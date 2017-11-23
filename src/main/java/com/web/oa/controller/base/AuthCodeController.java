@@ -16,6 +16,11 @@ import java.util.Map;
 
 @Controller
 public class AuthCodeController {
+    /**
+     * 请求验证码
+     * @param session
+     * @param response
+     */
     @RequestMapping("/getAuthCode")
     public void getAuthCode(HttpSession session, HttpServletResponse response) {
         String code = AuthCodeUtils.getCode();
@@ -28,6 +33,12 @@ public class AuthCodeController {
         }
     }
 
+    /**
+     * 验证验证码
+     * @param code
+     * @param session
+     * @return
+     */
     @RequestMapping("/checkAuthCode")
     @ResponseBody
     public Map<String, Object> getVerifyCode(String code, HttpSession session) {

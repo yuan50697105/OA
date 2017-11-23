@@ -110,7 +110,7 @@
                 <td style="width:100px;">${work.planStartDate?string("yyyy-MM-dd")}</td>
                 <td style="width:100px;">${work.planEndDate?string("yyyy-MM-dd")}</td>
                 <td>
-                    <a href="#" class="tablelink">查看</a>&nbsp;|&nbsp;
+                    <a href="${ctx}/work/getWork?workId=${work.workId}" class="tablelink">查看</a>&nbsp;|&nbsp;
                     <a href="javascript:void(0);" id="deleteBtn2" class="tablelink">删除</a>
                 </td>
             </tr>
