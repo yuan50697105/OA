@@ -13,8 +13,4 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class MenuController {
     @Autowired
     private MenuService menuService;
-    public String list(String menuName,Integer page){
-        PageModel<Menu> pageModel=menuService.list(menuName,page,5);
-        return null;
-    }
 }

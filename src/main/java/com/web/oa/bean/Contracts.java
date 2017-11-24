@@ -12,7 +12,7 @@ import javax.persistence.Id;
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE, region = "myCache")
 public class Contracts {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long contractsId;
     private Long userId;
     private Long orgId;

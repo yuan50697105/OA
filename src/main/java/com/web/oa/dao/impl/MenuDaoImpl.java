@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate5.HibernateTemplate;
 import org.springframework.stereotype.Repository;
 import org.springframework.util.StringUtils;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.lang.reflect.Member;
 import java.text.DecimalFormat;
@@ -35,6 +36,13 @@ public class MenuDaoImpl implements MenuDao {
     @Override
     public List<Menu> lisByName(String menuName, long startIndex, int pageSize) {
         return null;
+    }
+
+    @Override
+    public List<Menu> getMenuListBySuperiorId(Long menuId) {
+        DetachedCriteria detachedCriteria=DetachedCriteria.forClass(Menu.class);
+        detachedCriteria.add(Restrictions.eq("superiorId",menuId));
+        return (List<Menu>) hibernateTemplate.findByCriteria(detachedCriteria);
     }
 
 }

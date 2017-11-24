@@ -13,4 +13,6 @@ public interface MenuDao {
     List<Menu> listByUserId(Long userId);
 
     List<Menu> lisByName(String menuName, long startIndex, int pageSize);
+
+    List<Menu> getMenuListBySuperiorId(Long menuId);
 }
