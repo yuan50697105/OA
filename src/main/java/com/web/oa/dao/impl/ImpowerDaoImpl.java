@@ -1,8 +1,6 @@
 package com.web.oa.dao.impl;
 
 import com.web.oa.bean.Impower;
-import com.web.oa.bean.Role;
-import com.web.oa.dao.impl.ImpowerDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate5.HibernateTemplate;
 import org.springframework.stereotype.Repository;
@@ -12,12 +10,13 @@ public class ImpowerDaoImpl implements ImpowerDao {
 
     @Autowired
     private HibernateTemplate hibernateTemplate;
+
     @Override
     public boolean save(Impower impower) {
         try {
             hibernateTemplate.save(impower);
             return true;
-        }catch (RuntimeException e){
+        } catch (RuntimeException e) {
             e.printStackTrace();
             return false;
         }
@@ -28,7 +27,7 @@ public class ImpowerDaoImpl implements ImpowerDao {
         try {
             hibernateTemplate.delete(getById(id));
             return true;
-        }catch (RuntimeException e){
+        } catch (RuntimeException e) {
             e.printStackTrace();
             return false;
         }
@@ -41,6 +40,6 @@ public class ImpowerDaoImpl implements ImpowerDao {
 
     @Override
     public Impower getById(Long id) {
-        return hibernateTemplate.get(Impower.class,id);
+        return hibernateTemplate.get(Impower.class, id);
     }
 }

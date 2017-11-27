@@ -11,16 +11,18 @@ import org.springframework.stereotype.Repository;
 import org.springframework.util.StringUtils;
 
 import java.util.List;
+
 @Repository
 public class DepartmentDaoImpl implements DepartmentDao {
     @Autowired
     private HibernateTemplate hibernateTemplate;
+
     @Override
     public boolean save(Department department) {
         try {
             hibernateTemplate.save(department);
             return true;
-        }catch (RuntimeException e){
+        } catch (RuntimeException e) {
             e.printStackTrace();
             return false;
         }
@@ -31,7 +33,7 @@ public class DepartmentDaoImpl implements DepartmentDao {
         try {
             hibernateTemplate.delete(getByDepartmentId(departmentId));
             return true;
-        }catch (RuntimeException e){
+        } catch (RuntimeException e) {
             e.printStackTrace();
             return false;
         }
@@ -42,7 +44,7 @@ public class DepartmentDaoImpl implements DepartmentDao {
         try {
             hibernateTemplate.update(department);
             return true;
-        }catch (RuntimeException e){
+        } catch (RuntimeException e) {
             e.printStackTrace();
             return false;
         }
@@ -50,20 +52,20 @@ public class DepartmentDaoImpl implements DepartmentDao {
 
     @Override
     public Department getByDepartmentId(Long departmentId) {
-        return hibernateTemplate.get(Department.class,departmentId);
+        return hibernateTemplate.get(Department.class, departmentId);
     }
 
     @Override
     public List<Department> listByDepartmentNameAndOrgId(String departmentName, Long orgId) {
-        DetachedCriteria detachedCriteria=DetachedCriteria.forClass(Department.class);
-        detachedCriteria.add(Restrictions.eq("orgId",orgId));
-        if(!StringUtils.isEmpty(departmentName)){
-            detachedCriteria.add(Restrictions.like("departmentName",departmentName, MatchMode.ANYWHERE));
+        DetachedCriteria detachedCriteria = DetachedCriteria.forClass(Department.class);
+        detachedCriteria.add(Restrictions.eq("orgId", orgId));
+        if (!StringUtils.isEmpty(departmentName)) {
+            detachedCriteria.add(Restrictions.like("departmentName", departmentName, MatchMode.ANYWHERE));
         }
-        List list=hibernateTemplate.findByCriteria(detachedCriteria);
+        List list = hibernateTemplate.findByCriteria(detachedCriteria);
         if (list.isEmpty()) {
             return null;
-        }else {
+        } else {
             return list;
         }
     }

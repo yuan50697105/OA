@@ -6,8 +6,12 @@ import java.util.List;
 
 public interface RoleDao {
     boolean save(Role role);
+
     boolean delete(Long roleId);
+
     boolean update(Role role);
+
     Role getByRoleId(Long roleId);
+
     List<Role> listByName(String name);
 }

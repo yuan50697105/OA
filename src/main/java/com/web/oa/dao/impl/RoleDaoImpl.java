@@ -11,16 +11,18 @@ import org.springframework.stereotype.Repository;
 import org.springframework.util.StringUtils;
 
 import java.util.List;
+
 @Repository
 public class RoleDaoImpl implements RoleDao {
     @Autowired
     private HibernateTemplate hibernateTemplate;
+
     @Override
     public boolean save(Role role) {
         try {
             hibernateTemplate.save(role);
             return true;
-        }catch (RuntimeException e){
+        } catch (RuntimeException e) {
             e.printStackTrace();
             return false;
         }
@@ -31,7 +33,7 @@ public class RoleDaoImpl implements RoleDao {
         try {
             hibernateTemplate.delete(getByRoleId(roleId));
             return true;
-        }catch (RuntimeException e){
+        } catch (RuntimeException e) {
             e.printStackTrace();
             return false;
         }
@@ -42,7 +44,7 @@ public class RoleDaoImpl implements RoleDao {
         try {
             hibernateTemplate.update(role);
             return true;
-        }catch (RuntimeException e){
+        } catch (RuntimeException e) {
             e.printStackTrace();
             return false;
         }
@@ -50,19 +52,19 @@ public class RoleDaoImpl implements RoleDao {
 
     @Override
     public Role getByRoleId(Long roleId) {
-        return hibernateTemplate.get(Role.class,roleId);
+        return hibernateTemplate.get(Role.class, roleId);
     }
 
     @Override
     public List<Role> listByName(String name) {
-        DetachedCriteria detachedCriteria=DetachedCriteria.forClass(Role.class);
-        if(!StringUtils.isEmpty(name)){
-            detachedCriteria.add(Restrictions.like("roleName",name, MatchMode.ANYWHERE));
+        DetachedCriteria detachedCriteria = DetachedCriteria.forClass(Role.class);
+        if (!StringUtils.isEmpty(name)) {
+            detachedCriteria.add(Restrictions.like("roleName", name, MatchMode.ANYWHERE));
         }
-        List list=hibernateTemplate.findByCriteria(detachedCriteria);
-        if(list.isEmpty()){
+        List list = hibernateTemplate.findByCriteria(detachedCriteria);
+        if (list.isEmpty()) {
             return null;
-        }else {
+        } else {
             return list;
         }
     }

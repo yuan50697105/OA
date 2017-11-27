@@ -12,12 +12,12 @@ import javax.servlet.http.HttpSession;
 public class LoginIntercepter implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-        HttpSession session=request.getSession();
-        User user= (User) session.getAttribute(WebCommons.USER);
-        if(null==user){
-            response.sendRedirect(request.getContextPath()+"/user/toLogin");
+        HttpSession session = request.getSession();
+        User user = (User) session.getAttribute(WebCommons.USER);
+        if (null == user) {
+            response.sendRedirect(request.getContextPath() + "/user/toLogin");
             return false;
-        }else {
+        } else {
             return true;
         }
     }

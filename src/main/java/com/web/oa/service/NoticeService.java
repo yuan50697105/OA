@@ -10,4 +10,9 @@ public interface NoticeService {
     List<Notice> getNoticeList(String noticeName, String noticeType);
 
     boolean save(Notice notice);
+
+    boolean delete(Long noticeId);
+
+    boolean update(Notice notice);
+
 }

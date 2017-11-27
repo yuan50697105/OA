@@ -11,16 +11,18 @@ import org.springframework.stereotype.Repository;
 import org.springframework.util.StringUtils;
 
 import java.util.List;
+
 @Repository
 public class ContractsDaoImpl implements ContractsDao {
     @Autowired
     private HibernateTemplate hibernateTemplate;
+
     @Override
     public boolean save(Contracts contracts) {
         try {
             hibernateTemplate.save(contracts);
             return true;
-        }catch (RuntimeException e){
+        } catch (RuntimeException e) {
             e.printStackTrace();
             return false;
         }
@@ -31,7 +33,7 @@ public class ContractsDaoImpl implements ContractsDao {
         try {
             hibernateTemplate.delete(getByContractsId(contractsId));
             return true;
-        }catch (RuntimeException e){
+        } catch (RuntimeException e) {
             e.printStackTrace();
             return false;
         }
@@ -42,7 +44,7 @@ public class ContractsDaoImpl implements ContractsDao {
         try {
             hibernateTemplate.update(contracts);
             return true;
-        }catch (RuntimeException e){
+        } catch (RuntimeException e) {
             e.printStackTrace();
             return false;
         }
@@ -50,20 +52,20 @@ public class ContractsDaoImpl implements ContractsDao {
 
     @Override
     public Contracts getByContractsId(Long contractsId) {
-        return hibernateTemplate.get(Contracts.class,contractsId);
+        return hibernateTemplate.get(Contracts.class, contractsId);
     }
 
     @Override
     public List<Contracts> listByContractsNameAndUserId(String contractsName, Long userId) {
-        DetachedCriteria detachedCriteria=DetachedCriteria.forClass(Contracts.class);
-        detachedCriteria.add(Restrictions.eq("userId",userId));
-        if(!StringUtils.isEmpty(contractsName)){
-            detachedCriteria.add(Restrictions.like("name",contractsName, MatchMode.ANYWHERE));
+        DetachedCriteria detachedCriteria = DetachedCriteria.forClass(Contracts.class);
+        detachedCriteria.add(Restrictions.eq("userId", userId));
+        if (!StringUtils.isEmpty(contractsName)) {
+            detachedCriteria.add(Restrictions.like("name", contractsName, MatchMode.ANYWHERE));
         }
-        List list=hibernateTemplate.findByCriteria(detachedCriteria);
-        if(list.isEmpty()){
+        List list = hibernateTemplate.findByCriteria(detachedCriteria);
+        if (list.isEmpty()) {
             return null;
-        }else {
+        } else {
             return list;
         }
     }

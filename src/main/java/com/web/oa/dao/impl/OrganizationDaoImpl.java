@@ -11,16 +11,18 @@ import org.springframework.stereotype.Repository;
 import org.springframework.util.StringUtils;
 
 import java.util.List;
+
 @Repository
 public class OrganizationDaoImpl implements OrganizationDao {
     @Autowired
     private HibernateTemplate hibernateTemplate;
+
     @Override
     public boolean save(Organization organization) {
         try {
             hibernateTemplate.save(organization);
             return true;
-        }catch (RuntimeException e){
+        } catch (RuntimeException e) {
             e.printStackTrace();
             return false;
         }
@@ -31,7 +33,7 @@ public class OrganizationDaoImpl implements OrganizationDao {
         try {
             hibernateTemplate.delete(getByOrgId(orgId));
             return true;
-        }catch (RuntimeException e){
+        } catch (RuntimeException e) {
             e.printStackTrace();
             return false;
         }
@@ -42,7 +44,7 @@ public class OrganizationDaoImpl implements OrganizationDao {
         try {
             hibernateTemplate.update(organization);
             return true;
-        }catch (RuntimeException e){
+        } catch (RuntimeException e) {
             e.printStackTrace();
             return false;
         }
@@ -50,19 +52,19 @@ public class OrganizationDaoImpl implements OrganizationDao {
 
     @Override
     public Organization getByOrgId(Long orgId) {
-        return hibernateTemplate.get(Organization.class,orgId);
+        return hibernateTemplate.get(Organization.class, orgId);
     }
 
     @Override
     public List<Organization> listByOrgName(String orgName) {
-        DetachedCriteria detachedCriteria=DetachedCriteria.forClass(Organization.class);
-        if(!StringUtils.isEmpty(orgName)){
-            detachedCriteria.add(Restrictions.like("orgName",orgName, MatchMode.ANYWHERE));
+        DetachedCriteria detachedCriteria = DetachedCriteria.forClass(Organization.class);
+        if (!StringUtils.isEmpty(orgName)) {
+            detachedCriteria.add(Restrictions.like("orgName", orgName, MatchMode.ANYWHERE));
         }
-        boolean isEmpty=hibernateTemplate.findByCriteria(detachedCriteria).isEmpty();
-        if (isEmpty){
+        boolean isEmpty = hibernateTemplate.findByCriteria(detachedCriteria).isEmpty();
+        if (isEmpty) {
             return null;
-        }else {
+        } else {
             return (List<Organization>) hibernateTemplate.findByCriteria(detachedCriteria);
         }
     }

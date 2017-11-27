@@ -12,9 +12,10 @@ import java.util.List;
 public class ContractsServiceImpl implements ContractsService {
     @Autowired
     private ContractsDao contractsDao;
+
     @Override
     public List<Contracts> getContractsList(String contractsName, Long userId) {
-        return contractsDao.listByContractsNameAndUserId(contractsName,userId);
+        return contractsDao.listByContractsNameAndUserId(contractsName, userId);
     }
 
     @Override

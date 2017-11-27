@@ -12,18 +12,29 @@ import java.util.List;
 public class NoticeServiceImpl implements NoticeService {
     @Autowired
     private NoticeDao noticeDao;
+
     @Override
     public List<Notice> getNoticeList() {
-        return noticeDao.listByNoticeNameAndType(null,null);
+        return noticeDao.listByNoticeNameAndType(null, null);
     }
 
     @Override
     public List<Notice> getNoticeList(String noticeName, String noticeType) {
-        return noticeDao.listByNoticeNameAndType(noticeName,noticeType);
+        return noticeDao.listByNoticeNameAndType(noticeName, noticeType);
     }
 
     @Override
     public boolean save(Notice notice) {
         return noticeDao.save(notice);
+    }
+
+    @Override
+    public boolean delete(Long noticeId) {
+        return noticeDao.delete(noticeId);
+    }
+
+    @Override
+    public boolean update(Notice notice) {
+        return noticeDao.update(notice);
     }
 }

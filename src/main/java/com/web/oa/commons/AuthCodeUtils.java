@@ -7,6 +7,7 @@ import java.util.Random;
 public class AuthCodeUtils {
     /**
      * 生成验证码字符串
+     *
      * @return 验证码
      */
     public static String getCode() {
@@ -22,6 +23,7 @@ public class AuthCodeUtils {
 
     /**
      * 根据输入的字符串生成验证码图片
+     *
      * @param code 验证码字符串
      * @return 验证码图片
      */

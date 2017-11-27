@@ -1,30 +1,60 @@
-INSERT INTO oa.impower (orgId, roleId, departmentId, menuId, inputTime, inputUserId, inputUserName, rank, impowerId) VALUES (4, 1, null, 180, null, null, null, null, 0);
-INSERT INTO oa.impower (orgId, roleId, departmentId, menuId, inputTime, inputUserId, inputUserName, rank, impowerId) VALUES (4, 1, null, 181, null, null, null, null, 0);
-INSERT INTO oa.impower (orgId, roleId, departmentId, menuId, inputTime, inputUserId, inputUserName, rank, impowerId) VALUES (4, 1, null, 182, null, null, null, null, 0);
-INSERT INTO oa.impower (orgId, roleId, departmentId, menuId, inputTime, inputUserId, inputUserName, rank, impowerId) VALUES (4, 1, null, 183, null, null, null, null, 0);
-INSERT INTO oa.impower (orgId, roleId, departmentId, menuId, inputTime, inputUserId, inputUserName, rank, impowerId) VALUES (4, 1, null, 184, null, null, null, null, 0);
-INSERT INTO oa.impower (orgId, roleId, departmentId, menuId, inputTime, inputUserId, inputUserName, rank, impowerId) VALUES (4, 1, null, 185, null, null, null, null, 0);
-INSERT INTO oa.impower (orgId, roleId, departmentId, menuId, inputTime, inputUserId, inputUserName, rank, impowerId) VALUES (4, 1, null, 186, null, null, null, null, 0);
-INSERT INTO oa.impower (orgId, roleId, departmentId, menuId, inputTime, inputUserId, inputUserName, rank, impowerId) VALUES (4, 1, null, 187, null, null, null, null, 0);
-INSERT INTO oa.impower (orgId, roleId, departmentId, menuId, inputTime, inputUserId, inputUserName, rank, impowerId) VALUES (4, 1, null, 188, null, null, null, null, 0);
-INSERT INTO oa.impower (orgId, roleId, departmentId, menuId, inputTime, inputUserId, inputUserName, rank, impowerId) VALUES (4, 1, null, 189, null, null, null, null, 0);
-INSERT INTO oa.impower (orgId, roleId, departmentId, menuId, inputTime, inputUserId, inputUserName, rank, impowerId) VALUES (4, 1, null, 190, null, null, null, null, 0);
-INSERT INTO oa.impower (orgId, roleId, departmentId, menuId, inputTime, inputUserId, inputUserName, rank, impowerId) VALUES (4, 1, null, 191, null, null, null, null, 0);
-INSERT INTO oa.impower (orgId, roleId, departmentId, menuId, inputTime, inputUserId, inputUserName, rank, impowerId) VALUES (4, 1, null, 192, null, null, null, null, 0);
-INSERT INTO oa.impower (orgId, roleId, departmentId, menuId, inputTime, inputUserId, inputUserName, rank, impowerId) VALUES (4, 1, null, 193, null, null, null, null, 0);
-INSERT INTO oa.impower (orgId, roleId, departmentId, menuId, inputTime, inputUserId, inputUserName, rank, impowerId) VALUES (4, 1, null, 194, null, null, null, null, 0);
-INSERT INTO oa.impower (orgId, roleId, departmentId, menuId, inputTime, inputUserId, inputUserName, rank, impowerId) VALUES (4, 1, null, 195, null, null, null, null, 0);
-INSERT INTO oa.impower (orgId, roleId, departmentId, menuId, inputTime, inputUserId, inputUserName, rank, impowerId) VALUES (4, 1, null, 196, null, null, null, null, 0);
-INSERT INTO oa.impower (orgId, roleId, departmentId, menuId, inputTime, inputUserId, inputUserName, rank, impowerId) VALUES (4, 1, null, 197, null, null, null, null, 0);
-INSERT INTO oa.impower (orgId, roleId, departmentId, menuId, inputTime, inputUserId, inputUserName, rank, impowerId) VALUES (4, 1, null, 198, null, null, null, null, 0);
-INSERT INTO oa.impower (orgId, roleId, departmentId, menuId, inputTime, inputUserId, inputUserName, rank, impowerId) VALUES (4, 1, null, 199, null, null, null, null, 0);
-INSERT INTO oa.impower (orgId, roleId, departmentId, menuId, inputTime, inputUserId, inputUserName, rank, impowerId) VALUES (4, 1, null, 200, null, null, null, null, 0);
-INSERT INTO oa.impower (orgId, roleId, departmentId, menuId, inputTime, inputUserId, inputUserName, rank, impowerId) VALUES (4, 1, null, 201, null, null, null, null, 0);
-INSERT INTO oa.impower (orgId, roleId, departmentId, menuId, inputTime, inputUserId, inputUserName, rank, impowerId) VALUES (4, 1, null, 202, null, null, null, null, 0);
-INSERT INTO oa.impower (orgId, roleId, departmentId, menuId, inputTime, inputUserId, inputUserName, rank, impowerId) VALUES (4, 1, null, 203, null, null, null, null, 0);
-INSERT INTO oa.impower (orgId, roleId, departmentId, menuId, inputTime, inputUserId, inputUserName, rank, impowerId) VALUES (4, 71, null, 181, null, null, null, null, 0);
-INSERT INTO oa.impower (orgId, roleId, departmentId, menuId, inputTime, inputUserId, inputUserName, rank, impowerId) VALUES (4, 71, null, 183, null, null, null, null, 0);
-INSERT INTO oa.impower (orgId, roleId, departmentId, menuId, inputTime, inputUserId, inputUserName, rank, impowerId) VALUES (4, 71, null, 185, null, null, null, null, 0);
-INSERT INTO oa.impower (orgId, roleId, departmentId, menuId, inputTime, inputUserId, inputUserName, rank, impowerId) VALUES (4, 71, null, 190, null, null, null, null, 0);
-INSERT INTO oa.impower (orgId, roleId, departmentId, menuId, inputTime, inputUserId, inputUserName, rank, impowerId) VALUES (4, 92, null, 181, null, null, null, null, 0);
-INSERT INTO oa.impower (orgId, roleId, departmentId, menuId, inputTime, inputUserId, inputUserName, rank, impowerId) VALUES (4, 92, null, 193, null, null, null, null, 0);
+INSERT INTO oa.impower (orgId, roleId, departmentId, menuId, inputTime, inputUserId, inputUserName, rank, impowerId)
+VALUES (4, 1, NULL, 180, NULL, NULL, NULL, NULL, 0);
+INSERT INTO oa.impower (orgId, roleId, departmentId, menuId, inputTime, inputUserId, inputUserName, rank, impowerId)
+VALUES (4, 1, NULL, 181, NULL, NULL, NULL, NULL, 0);
+INSERT INTO oa.impower (orgId, roleId, departmentId, menuId, inputTime, inputUserId, inputUserName, rank, impowerId)
+VALUES (4, 1, NULL, 182, NULL, NULL, NULL, NULL, 0);
+INSERT INTO oa.impower (orgId, roleId, departmentId, menuId, inputTime, inputUserId, inputUserName, rank, impowerId)
+VALUES (4, 1, NULL, 183, NULL, NULL, NULL, NULL, 0);
+INSERT INTO oa.impower (orgId, roleId, departmentId, menuId, inputTime, inputUserId, inputUserName, rank, impowerId)
+VALUES (4, 1, NULL, 184, NULL, NULL, NULL, NULL, 0);
+INSERT INTO oa.impower (orgId, roleId, departmentId, menuId, inputTime, inputUserId, inputUserName, rank, impowerId)
+VALUES (4, 1, NULL, 185, NULL, NULL, NULL, NULL, 0);
+INSERT INTO oa.impower (orgId, roleId, departmentId, menuId, inputTime, inputUserId, inputUserName, rank, impowerId)
+VALUES (4, 1, NULL, 186, NULL, NULL, NULL, NULL, 0);
+INSERT INTO oa.impower (orgId, roleId, departmentId, menuId, inputTime, inputUserId, inputUserName, rank, impowerId)
+VALUES (4, 1, NULL, 187, NULL, NULL, NULL, NULL, 0);
+INSERT INTO oa.impower (orgId, roleId, departmentId, menuId, inputTime, inputUserId, inputUserName, rank, impowerId)
+VALUES (4, 1, NULL, 188, NULL, NULL, NULL, NULL, 0);
+INSERT INTO oa.impower (orgId, roleId, departmentId, menuId, inputTime, inputUserId, inputUserName, rank, impowerId)
+VALUES (4, 1, NULL, 189, NULL, NULL, NULL, NULL, 0);
+INSERT INTO oa.impower (orgId, roleId, departmentId, menuId, inputTime, inputUserId, inputUserName, rank, impowerId)
+VALUES (4, 1, NULL, 190, NULL, NULL, NULL, NULL, 0);
+INSERT INTO oa.impower (orgId, roleId, departmentId, menuId, inputTime, inputUserId, inputUserName, rank, impowerId)
+VALUES (4, 1, NULL, 191, NULL, NULL, NULL, NULL, 0);
+INSERT INTO oa.impower (orgId, roleId, departmentId, menuId, inputTime, inputUserId, inputUserName, rank, impowerId)
+VALUES (4, 1, NULL, 192, NULL, NULL, NULL, NULL, 0);
+INSERT INTO oa.impower (orgId, roleId, departmentId, menuId, inputTime, inputUserId, inputUserName, rank, impowerId)
+VALUES (4, 1, NULL, 193, NULL, NULL, NULL, NULL, 0);
+INSERT INTO oa.impower (orgId, roleId, departmentId, menuId, inputTime, inputUserId, inputUserName, rank, impowerId)
+VALUES (4, 1, NULL, 194, NULL, NULL, NULL, NULL, 0);
+INSERT INTO oa.impower (orgId, roleId, departmentId, menuId, inputTime, inputUserId, inputUserName, rank, impowerId)
+VALUES (4, 1, NULL, 195, NULL, NULL, NULL, NULL, 0);
+INSERT INTO oa.impower (orgId, roleId, departmentId, menuId, inputTime, inputUserId, inputUserName, rank, impowerId)
+VALUES (4, 1, NULL, 196, NULL, NULL, NULL, NULL, 0);
+INSERT INTO oa.impower (orgId, roleId, departmentId, menuId, inputTime, inputUserId, inputUserName, rank, impowerId)
+VALUES (4, 1, NULL, 197, NULL, NULL, NULL, NULL, 0);
+INSERT INTO oa.impower (orgId, roleId, departmentId, menuId, inputTime, inputUserId, inputUserName, rank, impowerId)
+VALUES (4, 1, NULL, 198, NULL, NULL, NULL, NULL, 0);
+INSERT INTO oa.impower (orgId, roleId, departmentId, menuId, inputTime, inputUserId, inputUserName, rank, impowerId)
+VALUES (4, 1, NULL, 199, NULL, NULL, NULL, NULL, 0);
+INSERT INTO oa.impower (orgId, roleId, departmentId, menuId, inputTime, inputUserId, inputUserName, rank, impowerId)
+VALUES (4, 1, NULL, 200, NULL, NULL, NULL, NULL, 0);
+INSERT INTO oa.impower (orgId, roleId, departmentId, menuId, inputTime, inputUserId, inputUserName, rank, impowerId)
+VALUES (4, 1, NULL, 201, NULL, NULL, NULL, NULL, 0);
+INSERT INTO oa.impower (orgId, roleId, departmentId, menuId, inputTime, inputUserId, inputUserName, rank, impowerId)
+VALUES (4, 1, NULL, 202, NULL, NULL, NULL, NULL, 0);
+INSERT INTO oa.impower (orgId, roleId, departmentId, menuId, inputTime, inputUserId, inputUserName, rank, impowerId)
+VALUES (4, 1, NULL, 203, NULL, NULL, NULL, NULL, 0);
+INSERT INTO oa.impower (orgId, roleId, departmentId, menuId, inputTime, inputUserId, inputUserName, rank, impowerId)
+VALUES (4, 71, NULL, 181, NULL, NULL, NULL, NULL, 0);
+INSERT INTO oa.impower (orgId, roleId, departmentId, menuId, inputTime, inputUserId, inputUserName, rank, impowerId)
+VALUES (4, 71, NULL, 183, NULL, NULL, NULL, NULL, 0);
+INSERT INTO oa.impower (orgId, roleId, departmentId, menuId, inputTime, inputUserId, inputUserName, rank, impowerId)
+VALUES (4, 71, NULL, 185, NULL, NULL, NULL, NULL, 0);
+INSERT INTO oa.impower (orgId, roleId, departmentId, menuId, inputTime, inputUserId, inputUserName, rank, impowerId)
+VALUES (4, 71, NULL, 190, NULL, NULL, NULL, NULL, 0);
+INSERT INTO oa.impower (orgId, roleId, departmentId, menuId, inputTime, inputUserId, inputUserName, rank, impowerId)
+VALUES (4, 92, NULL, 181, NULL, NULL, NULL, NULL, 0);
+INSERT INTO oa.impower (orgId, roleId, departmentId, menuId, inputTime, inputUserId, inputUserName, rank, impowerId)
+VALUES (4, 92, NULL, 193, NULL, NULL, NULL, NULL, 0);

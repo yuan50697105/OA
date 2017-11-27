@@ -10,7 +10,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import javax.jws.soap.SOAPBinding;
 import javax.servlet.http.HttpSession;
 import java.util.List;
 
@@ -19,37 +18,45 @@ import java.util.List;
 public class ContractsController {
     @Autowired
     private ContractsService contractsService;
+
     @RequestMapping("/getContractsList")
-    public String getContractsList(String contractsName,HttpSession session){
-        User user= (User) session.getAttribute(WebCommons.USER);
-        List<Contracts> contractsList=contractsService.getContractsList(contractsName,user.getUserId());
+    public String getContractsList(String contractsName, HttpSession session) {
+        User user = (User) session.getAttribute(WebCommons.USER);
+        List<Contracts> contractsList = contractsService.getContractsList(contractsName, user.getUserId());
         return "work/contacts";
     }
+
     @RequestMapping("/getContracts")
-    public String getContracts(Long contractsId, Model model){
-        Contracts contracts=contractsService.getContracts(contractsId);
-        model.addAttribute("contracts",contracts);
+    public String getContracts(Long contractsId, Model model) {
+        Contracts contracts = contractsService.getContracts(contractsId);
+        model.addAttribute("contracts", contracts);
         return "work/contractsEdit";
     }
+
     @RequestMapping("/toAdd")
-    public String toAdd(){
+    public String toAdd() {
         return "work/addContacts";
     }
+
     @RequestMapping("/ajaxAddContracts")
     @ResponseBody
-    public boolean ajaxAddContracrts(Contracts contracts,HttpSession session){
-        User user= (User) session.getAttribute(WebCommons.USER);
+    public boolean ajaxAddContracrts(Contracts contracts, HttpSession session) {
+        User user = (User) session.getAttribute(WebCommons.USER);
         contracts.setUserId(user.getUserId());
         contracts.setOrgId(user.getOrgId());
         return contractsService.save(contracts);
     }
+
     @RequestMapping("/ajaxDeleteContracts")
     @ResponseBody
-    public boolean delete(Long contractsId){
+    public boolean delete(Long contractsId) {
         return contractsService.delete(contractsId);
     }
-    public boolean update(Contracts contracts,HttpSession session){
-        User user= (User) session.getAttribute(WebCommons.USER);
+
+    @RequestMapping("/ajaxUpdateContracts")
+    @ResponseBody
+    public boolean update(Contracts contracts, HttpSession session) {
+        User user = (User) session.getAttribute(WebCommons.USER);
         contracts.setUserId(user.getUserId());
         contracts.setOrgId(user.getOrgId());
         return contractsService.update(contracts);

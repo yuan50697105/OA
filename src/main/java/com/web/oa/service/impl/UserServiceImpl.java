@@ -8,7 +8,6 @@ import com.web.oa.dao.OrganizationDao;
 import com.web.oa.dao.UserDao;
 import com.web.oa.dao.UserDataDao;
 import com.web.oa.service.UserService;
-import org.aspectj.weaver.ast.Or;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,20 +22,21 @@ public class UserServiceImpl implements UserService {
     private UserDataDao userDataDao;
     @Autowired
     private OrganizationDao organizationDao;
+
     @Override
     public Map<String, Object> registor(User user, UserData userData, Organization organization) {
-        Map<String,Object> map=new HashMap<>();
-        boolean flag=organizationDao.save(organization);
-        if(flag){
+        Map<String, Object> map = new HashMap<>();
+        boolean flag = organizationDao.save(organization);
+        if (flag) {
             user.setOrgId(organization.getOrgId());
-            map.put(WebCommons.ORG,organization);
-            flag=userDao.save(user);
-            if(flag){
+            map.put(WebCommons.ORG, organization);
+            flag = userDao.save(user);
+            if (flag) {
                 userData.setUserId(user.getUserId());
-                map.put(WebCommons.USER,user);
-                flag=userDataDao.save(userData);
-                if(flag){
-                    map.put(WebCommons.USER_DATA,userData);
+                map.put(WebCommons.USER, user);
+                flag = userDataDao.save(userData);
+                if (flag) {
+                    map.put(WebCommons.USER_DATA, userData);
                 }
             }
         }
@@ -45,16 +45,16 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public Map<String, Object> login(User user) {
-        user=userDao.getByUser(user);
-        if(null!=user){
-            Map<String,Object> map=new HashMap<>();
-            map.put(WebCommons.USER,user);
-            Organization organization=organizationDao.getByOrgId(user.getOrgId());
+        user = userDao.getByUser(user);
+        if (null != user) {
+            Map<String, Object> map = new HashMap<>();
+            map.put(WebCommons.USER, user);
+            Organization organization = organizationDao.getByOrgId(user.getOrgId());
             map.put(WebCommons.ORG, organization);
-            UserData userData=userDataDao.getByUserId(user.getUserId());
-            map.put(WebCommons.USER_DATA,userData);
+            UserData userData = userDataDao.getByUserId(user.getUserId());
+            map.put(WebCommons.USER_DATA, userData);
             return map;
-        }else{
+        } else {
             return null;
         }
 

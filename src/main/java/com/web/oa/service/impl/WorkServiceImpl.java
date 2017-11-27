@@ -12,6 +12,7 @@ import java.util.List;
 public class WorkServiceImpl implements WorkService {
     @Autowired
     private WorkDao workDao;
+
     @Override
     public List<Work> getWorkListByUserId(Long userId) {
         return workDao.listByUserId(userId);
@@ -24,7 +25,7 @@ public class WorkServiceImpl implements WorkService {
 
     @Override
     public List<Work> getWorkListByName(String workName, Long userId) {
-        return workDao.listByWorkName(workName,userId);
+        return workDao.listByWorkName(workName, userId);
     }
 
     @Override

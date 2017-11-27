@@ -10,16 +10,18 @@ import org.springframework.stereotype.Repository;
 import org.springframework.util.StringUtils;
 
 import java.util.List;
+
 @Repository
 public class UserDataDaoImpl implements UserDataDao {
     @Autowired
     private HibernateTemplate hibernateTemplate;
+
     @Override
     public boolean save(UserData userData) {
         try {
             hibernateTemplate.save(userData);
             return true;
-        }catch (RuntimeException e){
+        } catch (RuntimeException e) {
             e.printStackTrace();
             return false;
         }
@@ -30,7 +32,7 @@ public class UserDataDaoImpl implements UserDataDao {
         try {
             hibernateTemplate.delete(getByUserId(userId));
             return true;
-        }catch (RuntimeException e){
+        } catch (RuntimeException e) {
             e.printStackTrace();
             return false;
         }
@@ -41,7 +43,7 @@ public class UserDataDaoImpl implements UserDataDao {
         try {
             hibernateTemplate.update(userData);
             return true;
-        }catch (RuntimeException e){
+        } catch (RuntimeException e) {
             e.printStackTrace();
             return false;
         }
@@ -49,22 +51,22 @@ public class UserDataDaoImpl implements UserDataDao {
 
     @Override
     public UserData getByUserId(Long userId) {
-        return hibernateTemplate.get(UserData.class,userId);
+        return hibernateTemplate.get(UserData.class, userId);
     }
 
     @Override
     public List<UserData> listByUserName(String userName) {
-        DetachedCriteria detachedCriteria=DetachedCriteria.forClass(UserData.class);
-        if(!StringUtils.isEmpty(userName)){
-            DetachedCriteria user=DetachedCriteria.forClass(User.class);
-            user.add(Restrictions.like("userName",userName, MatchMode.ANYWHERE));
+        DetachedCriteria detachedCriteria = DetachedCriteria.forClass(UserData.class);
+        if (!StringUtils.isEmpty(userName)) {
+            DetachedCriteria user = DetachedCriteria.forClass(User.class);
+            user.add(Restrictions.like("userName", userName, MatchMode.ANYWHERE));
             user.setProjection(Projections.property("userId"));
             detachedCriteria.add(Property.forName("userId").in(user));
         }
-        boolean isEmpty=hibernateTemplate.findByCriteria(detachedCriteria).isEmpty();
-        if(isEmpty){
+        boolean isEmpty = hibernateTemplate.findByCriteria(detachedCriteria).isEmpty();
+        if (isEmpty) {
             return null;
-        }else {
+        } else {
             return (List<UserData>) hibernateTemplate.findByCriteria(detachedCriteria);
         }
     }
