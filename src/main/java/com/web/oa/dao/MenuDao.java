@@ -5,14 +5,10 @@ import com.web.oa.bean.Menu;
 import java.util.List;
 
 public interface MenuDao {
-    /**
-     * 根据用户查询菜单
-     * @param userId
-     * @return
-     */
-    List<Menu> listByUserId(Long userId);
-
-    List<Menu> lisByName(String menuName, long startIndex, int pageSize);
-
-    List<Menu> getMenuListBySuperiorId(Long menuId);
+    boolean save(Menu menu);
+    boolean delete(Long menuId);
+    boolean update(Menu menu);
+    Menu getByMenuId(Long menuId);
+    List<Menu> listMainMenuByUserId(Long userId);
+    List<Menu> listChildMenuByMainMenuId(Long menuId);
 }

@@ -10,29 +10,11 @@ import org.springframework.orm.hibernate5.HibernateTemplate;
 import org.springframework.stereotype.Repository;
 import org.springframework.util.StringUtils;
 
-import javax.resource.spi.work.WorkEvent;
 import java.util.List;
 @Repository
 public class WorkDaoImpl implements WorkDao {
     @Autowired
     private HibernateTemplate hibernateTemplate;
-
-    /**
-     *
-     * @see WorkDao
-     */
-    @Override
-    public List<Work> list(Long userid) {
-        DetachedCriteria detachedCriteria=DetachedCriteria.forClass(Work.class);
-        if(!StringUtils.isEmpty(userid)){
-            detachedCriteria.add(Restrictions.eq("userId",userid));
-        }
-        return (List<Work>) hibernateTemplate.findByCriteria(detachedCriteria);
-    }
-
-    /**
-     * @see WorkDao
-     */
     @Override
     public boolean save(Work work) {
         try {
@@ -45,8 +27,14 @@ public class WorkDaoImpl implements WorkDao {
     }
 
     @Override
-    public Work getById(Long id) {
-        return hibernateTemplate.get(Work.class,id);
+    public boolean delete(Long workId) {
+        try {
+            hibernateTemplate.delete(getByWorkId(workId));
+            return true;
+        }catch (RuntimeException e){
+            e.printStackTrace();
+            return false;
+        }
     }
 
     @Override
@@ -61,15 +49,21 @@ public class WorkDaoImpl implements WorkDao {
     }
 
     @Override
-    public boolean delete(Long workId) {
-        try {
-            Work work=new Work();
-            work.setWorkId(workId);
-            hibernateTemplate.delete(work);
-            return true;
-        }catch (RuntimeException e){
-            e.printStackTrace();
-            return false;
+    public Work getByWorkId(Long workId) {
+        return hibernateTemplate.get(Work.class,workId);
+    }
+
+    @Override
+    public List<Work> listByWorkName(String workName) {
+        DetachedCriteria detachedCriteria=DetachedCriteria.forClass(Work.class);
+        if (!StringUtils.isEmpty(workName)){
+            detachedCriteria.add(Restrictions.like("workName",workName, MatchMode.ANYWHERE));
+        }
+        boolean isEmpty=hibernateTemplate.findByCriteria(detachedCriteria).isEmpty();
+        if(isEmpty){
+            return null;
+        }else {
+            return (List<Work>) hibernateTemplate.findByCriteria(detachedCriteria);
         }
     }
 }
