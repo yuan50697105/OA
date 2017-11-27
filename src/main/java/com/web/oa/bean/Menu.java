@@ -2,6 +2,8 @@ package com.web.oa.bean;
 
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
+import org.hibernate.annotations.DynamicInsert;
+import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -9,6 +11,8 @@ import java.util.List;
 
 @Entity
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE, region = "myCache")
+@DynamicInsert(value = true)
+@DynamicUpdate(value = true)
 public class Menu {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

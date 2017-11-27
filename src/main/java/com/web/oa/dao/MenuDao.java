@@ -11,4 +11,5 @@ public interface MenuDao {
     Menu getByMenuId(Long menuId);
     List<Menu> listMainMenuByUserId(Long userId);
     List<Menu> listChildMenuByMainMenuId(Long menuId);
+    List<Menu> listByMeneName(String menuName);
 }
