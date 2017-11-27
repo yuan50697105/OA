@@ -1,4 +1,4 @@
-package com.web.oa.dao.impl;
+package com.web.oa.dao;
 
 import com.web.oa.bean.Impower;
 
