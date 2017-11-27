@@ -1,9 +1,11 @@
 package com.web.oa.service.impl;
 
+import com.web.oa.bean.Menu;
 import com.web.oa.bean.Organization;
 import com.web.oa.bean.User;
 import com.web.oa.bean.UserData;
 import com.web.oa.commons.WebCommons;
+import com.web.oa.dao.MenuDao;
 import com.web.oa.dao.OrganizationDao;
 import com.web.oa.dao.UserDao;
 import com.web.oa.dao.UserDataDao;
@@ -12,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Service
@@ -22,7 +25,8 @@ public class UserServiceImpl implements UserService {
     private UserDataDao userDataDao;
     @Autowired
     private OrganizationDao organizationDao;
-
+    @Autowired
+    private MenuDao menuDao;
     @Override
     public Map<String, Object> registor(User user, UserData userData, Organization organization) {
         Map<String, Object> map = new HashMap<>();
@@ -53,6 +57,8 @@ public class UserServiceImpl implements UserService {
             map.put(WebCommons.ORG, organization);
             UserData userData = userDataDao.getByUserId(user.getUserId());
             map.put(WebCommons.USER_DATA, userData);
+            List<Menu> menuList=menuDao.listMainMenuByUserId(user.getUserId());
+            map.put(WebCommons.MENU_LIST,menuList);
             return map;
         } else {
             return null;

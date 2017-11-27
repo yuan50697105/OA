@@ -26,7 +26,7 @@ public class UserController {
     }
 
     @RequestMapping("/registor")
-    public String reg(User user, UserData userData, Organization organization, Model model) {
+    public String registor(User user, UserData userData, Organization organization, Model model) {
         user.setCreateTime(new Date());
         organization.setRegisterTime(new Date());
         Map<String, Object> map = userService.registor(user, userData, organization);
@@ -48,6 +48,7 @@ public class UserController {
             session.setAttribute(WebCommons.USER, map.get(WebCommons.USER));
             session.setAttribute(WebCommons.ORG, map.get(WebCommons.ORG));
             session.setAttribute(WebCommons.USER_DATA, map.get(WebCommons.USER_DATA));
+            session.setAttribute(WebCommons.MENU_LIST,map.get(WebCommons.MENU_LIST));
         }
         return "main/main";
     }
