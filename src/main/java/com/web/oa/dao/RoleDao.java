@@ -4,7 +4,7 @@ import com.web.oa.bean.Role;
 
 import java.util.List;
 
-public interface RoleId {
+public interface RoleDao {
     boolean save(Role role);
     boolean delete(Long roleId);
     boolean update(Role role);

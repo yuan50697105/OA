@@ -1,4 +1,4 @@
-package com.web.oa.dao;
+package com.web.oa.dao.impl;
 
 import com.web.oa.bean.Impower;
 import com.web.oa.bean.Role;

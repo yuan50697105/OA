@@ -1,7 +1,8 @@
-package com.web.oa.dao;
+package com.web.oa.dao.impl;
 
 import com.web.oa.bean.DepartmentMembers;
 import com.web.oa.bean.User;
+import com.web.oa.dao.DepartmentMemberDao;
 import org.hibernate.criterion.*;
 import org.hibernate.engine.spi.EntityUniqueKey;
 import org.springframework.beans.factory.annotation.Autowired;

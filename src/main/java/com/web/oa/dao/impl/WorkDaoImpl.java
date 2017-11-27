@@ -54,8 +54,9 @@ public class WorkDaoImpl implements WorkDao {
     }
 
     @Override
-    public List<Work> listByWorkName(String workName) {
+    public List<Work> listByWorkName(String workName, Long userId) {
         DetachedCriteria detachedCriteria=DetachedCriteria.forClass(Work.class);
+        detachedCriteria.add(Restrictions.eq("userId",userId));
         if (!StringUtils.isEmpty(workName)){
             detachedCriteria.add(Restrictions.like("workName",workName, MatchMode.ANYWHERE));
         }
@@ -65,5 +66,17 @@ public class WorkDaoImpl implements WorkDao {
         }else {
             return (List<Work>) hibernateTemplate.findByCriteria(detachedCriteria);
         }
+    }
+
+    @Override
+    public List<Work> listByUserId(Long userId) {
+       DetachedCriteria detachedCriteria=DetachedCriteria.forClass(Work.class);
+       detachedCriteria.add(Restrictions.eq("userId",userId));
+       List list=hibernateTemplate.findByCriteria(detachedCriteria);
+       if(list.isEmpty()){
+           return null;
+       }else {
+           return list;
+       }
     }
 }

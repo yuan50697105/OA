@@ -9,5 +9,7 @@ public interface WorkDao {
     boolean delete(Long workId);
     boolean update(Work work);
     Work getByWorkId(Long workId);
-    List<Work> listByWorkName(String workName);
+    List<Work> listByWorkName(String workName, Long userId);
+
+    List<Work> listByUserId(Long userId);
 }
