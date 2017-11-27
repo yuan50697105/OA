@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpSession;
+import java.util.Date;
 import java.util.List;
 
 @Controller
@@ -39,7 +40,11 @@ public class NoticeController {
 
     @RequestMapping("/ajaxAddNotice")
     @ResponseBody
-    public boolean add(Notice notice) {
+    public boolean add(Notice notice,HttpSession session) {
+        User user= (User) session.getAttribute(WebCommons.USER);
+        notice.setUserId(user.getUserId());
+        notice.setOrgId(user.getOrgId());
+        notice.setPublishTime(new Date());
         return noticeService.save(notice);
     }
 
@@ -55,6 +60,7 @@ public class NoticeController {
         User user = (User) session.getAttribute(WebCommons.USER);
         notice.setOrgId(user.getOrgId());
         notice.setUserId(user.getUserId());
+        notice.setPublishTime(new Date());
         return noticeService.update(notice);
     }
 }

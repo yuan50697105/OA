@@ -11,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpSession;
+import java.util.Date;
 import java.util.Map;
 
 @Controller
@@ -26,6 +27,8 @@ public class UserController {
 
     @RequestMapping("/registor")
     public String reg(User user, UserData userData, Organization organization, Model model) {
+        user.setCreateTime(new Date());
+        organization.setRegisterTime(new Date());
         Map<String, Object> map = userService.registor(user, userData, organization);
         model.addAttribute(WebCommons.USER, map.get(WebCommons.USER));
         model.addAttribute(WebCommons.USER_DATA, map.get(WebCommons.USER_DATA));
