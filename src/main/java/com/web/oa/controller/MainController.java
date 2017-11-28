@@ -33,6 +33,15 @@ public class MainController {
         model.addAttribute("url",url);
         return "main/content";
     }
+
+    /**
+     * 显示工作计划到工作台
+     * @param menuId
+     * @param session
+     * @param model
+     * main/one?menuId=181
+     * @return
+     */
     @RequestMapping("one")
     public String one(Long menuId, HttpSession session,Model model){
         Menu menu=menuService.getMenuByMenuId(menuId);
@@ -48,6 +57,13 @@ public class MainController {
         model.addAttribute("menu",menu);
         return "main/one";
     }
+    /**
+     * 获取左边菜单界面数据
+     * @param menuId
+     * @param session
+     * @param model
+     * @return
+     */
     @RequestMapping("oneLeft")
     public String oneLeft(Long menuId, HttpSession session,Model model){
         Menu menu=menuService.getMenuByMenuId(menuId);
