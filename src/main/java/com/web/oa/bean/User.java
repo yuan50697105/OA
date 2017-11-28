@@ -17,7 +17,7 @@ import java.util.Date;
 @DynamicUpdate(value = true)
 public class User {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long userId; //用户Id
     private Long orgId; //机构Id
     private String userName; //帐号

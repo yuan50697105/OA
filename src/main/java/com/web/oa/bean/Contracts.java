@@ -16,7 +16,7 @@ import javax.persistence.Id;
 @DynamicUpdate(value = true)
 public class Contracts {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long contractsId;
     private Long userId;
     private Long orgId;

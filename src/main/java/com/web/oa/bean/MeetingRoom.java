@@ -16,7 +16,7 @@ import javax.persistence.Id;
 @DynamicUpdate(value = true)
 public class MeetingRoom {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long roomId;
     private String roomName;// 会议室名称
     private String status;// 1:空闲中 ，2：使用中，3：保洁中

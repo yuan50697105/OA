@@ -17,7 +17,7 @@ import java.util.Date;
 @DynamicUpdate(value = true)
 public class Goods {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long goodsId;
     private Long orgId;
     private String goodsName;// 物品名称

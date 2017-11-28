@@ -17,7 +17,7 @@ import java.util.Date;
 @DynamicUpdate(value = true)
 public class Impower {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long impowerId;// 内部id
     private Long orgId;// 机构id
     private Long roleId;// 角色Id

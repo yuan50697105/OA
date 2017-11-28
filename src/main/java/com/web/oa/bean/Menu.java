@@ -15,7 +15,7 @@ import java.util.List;
 @DynamicUpdate(value = true)
 public class Menu {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long menuId;// 菜单编号
     private Long orgId;// 机构Id
     private String menuName;// 菜单名

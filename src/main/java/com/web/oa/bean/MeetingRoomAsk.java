@@ -15,7 +15,7 @@ import java.util.Date;
 @DynamicUpdate(value = true)
 public class MeetingRoomAsk {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long askId;
     private Long roomId;// 会议室id
     private Long userId;// 申请用户
