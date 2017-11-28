@@ -2,33 +2,39 @@ package com.web.oa.bean;
 
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
+import org.hibernate.annotations.DynamicInsert;
+import org.hibernate.annotations.DynamicUpdate;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Date;
 
+/**
+ * 工作类
+ * @author Administrator
+ */
 @Entity
-@Cache(usage = CacheConcurrencyStrategy.READ_WRITE, region = "myCache")
+@Table(name = "t_work")
+@Cache(region="myCache",usage=CacheConcurrencyStrategy.READ_WRITE)
+@DynamicInsert(value = true)
+@DynamicUpdate(value = true)
 public class Work {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
     private Long workId;
     private Long orgId;
     private Long userId;
     private String workName;
     private String work;
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @DateTimeFormat(pattern="yyyy-MM-dd")
     private Date planStartDate;
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @DateTimeFormat(pattern="yyyy-MM-dd")
     private Date planEndDate;
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @DateTimeFormat(pattern="yyyy-MM-dd")
     private Date startDate;
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @DateTimeFormat(pattern="yyyy-MM-dd")
     private Date endDate;
-
+    
     private Date startPlanStartDate;
     private Date endPlanEndDate;
 
@@ -100,8 +106,8 @@ public class Work {
         return endDate;
     }
 
-    public void setEndDate(Date endDate) {
-        this.endDate = endDate;
+    public void setEndDate(Date EndDate) {
+        this.endDate = EndDate;
     }
 
     public Date getStartPlanStartDate() {

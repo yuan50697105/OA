@@ -1,21 +1,23 @@
 package com.web.oa.dao.impl;
 
-import com.web.oa.bean.Work;
-import com.web.oa.dao.WorkDao;
+import com.web.oa.bean.Contacts;
+import com.web.oa.dao.ContactsDao;
 import org.hibernate.criterion.DetachedCriteria;
 import org.hibernate.criterion.Restrictions;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate5.HibernateTemplate;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 @Repository
-public class WorkDaoImpl implements WorkDao {
+public class ContactsDaoImpl implements ContactsDao {
+    @Autowired
     private HibernateTemplate hibernateTemplate;
 
     @Override
-    public List<Work> getWorkListByUserId(Long userId) {
-        DetachedCriteria detachedCriteria = DetachedCriteria.forClass(Work.class);
+    public List<Contacts> getContactListByUserId(Long userId) {
+        DetachedCriteria detachedCriteria = DetachedCriteria.forClass(Contacts.class);
         detachedCriteria.add(Restrictions.eq("userId", userId));
         List list = hibernateTemplate.findByCriteria(detachedCriteria);
         if (list.isEmpty()) {
@@ -26,14 +28,9 @@ public class WorkDaoImpl implements WorkDao {
     }
 
     @Override
-    public Work getWorkByWorkId(Long workId) {
-        return hibernateTemplate.get(Work.class,workId);
-    }
-
-    @Override
-    public boolean updateWork(Work work) {
+    public boolean saveContacts(Contacts contacts) {
         try {
-            hibernateTemplate.update(work);
+            hibernateTemplate.save(contacts);
             return true;
         }catch (RuntimeException e){
             e.printStackTrace();
@@ -42,9 +39,9 @@ public class WorkDaoImpl implements WorkDao {
     }
 
     @Override
-    public boolean save(Work work) {
+    public boolean deleteContacts(Long contactsId) {
         try {
-            hibernateTemplate.save(work);
+            hibernateTemplate.delete(hibernateTemplate.get(Contacts.class,contactsId));
             return true;
         }catch (RuntimeException e){
             e.printStackTrace();
@@ -53,11 +50,14 @@ public class WorkDaoImpl implements WorkDao {
     }
 
     @Override
-    public boolean deleteWork(Long workId) {
+    public Contacts getContactByContactsId(Long contactsId) {
+        return hibernateTemplate.get(Contacts.class,contactsId);
+    }
+
+    @Override
+    public boolean updateContacts(Contacts contacts) {
         try {
-            Work work=new Work();
-            work.setWorkId(workId);
-            hibernateTemplate.delete(work);
+            hibernateTemplate.update(contacts);
             return true;
         }catch (RuntimeException e){
             e.printStackTrace();

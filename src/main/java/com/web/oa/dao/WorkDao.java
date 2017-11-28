@@ -5,15 +5,13 @@ import com.web.oa.bean.Work;
 import java.util.List;
 
 public interface WorkDao {
+    List<Work> getWorkListByUserId(Long userId);
+
+    Work getWorkByWorkId(Long workId);
+
+    boolean updateWork(Work work);
+
     boolean save(Work work);
 
-    boolean delete(Long workId);
-
-    boolean update(Work work);
-
-    Work getByWorkId(Long workId);
-
-    List<Work> listByWorkName(String workName, Long userId);
-
-    List<Work> listByUserId(Long userId);
+    boolean deleteWork(Long workId);
 }

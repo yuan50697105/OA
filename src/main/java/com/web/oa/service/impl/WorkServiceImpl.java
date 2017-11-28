@@ -12,34 +12,28 @@ import java.util.List;
 public class WorkServiceImpl implements WorkService {
     @Autowired
     private WorkDao workDao;
-
     @Override
     public List<Work> getWorkListByUserId(Long userId) {
-        return workDao.listByUserId(userId);
+        return workDao.getWorkListByUserId(userId);
     }
 
     @Override
-    public Work getWork(Long workId) {
-        return workDao.getByWorkId(workId);
+    public Work getWorkByWorkId(Long workId) {
+        return workDao.getWorkByWorkId(workId);
     }
 
     @Override
-    public List<Work> getWorkListByName(String workName, Long userId) {
-        return workDao.listByWorkName(workName, userId);
+    public boolean updateWork(Work work) {
+        return workDao.updateWork(work);
     }
 
     @Override
-    public boolean save(Work work) {
-        return workDao.save(work);
+    public boolean deleteWork(Long workId) {
+        return workDao.deleteWork(workId);
     }
 
     @Override
-    public boolean delete(Long workId) {
-        return workDao.delete(workId);
-    }
-
-    @Override
-    public boolean update(Work work) {
-        return workDao.update(work);
+    public boolean saveWork(Work work) {
+            return workDao.save(work);
     }
 }

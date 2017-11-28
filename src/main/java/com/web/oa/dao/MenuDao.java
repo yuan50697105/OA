@@ -5,17 +5,9 @@ import com.web.oa.bean.Menu;
 import java.util.List;
 
 public interface MenuDao {
-    boolean save(Menu menu);
+    List<Menu> getMainMenuByUserId(Long userId);
 
-    boolean delete(Long menuId);
+    Menu getMenuByMenuId(Long menuId);
 
-    boolean update(Menu menu);
-
-    Menu getByMenuId(Long menuId);
-
-    List<Menu> listMainMenuByUserId(Long userId);
-
-    List<Menu> listChildMenuByMainMenuId(Long menuId);
-
-    List<Menu> listByMeneName(String menuName);
+    List<Menu> getChildMenuBySuperiorId(Long menuId);
 }

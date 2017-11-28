@@ -5,98 +5,112 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Date;
 
+/**
+ * 物品类
+ * 
+ * @author Administrator
+ */
 @Entity
-@Cache(usage = CacheConcurrencyStrategy.READ_WRITE, region = "myCache")
-@DynamicInsert(value = true)
+@Table(name = "t_goods")
+@Cache(usage=CacheConcurrencyStrategy.READ_WRITE,region="myCache")
 @DynamicUpdate(value = true)
+@DynamicInsert(value = true)
 public class Goods {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long goodsId;
-    private Long orgId;
-    private String goodsName;// 物品名称
-    private Double price;// 物品价格
-    private String units;// 单位
-    private String status;// 状况
-    private String introduce;// 描述
-    private String remark;// 备注
-    private Date purchasingDate;// 购买日期
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long goodsId;
+	private Long orgId;
+	private String goodsName;// 物品名称
+	private Double price;// 物品价格
+	private String units;// 单位
+	private String status;// 状况
+	private String introduce;// 描述
+	private String remark;// 备注
+	private Date purchasingDate;// 购买日期
 
-    public Long getGoodsId() {
-        return goodsId;
-    }
+	
+	
+	@Override
+	public String toString() {
+		return "Goods [goodsId=" + goodsId + ", orgId=" + orgId
+				+ ", goodsName=" + goodsName + ", price=" + price + ", units="
+				+ units + ", status=" + status + ", introduce=" + introduce
+				+ ", remark=" + remark + ", purchasingDate=" + purchasingDate
+				+ "]";
+	}
 
-    public void setGoodsId(Long goodsId) {
-        this.goodsId = goodsId;
-    }
+	public String getUnits() {
+		return units;
+	}
 
-    public Long getOrgId() {
-        return orgId;
-    }
+	public void setUnits(String units) {
+		this.units = units;
+	}
 
-    public void setOrgId(Long orgId) {
-        this.orgId = orgId;
-    }
+	public Long getGoodsId() {
+		return goodsId;
+	}
 
-    public String getGoodsName() {
-        return goodsName;
-    }
+	public void setGoodsId(Long goodsId) {
+		this.goodsId = goodsId;
+	}
 
-    public void setGoodsName(String goodsName) {
-        this.goodsName = goodsName;
-    }
+	public Long getOrgId() {
+		return orgId;
+	}
 
-    public Double getPrice() {
-        return price;
-    }
+	public void setOrgId(Long orgId) {
+		this.orgId = orgId;
+	}
 
-    public void setPrice(Double price) {
-        this.price = price;
-    }
+	public String getGoodsName() {
+		return goodsName;
+	}
 
-    public String getUnits() {
-        return units;
-    }
+	public void setGoodsName(String goodsName) {
+		this.goodsName = goodsName;
+	}
 
-    public void setUnits(String units) {
-        this.units = units;
-    }
+	public Double getPrice() {
+		return price;
+	}
 
-    public String getStatus() {
-        return status;
-    }
+	public void setPrice(Double price) {
+		this.price = price;
+	}
 
-    public void setStatus(String status) {
-        this.status = status;
-    }
+	public String getStatus() {
+		return status;
+	}
 
-    public String getIntroduce() {
-        return introduce;
-    }
+	public void setStatus(String status) {
+		this.status = status;
+	}
 
-    public void setIntroduce(String introduce) {
-        this.introduce = introduce;
-    }
+	public String getIntroduce() {
+		return introduce;
+	}
 
-    public String getRemark() {
-        return remark;
-    }
+	public void setIntroduce(String introduce) {
+		this.introduce = introduce;
+	}
 
-    public void setRemark(String remark) {
-        this.remark = remark;
-    }
+	public String getRemark() {
+		return remark;
+	}
 
-    public Date getPurchasingDate() {
-        return purchasingDate;
-    }
+	public void setRemark(String remark) {
+		this.remark = remark;
+	}
 
-    public void setPurchasingDate(Date purchasingDate) {
-        this.purchasingDate = purchasingDate;
-    }
+	public Date getPurchasingDate() {
+		return purchasingDate;
+	}
+
+	public void setPurchasingDate(Date purchasingDate) {
+		this.purchasingDate = purchasingDate;
+	}
 }

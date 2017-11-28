@@ -1,56 +1,60 @@
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package com.web.oa.bean;
 
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
-import org.hibernate.annotations.DynamicInsert;
-import org.hibernate.annotations.DynamicUpdate;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
+/**
+ *
+ * 会议室持久化类
+ * 
+ */
 @Entity
-@Cache(usage = CacheConcurrencyStrategy.READ_WRITE, region = "myCache")
-@DynamicInsert(value = true)
-@DynamicUpdate(value = true)
+@Table(name = "t_meetingRoom")
+@Cache(usage=CacheConcurrencyStrategy.READ_WRITE,region="myCache")
 public class MeetingRoom {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long roomId;
-    private String roomName;// 会议室名称
-    private String status;// 1:空闲中 ，2：使用中，3：保洁中
-    private String remark;// 备注
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long roomId;
+	private String roomName;// 会议室名称
+	private String status;// 1:空闲中 ，2：使用中，3：保洁中
+	private String remark;// 备注
 
-    public Long getRoomId() {
-        return roomId;
-    }
+	public Long getRoomId() {
+		return roomId;
+	}
 
-    public void setRoomId(Long roomId) {
-        this.roomId = roomId;
-    }
+	public void setRoomId(Long roomId) {
+		this.roomId = roomId;
+	}
 
-    public String getRoomName() {
-        return roomName;
-    }
+	public String getRoomName() {
+		return roomName;
+	}
 
-    public void setRoomName(String roomName) {
-        this.roomName = roomName;
-    }
+	public void setRoomName(String roomName) {
+		this.roomName = roomName;
+	}
 
-    public String getStatus() {
-        return status;
-    }
+	public String getStatus() {
+		return status;
+	}
 
-    public void setStatus(String status) {
-        this.status = status;
-    }
+	public void setStatus(String status) {
+		this.status = status;
+	}
 
-    public String getRemark() {
-        return remark;
-    }
+	public String getRemark() {
+		return remark;
+	}
 
-    public void setRemark(String remark) {
-        this.remark = remark;
-    }
+	public void setRemark(String remark) {
+		this.remark = remark;
+	}
+
 }

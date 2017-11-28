@@ -9,106 +9,128 @@ import org.springframework.format.annotation.DateTimeFormat;
 import javax.persistence.*;
 import java.util.Date;
 
+/**
+ *会议室申请记录类
+ */
 @Entity
-@Cache(usage = CacheConcurrencyStrategy.READ_WRITE, region = "myCache")
-@DynamicInsert(value = true)
+@Table(name = "t_meetingRoomAsk")
+@Cache(usage=CacheConcurrencyStrategy.READ_WRITE,region="myCache")
 @DynamicUpdate(value = true)
+@DynamicInsert(value = true)
 public class MeetingRoomAsk {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long askId;
-    private Long roomId;// 会议室id
-    private Long userId;// 申请用户
-    private Date operTime;// 申请时间
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private Date startTime;// 使用开始时间
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private Date endTime;// 使用结束时间
-    private String remark;// 备注
-    private String status;// 1：待审 2：已通过 3：已完结 4:未通过
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long askId;
+	private Long roomId;// 会议室id
+	private Long userId;// 申请用户
+	private Date operTime;// 申请时间
+	@DateTimeFormat(pattern="yyyy-MM-dd")
+	private Date startTime;// 使用开始时间
+	@DateTimeFormat(pattern="yyyy-MM-dd")
+	private Date endTime;// 使用结束时间
+	private String remark;// 备注
+	private String status;// 1：待审 2：已通过 3：已完结 4:未通过
+	
+	@Transient//使用@Transient 标识的属性将不参与序列化操作（不会到表生成对应的列）
+	private String roomName;
+	@Transient
+	private String userName;
 
-    @Transient//使用@Transient 标识的属性将不参与序列化操作（不会到表生成对应的列）
-    private String roomName;
-    @Transient
-    private String userName;
+	public MeetingRoomAsk(){
+		
+	}
+	
+	public MeetingRoomAsk(Long askId,Long roomId,Long userId,Date operTime,Date startTime,Date endTime,String status,String remark,String roomName,String userName){
+		this.askId = askId;
+		this.roomId = roomId;
+		this.userId = userId;
+		this.userName = userName;
+		this.roomName = roomName;
+		this.operTime = operTime;
+		this.startTime = startTime;
+		this.endTime = endTime;
+		this.status = status;
+		this.remark = remark;
+	}
 
-    public Long getAskId() {
-        return askId;
-    }
 
-    public void setAskId(Long askId) {
-        this.askId = askId;
-    }
+	public String getRoomName() {
+		return roomName;
+	}
 
-    public Long getRoomId() {
-        return roomId;
-    }
+	public void setRoomName(String roomName) {
+		this.roomName = roomName;
+	}
 
-    public void setRoomId(Long roomId) {
-        this.roomId = roomId;
-    }
+	public String getUserName() {
+		return userName;
+	}
 
-    public Long getUserId() {
-        return userId;
-    }
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+	public Long getAskId() {
+		return askId;
+	}
 
-    public void setUserId(Long userId) {
-        this.userId = userId;
-    }
+	public void setAskId(Long askId) {
+		this.askId = askId;
+	}
 
-    public Date getOperTime() {
-        return operTime;
-    }
+	public Long getRoomId() {
+		return roomId;
+	}
 
-    public void setOperTime(Date operTime) {
-        this.operTime = operTime;
-    }
+	public void setRoomId(Long roomId) {
+		this.roomId = roomId;
+	}
 
-    public Date getStartTime() {
-        return startTime;
-    }
+	public Long getUserId() {
+		return userId;
+	}
 
-    public void setStartTime(Date startTime) {
-        this.startTime = startTime;
-    }
+	public void setUserId(Long userId) {
+		this.userId = userId;
+	}
 
-    public Date getEndTime() {
-        return endTime;
-    }
+	public Date getOperTime() {
+		return operTime;
+	}
 
-    public void setEndTime(Date endTime) {
-        this.endTime = endTime;
-    }
+	public void setOperTime(Date operTime) {
+		this.operTime = operTime;
+	}
 
-    public String getRemark() {
-        return remark;
-    }
+	public Date getStartTime() {
+		return startTime;
+	}
 
-    public void setRemark(String remark) {
-        this.remark = remark;
-    }
+	public void setStartTime(Date startTime) {
+		this.startTime = startTime;
+	}
 
-    public String getStatus() {
-        return status;
-    }
+	public Date getEndTime() {
+		return endTime;
+	}
 
-    public void setStatus(String status) {
-        this.status = status;
-    }
+	public void setEndTime(Date endTime) {
+		this.endTime = endTime;
+	}
 
-    public String getRoomName() {
-        return roomName;
-    }
+	public String getRemark() {
+		return remark;
+	}
 
-    public void setRoomName(String roomName) {
-        this.roomName = roomName;
-    }
+	public void setRemark(String remark) {
+		this.remark = remark;
+	}
 
-    public String getUserName() {
-        return userName;
-    }
+	public String getStatus() {
+		return status;
+	}
 
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
 }

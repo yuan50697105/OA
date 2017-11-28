@@ -7,7 +7,7 @@ import com.web.oa.bean.UserData;
 import java.util.Map;
 
 public interface UserService {
-    Map<String, Object> registor(User user, UserData userData, Organization organization);
+    Map<String,Object> registor(User user, UserData userData, Organization organization);
 
-    Map<String, Object> login(User user);
+    Map<String,Object> login(User user);
 }

@@ -7,13 +7,11 @@ import java.util.List;
 public interface WorkService {
     List<Work> getWorkListByUserId(Long userId);
 
-    Work getWork(Long workId);
+    Work getWorkByWorkId(Long workId);
 
-    List<Work> getWorkListByName(String workName, Long userId);
+    boolean updateWork(Work work);
 
-    boolean save(Work work);
+    boolean deleteWork(Long workId);
 
-    boolean delete(Long workId);
-
-    boolean update(Work work);
+    boolean saveWork(Work work);
 }

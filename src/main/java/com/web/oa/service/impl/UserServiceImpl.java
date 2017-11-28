@@ -29,40 +29,37 @@ public class UserServiceImpl implements UserService {
     private MenuDao menuDao;
     @Override
     public Map<String, Object> registor(User user, UserData userData, Organization organization) {
-        Map<String, Object> map = new HashMap<>();
-        boolean flag = organizationDao.save(organization);
-        if (flag) {
+        Map<String,Object> map=new HashMap<>();
+        boolean flag=organizationDao.save(organization);
+        if(flag){
+            map.put(WebCommons.ORG,organization);
             user.setOrgId(organization.getOrgId());
-            map.put(WebCommons.ORG, organization);
-            flag = userDao.save(user);
-            if (flag) {
+            flag=userDao.save(user);
+            if(flag){
+                map.put(WebCommons.USER,user);
                 userData.setUserId(user.getUserId());
-                map.put(WebCommons.USER, user);
-                flag = userDataDao.save(userData);
-                if (flag) {
-                    map.put(WebCommons.USER_DATA, userData);
+                flag=userDataDao.save(userData);
+                if(flag){
+                    map.put(WebCommons.USER_DATA,userData);
+                    return map;
                 }
             }
         }
-        return map;
+        return null;
     }
 
     @Override
     public Map<String, Object> login(User user) {
-        user = userDao.getByUser(user);
-        if (null != user) {
-            Map<String, Object> map = new HashMap<>();
-            map.put(WebCommons.USER, user);
-            Organization organization = organizationDao.getByOrgId(user.getOrgId());
-            map.put(WebCommons.ORG, organization);
-            UserData userData = userDataDao.getByUserId(user.getUserId());
-            map.put(WebCommons.USER_DATA, userData);
-            List<Menu> menuList=menuDao.listMainMenuByUserId(user.getUserId());
+        user=userDao.getUserByUser(user);
+        if(null!=user){
+            Map<String,Object> map=new HashMap<>();
+            map.put(WebCommons.USER,user);
+            Organization organization=organizationDao.getOrgByOrgId(user.getOrgId());
+            map.put(WebCommons.ORG,organization);
+            UserData userData=userDataDao.getUserDataByUserId(user.getUserId());
+            List<Menu> menuList=menuDao.getMainMenuByUserId(user.getUserId());
             map.put(WebCommons.MENU_LIST,menuList);
-            return map;
-        } else {
-            return null;
         }
-
+        return null;
     }
 }
