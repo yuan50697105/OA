@@ -14,4 +14,5 @@ public interface MeetingRoomDao {
     MeetingRoom getMeetingRoomByRoomId(Long roomId);
 
     List<MeetingRoom> getMeetingRoomList(MeetingRoom meetingRoom);
+
 }
