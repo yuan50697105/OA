@@ -36,4 +36,9 @@ public class WorkServiceImpl implements WorkService {
     public boolean saveWork(Work work) {
             return workDao.save(work);
     }
+
+    @Override
+    public List<Work> getWorkListByUserIdAndWorkName(Long userId, String workName) {
+        return workDao.getWorkListByUserIdAndWorkName(userId,workName);
+    }
 }

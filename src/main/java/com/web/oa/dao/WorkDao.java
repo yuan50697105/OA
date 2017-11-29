@@ -14,4 +14,6 @@ public interface WorkDao {
     boolean save(Work work);
 
     boolean deleteWork(Long workId);
+
+    List<Work> getWorkListByUserIdAndWorkName(Long userId, String workName);
 }

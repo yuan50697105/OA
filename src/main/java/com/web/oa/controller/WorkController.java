@@ -43,9 +43,9 @@ public class WorkController {
      * @return
      */
     @RequestMapping("getWorkList")
-    public String getWorkList(HttpSession session,Model model){
+    public String getWorkList(String workName,HttpSession session,Model model){
         User user= (User) session.getAttribute(WebCommons.USER);
-        List<Work> workList=workService.getWorkListByUserId(user.getUserId());
+        List<Work> workList=workService.getWorkListByUserIdAndWorkName(user.getUserId(),workName);
         model.addAttribute("workList",workList);
         return "work/workList";
     }

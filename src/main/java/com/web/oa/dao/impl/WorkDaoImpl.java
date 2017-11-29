@@ -3,9 +3,11 @@ package com.web.oa.dao.impl;
 import com.web.oa.bean.Work;
 import com.web.oa.dao.WorkDao;
 import org.hibernate.criterion.DetachedCriteria;
+import org.hibernate.criterion.MatchMode;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.orm.hibernate5.HibernateTemplate;
 import org.springframework.stereotype.Repository;
+import org.springframework.util.StringUtils;
 
 import java.util.List;
 
@@ -62,6 +64,21 @@ public class WorkDaoImpl implements WorkDao {
         }catch (RuntimeException e){
             e.printStackTrace();
             return false;
+        }
+    }
+
+    @Override
+    public List<Work> getWorkListByUserIdAndWorkName(Long userId, String workName) {
+        DetachedCriteria detachedCriteria = DetachedCriteria.forClass(Work.class);
+        detachedCriteria.add(Restrictions.eq("userId", userId));
+        if (!StringUtils.isEmpty(workName)) {
+            detachedCriteria.add(Restrictions.like("workName", workName, MatchMode.ANYWHERE));
+        }
+        List list = hibernateTemplate.findByCriteria(detachedCriteria);
+        if (list.isEmpty()) {
+            return null;
+        }else {
+            return list;
         }
     }
 }

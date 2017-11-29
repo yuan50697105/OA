@@ -14,4 +14,6 @@ public interface WorkService {
     boolean deleteWork(Long workId);
 
     boolean saveWork(Work work);
+
+    List<Work> getWorkListByUserIdAndWorkName(Long userId, String workName);
 }
