@@ -2,8 +2,8 @@ package com.web.oa.dao;
 
 import com.web.oa.bean.Organization;
 
-public interface OrganizationDao {
+public interface OrgDao {
     boolean save(Organization organization);
 
-    Organization getOrgByOrgId(Long orgId);
+    Organization getOrgById(Long orgId);
 }

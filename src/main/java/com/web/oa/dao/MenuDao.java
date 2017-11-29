@@ -7,7 +7,8 @@ import java.util.List;
 public interface MenuDao {
     List<Menu> getMainMenuByUserId(Long userId);
 
-    Menu getMenuByMenuId(Long menuId);
 
-    List<Menu> getChildMenuBySuperiorId(Long menuId);
+    Menu getMenuById(Long menuId);
+
+    List<Menu> getMenuListBySuperiorId(Long menuId);
 }

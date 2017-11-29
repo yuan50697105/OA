@@ -1,9 +1,7 @@
 package com.web.oa.controller;
 
-import com.sun.xml.internal.ws.resources.HttpserverMessages;
 import com.web.oa.bean.Menu;
 import com.web.oa.commons.WebCommons;
-import com.web.oa.service.MainService;
 import com.web.oa.service.MenuService;
 import com.web.oa.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,35 +16,19 @@ import java.util.List;
 @RequestMapping("main")
 public class MainController {
     @Autowired
-    private MenuService menuService;
-    @Autowired
     private UserService userService;
-
-    /**
-     * 进入请求跳转界面（查看js/main/main.js文件，动态控制tab效果）
-     * @param url
-     * @param model
-     * @return
-     */
+    @Autowired
+    private MenuService menuService;
     @RequestMapping("content")
     public String content(String url, Model model){
         model.addAttribute("url",url);
         return "main/content";
     }
-
-    /**
-     * 显示工作计划到工作台
-     * @param menuId
-     * @param session
-     * @param model
-     * main/one?menuId=181
-     * @return
-     */
     @RequestMapping("one")
     public String one(Long menuId, HttpSession session,Model model){
         Menu menu=menuService.getMenuByMenuId(menuId);
-        List<Menu> menuList=menuService.getChildMenuBySuperiorId(menuId);
-        if(null!=menuList){
+        List<Menu> menuList=menuService.getMenuListBySuperiorId(menuId);
+        if(null!=menuList&&menuList.size()>0){
             Menu m=menuList.get(0);
             String url=session.getServletContext().getContextPath()+"/"+m.getUrl()+m.getParameter();
             model.addAttribute("url",url);
@@ -57,20 +39,9 @@ public class MainController {
         model.addAttribute("menu",menu);
         return "main/one";
     }
-    /**
-     * 获取左边菜单界面数据
-     * @param menuId
-     * @param session
-     * @param model
-     * @return
-     */
-    @RequestMapping("oneLeft")
-    public String oneLeft(Long menuId, HttpSession session,Model model){
+    public String oneLeft(Long menuId,HttpSession session,Model model){
         Menu menu=menuService.getMenuByMenuId(menuId);
-        List<Menu> menuList=menuService.getChildMenuBySuperiorId(menuId);;
-        model.addAttribute(WebCommons.MENU_LIST,menuList);
-        model.addAttribute("menu",menu);
+        List<Menu> menuList;
         return "main/one_left";
     }
-
 }

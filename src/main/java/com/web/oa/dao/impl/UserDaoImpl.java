@@ -2,16 +2,17 @@ package com.web.oa.dao.impl;
 
 import com.web.oa.bean.User;
 import com.web.oa.dao.UserDao;
+import org.hibernate.Session;
+import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate5.HibernateTemplate;
 import org.springframework.stereotype.Repository;
-
-import java.util.List;
 
 @Repository
 public class UserDaoImpl implements UserDao {
     @Autowired
     private HibernateTemplate hibernateTemplate;
+
     @Override
     public boolean save(User user) {
         try {
@@ -24,12 +25,12 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
-    public User getUserByUser(User user) {
-        List list=hibernateTemplate.findByExample(user);
-        if(list.isEmpty()){
-            return null;
-        }else {
-            return (User) list.get(0);
-        }
+    public User login(User user) {
+        Session session=hibernateTemplate.getSessionFactory().getCurrentSession();
+        String hql="select u from User u where u.userName=:userName and u.userPassword=:userPassword";
+        Query<User> query=session.createQuery(hql,User.class);
+        query.setParameter("userName",user.getUserName());
+        query.setParameter("userPassword",user.getUserPassword());
+        return query.uniqueResult();
     }
 }

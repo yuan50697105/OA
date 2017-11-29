@@ -7,13 +7,13 @@ import java.util.List;
 public interface WorkDao {
     List<Work> getWorkListByUserId(Long userId);
 
-    Work getWorkByWorkId(Long workId);
+    List<Work> getWorkListByUserIdAndWorkName(Long userId, String workName);
 
-    boolean updateWork(Work work);
+    Work getWorkById(Long workId);
 
-    boolean save(Work work);
+    boolean update(Work work);
 
     boolean deleteWork(Long workId);
 
-    List<Work> getWorkListByUserIdAndWorkName(Long userId, String workName);
+    boolean addWork(Work work);
 }

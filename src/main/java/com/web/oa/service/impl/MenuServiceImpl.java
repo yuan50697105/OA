@@ -12,13 +12,15 @@ import java.util.List;
 public class MenuServiceImpl implements MenuService {
     @Autowired
     private MenuDao menuDao;
+
+
     @Override
     public Menu getMenuByMenuId(Long menuId) {
-        return menuDao.getMenuByMenuId(menuId);
+        return menuDao.getMenuById(menuId);
     }
 
     @Override
-    public List<Menu> getChildMenuBySuperiorId(Long menuId) {
-        return menuDao.getChildMenuBySuperiorId(menuId);
+    public List<Menu> getMenuListBySuperiorId(Long menuId) {
+        return menuDao.getMenuListBySuperiorId(menuId);
     }
 }

@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 public class UserDataDaoImpl implements UserDataDao {
     @Autowired
     private HibernateTemplate hibernateTemplate;
+
     @Override
     public boolean save(UserData userData) {
         try {
@@ -22,7 +23,7 @@ public class UserDataDaoImpl implements UserDataDao {
     }
 
     @Override
-    public UserData getUserDataByUserId(Long userId) {
+    public UserData getDataByUserId(Long userId) {
         return hibernateTemplate.get(UserData.class,userId);
     }
 }

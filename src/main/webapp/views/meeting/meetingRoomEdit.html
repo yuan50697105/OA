@@ -1,31 +1,69 @@
+<html>
+
+<head>
 <#include "/common/header.html"/>
-<title>会议室编辑</title>
-<script type="text/javascript">
-    function returnBack() {
-        self.close();
-    }
-</script>
+<#assign ctx=request.contextPath>
+    <title>会议室编辑</title>
+    <script type="text/javascript">
+        function returnBack() {
+            window.opener.location.href=window.opener.location.href;
+            self.close();
+        }
+        $(function () {
+            $("#form1").validate({
+                rules:{
+                    'roomName':{require:true,minlength:2},
+                    'status':{require:true,minlength:1}
+                },
+                message:{
+                    workName:{require:"会议室名称不能为空",minlength:"最少两个字符"},
+                    status:{require:"请选择状态"}
+                },
+                submitHandler:function (form) {
+                    var roomId=$("#roomId").val();
+                    var roomName=$("#roomName").val();
+                    var remark=tinyMCE.get('remark').getContent();
+                    var params={'roomId':roomId,'roomName':roomName,'remark':remark};
+                    var url="${ctx}/meeting/ajaxUpdateRoom";
+                    $.post(url,params,function (data) {
+                        if(data){
+                            var d=dialog({
+                                title:'温馨提示',
+                                content:'更新成功';
+                        });
+                            d.show();
+                            setTimeout(function () {
+                                d.close().remove();
+                            },1000);
+                        }
+                    },"json");
+                }
+            })
+        })
+    </script>
+</head>
+<body>
 <form id="form1" action="" method="post">
-    <input type="hidden" name="roomId" value=""/>
+    <input type="hidden" name="roomId" id="roomId" value="${meetingRoom.roomId}"/>
     <table>
         <tr>
             <td>会议室名:</td>
-            <td><input class="txtinput" type="text" name="roomName" value=""/></td>
+            <td><input class="txtinput" id="roomName" type="text" name="roomName" value="${meetingRoom.roomName}"/></td>
         </tr>
         <tr>
             <td>会议室名:</td>
             <td>
                 <select value="status" id="status" name="status">
-                    <option value="0">全部
-                    <option value="1">空闲中
-                    <option value="2">使用中
-                    <option value="3">保洁中
+                    <option value="0" <#if meetinRoom.status==0>selected="selected"</#if>>全部</option>
+                    <option value="1" <#if meetinRoom.status==1>selected="selected"</#if>>空闲中</option>
+                    <option value="2" <#if meetinRoom.status==2>selected="selected"</#if>>使用中</option>
+                    <option value="3" <#if meetinRoom.status==3>selected="selected"</#if>>保洁中</option>
                 </select>
             </td>
         </tr>
         <tr>
             <td>备注:</td>
-            <td><textarea name="remark" rows="4" cols="20"></textarea></td>
+            <td><textarea id="remark" name="remark" rows="4" cols="20">${meetionRoom.remark}</textarea></td>
         </tr>
         <tr>
             <td><input type="submit" class="modal_btn" value="保&nbsp;存"/></td>
@@ -34,3 +72,8 @@
         </tr>
     </table>
 </form>
+
+</body>
+</html>
+
+

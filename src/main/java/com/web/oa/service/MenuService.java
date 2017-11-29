@@ -7,5 +7,5 @@ import java.util.List;
 public interface MenuService {
     Menu getMenuByMenuId(Long menuId);
 
-    List<Menu> getChildMenuBySuperiorId(Long menuId);
+    List<Menu> getMenuListBySuperiorId(Long menuId);
 }

@@ -5,13 +5,16 @@ import com.web.oa.bean.Contacts;
 import java.util.List;
 
 public interface ContactsDao {
-    List<Contacts> getContactListByUserId(Long userId);
+    List<Contacts> getContactsListByUserId(Long userId);
 
-    boolean saveContacts(Contacts contacts);
+    List<Contacts> getContactsListByUserIdAndContactsName(Long userId, String contactsName);
 
-    boolean deleteContacts(Long contactsId);
+    Contacts getContactsById(Long contactsId);
 
-    Contacts getContactByContactsId(Long contactsId);
 
-    boolean updateContacts(Contacts contacts);
+    boolean update(Contacts contacts);
+
+    boolean delete(Long contactsId);
+
+    boolean save(Contacts contacts);
 }
