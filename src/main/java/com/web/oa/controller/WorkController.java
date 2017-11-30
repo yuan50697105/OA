@@ -31,13 +31,14 @@ public class WorkController {
     public String getWorkList(String workName, HttpSession session, Model model){
         User user= (User) session.getAttribute(WebCommons.USER);
         List<Work> workList=workService.getWorkListByUserIdAndWorkName(user.getUserId(),workName);
-        model.addAttribute(workList);
+        model.addAttribute("workList",workList);
+        model.addAttribute("workName",workName);
         return "work/workMessage";
     }
     @RequestMapping("getWork")
     public String getWork(Long workId,Model model){
         Work work=workService.getWorkById(workId);
-        model.addAttribute(work);
+        model.addAttribute("work",work);
         return "work/workEdit";
     }
     @RequestMapping("ajaxUpdateWork")
@@ -47,31 +48,45 @@ public class WorkController {
     }
     @RequestMapping("ajaxDelWork")
     @ResponseBody
-    public boolean ajaxDelWork(Long workId){
-        return workService.deleteWork(workId);
+    public boolean ajaxDelWork(String workIds){
+        String[] ids=workIds.split("-");
+        Long[] longs=new Long[ids.length];
+        for (int i=0;i<ids.length;i++) {
+            longs[i]=Long.valueOf(ids[i]);
+        }
+        return workService.deleteWork(longs);
+    }
+    @RequestMapping("ajaxDelSingleWork")
+    @ResponseBody
+    public boolean ajaxDelSingleWork(Long workId){
+        Long[] longs=new Long[]{workId};
+        return workService.deleteWork(longs);
     }
     @RequestMapping("toAddWork")
     public String toAddWrok(){
         return "work/addWork";
     }
     @RequestMapping("ajaxAddWork")
+    @ResponseBody
     public boolean ajaxAddWork(Work work,HttpSession session){
         User user= (User) session.getAttribute(WebCommons.USER);
-        work.setUserId(work.getUserId());
-        work.setOrgId(work.getOrgId());
+
+        work.setUserId(user.getUserId());
+        work.setOrgId(user.getOrgId());
+//        System.out.println(work);
         return workService.addWork(work);
     }
     @RequestMapping("getContactList")
     public String getContactList(String contactsName, HttpSession session,Model model){
         User user= (User) session.getAttribute(WebCommons.USER);
         List<Contacts> contactsList=workService.getContactsListByUserIdAndContactsName(user.getUserId(),contactsName);
-        model.addAttribute(contactsList);
+        model.addAttribute("contactsList",contactsList);
         return "work/contactsManage";
     }
     @RequestMapping("getContacts")
     public String getContacts(Long contactsId,Model model){
         Contacts contacts=workService.getContactsById(contactsId);
-        model.addAttribute(contacts);
+        model.addAttribute("contacts",contacts);
         return "worl/contactsEdit";
     }
     @RequestMapping("ajaxUpdateContacts")

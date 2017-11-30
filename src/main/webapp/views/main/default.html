@@ -134,8 +134,9 @@
         <div class="text_r">
             <div class="a_tt">
                 <b class="ico_note"></b><span>公告栏</span>
-                <div class="more" onclick="">
-                    <b class="ico_more"></b>
+                <div class="more">
+                    <a href="javascript:void(0)" onclick="javascript:openWindow('${ctx}/notice/getNoticeList','850','500')">
+                        <b class="ico_more"></b></a>
                 </div>
             </div>
             <div class="new">
@@ -143,7 +144,7 @@
                 <table id="notices"></table>
                 <script>
                     //配置ajax获取工作计划的url
-                    var url = "${ctx}/notice/ajaxGetNoticesList?r=" + Math.random();
+                    var url = "${ctx}/notice/ajaxGetNoticeList?r=" + Math.random();
                     //执行ajax请求
                     $.post(url, function (data) {
                         //处理返回的字符串数据，转换为json格式数据

@@ -21,7 +21,7 @@ public class MenuDaoImpl implements MenuDao {
                 "select i.menuId from Impower i where i.roleId in (" +
                 "select r.roleId from Role r where r.roleId in (" +
                 "select dm.roleId from DepartmentMembers dm where dm.userId=:userId)))" +
-                "and m.status='1'";
+                "and m.status='1' and m.superiorId=0";
         Query<Menu> query=session.createQuery(hql, Menu.class);
         query.setParameter("userId",userId);
         return query.list();

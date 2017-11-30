@@ -24,7 +24,7 @@ public class WorkServiceImpl implements WorkService {
 
     @Override
     public List<Work> getWorkListByUserIdAndWorkName(Long userId, String workName) {
-        if (!StringUtils.isEmpty(workName)) {
+        if (StringUtils.isEmpty(workName)) {
             return workDao.getWorkListByUserId(userId);
         } else {
             return workDao.getWorkListByUserIdAndWorkName(userId, workName);
@@ -42,7 +42,7 @@ public class WorkServiceImpl implements WorkService {
     }
 
     @Override
-    public boolean deleteWork(Long workId) {
+    public boolean deleteWork(Long[] workId) {
         return workDao.deleteWork(workId);
     }
 

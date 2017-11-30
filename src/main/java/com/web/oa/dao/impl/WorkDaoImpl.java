@@ -7,8 +7,9 @@ import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate5.HibernateTemplate;
 import org.springframework.stereotype.Repository;
-import org.springframework.util.StringUtils;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 @Repository
@@ -27,10 +28,10 @@ public class WorkDaoImpl implements WorkDao {
     @Override
     public List<Work> getWorkListByUserIdAndWorkName(Long userId, String workName) {
         Session session=hibernateTemplate.getSessionFactory().getCurrentSession();
-        String hql="select w from Work w where w.userId=:userId and w.workName like :workName";
+        String hql="select w from Work w where w.userId=:userId and w.workName like concat('%',:workName,'%') ";
         Query<Work> query=session.createQuery(hql,Work.class);
         query.setParameter("userId",userId);
-        query.setParameter("workName","%"+workName+"%");
+        query.setParameter("workName",workName);
         return query.list();
     }
 
@@ -51,9 +52,14 @@ public class WorkDaoImpl implements WorkDao {
     }
 
     @Override
-    public boolean deleteWork(Long workId) {
+    public boolean deleteWork(Long[] workId) {
         try {
-            hibernateTemplate.delete(getWorkById(workId));
+            int count=0;
+            List<Work> workList=new ArrayList<>();
+            for (Long id:workId) {
+                workList.add(getWorkById(id));
+            }
+            hibernateTemplate.deleteAll(workList);
             return true;
         }catch (RuntimeException e){
             e.printStackTrace();

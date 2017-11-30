@@ -38,6 +38,23 @@ public class Work {
     private Date startPlanStartDate;
     private Date endPlanEndDate;
 
+    @Override
+    public String toString() {
+        return "Work{" +
+                "workId=" + workId +
+                ", orgId=" + orgId +
+                ", userId=" + userId +
+                ", workName='" + workName + '\'' +
+                ", work='" + work + '\'' +
+                ", planStartDate=" + planStartDate +
+                ", planEndDate=" + planEndDate +
+                ", startDate=" + startDate +
+                ", endDate=" + endDate +
+                ", startPlanStartDate=" + startPlanStartDate +
+                ", endPlanEndDate=" + endPlanEndDate +
+                '}';
+    }
+
     public Long getWorkId() {
         return workId;
     }

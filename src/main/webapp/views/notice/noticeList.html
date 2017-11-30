@@ -1,7 +1,86 @@
 <#assign ctx=request.contextPath>
 <link href="${ctx}/css/list/list_style.css" rel="stylesheet" type="text/css"/>
 <div class="rightinfo">
+    <script>
+        $(function () {
+            $("#checkAll").click(function () {
+                //设置复选框全选或反选
+                $("input[type='checkbox'][id^='box_']").attr("checked", this.checked);
+            });
 
+            $("#deleteBtn").click(function () {
+                //获取所有选中的复选框
+                var boxs = $("input[id^='box_']:checked");
+                if (boxs.length == 0) {
+                    var d = dialog({
+                        title: '温馨提示',
+                        content: '请选择需要删除的计划!',
+                    });
+                    d.show();
+                    setTimeout(function () {
+                        d.close().remove();
+                    }, 1000);
+                } else {
+                    var d = dialog({
+                        title: '温馨提示',
+                        content: '您确定要删除所选的工作计划?',
+                        okValue: '确定',
+                        ok: function () {
+                            //删除操作
+                            delWork();
+                        },
+                        cancelValue: '取消',
+                        cancel: function () {
+                            d.close().remove();
+                        }
+                    });
+                    d.show();
+                }
+            });
+        });
+
+        function delWork() {
+            var boxs = $("input[id^='box_']:checked");
+            var ids = boxs.map(function (i, item) {
+                return item.value;
+            });
+
+            var params = {"noticeIds": ids.get().join('-')};
+            var url = "${ctx}/notice/ajaxDelNotice";
+            $.post(url, params, function (flag) {
+                if (flag) {
+                    var d = dialog({
+                        title: '温馨提示',
+                        content: '删除成功',
+                    });
+                    d.show();
+                    setTimeout(function () {
+                        d.close().remove();
+                        //刷新当前界面
+                        window.location.href = window.location.href;
+                    }, 1000);
+                }
+            }, "json");
+        }
+        function delSingleWork(noticeId) {
+            var params = {"noticeId": noticeId};
+            var url = "${ctx}/notice/ajaxDelSingleNotice";
+            $.post(url, params, function (flag) {
+                if (flag) {
+                    var d = dialog({
+                        title: '温馨提示',
+                        content: '删除成功',
+                    });
+                    d.show();
+                    setTimeout(function () {
+                        d.close().remove();
+                        //刷新当前界面
+                        window.location.href = window.location.href;
+                    }, 1000);
+                }
+            }, "json");
+        }
+    </script>
     <table class="tablelist">
         <thead>
         <tr>
@@ -35,8 +114,8 @@
                 </td>
                 <td style="width:100px;">${notice.publishTime?string("yyyy-MM-dd")}</td>
                 <td>
-                    <a href="#" class="tablelink">查看</a>&nbsp;|&nbsp;
-                    <a href="javascript:void(0);" id="deleteBtn2" class="tablelink">删除</a>
+                    <a href="${ctx}/notice/getNotice?noticeId=${notice.noticeId}" class="tablelink">查看</a>&nbsp;|&nbsp;
+                    <a href="javascript:void(0);" id="deleteBtn2" onclick="delSingleWork(${notice.noticeId})" class="tablelink">删除</a>
                 </td>
             </tr>
 

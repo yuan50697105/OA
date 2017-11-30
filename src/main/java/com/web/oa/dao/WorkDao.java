@@ -13,7 +13,7 @@ public interface WorkDao {
 
     boolean update(Work work);
 
-    boolean deleteWork(Long workId);
+    boolean deleteWork(Long[] workId);
 
     boolean addWork(Work work);
 }

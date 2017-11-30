@@ -89,7 +89,7 @@
                         "workName": workName, "work": work,
                         "planStartDate": planStartDate, "planEndDate": planEndDate
                     };
-                    var url = "${ctx}/work/update";
+                    var url = "${ctx}/work/ajaxUpdateNotice";
                     $.post(url, params, function (flag) {
                         if (flag) {
                             var d = dialog({
@@ -115,7 +115,7 @@
 </head>
 <body class="windDiv">
 <body>
-<form id="form1" action="${ctx}/notice/updateNotice" method="post">
+<form id="form1" method="post">
     <input type="hidden" name="noticeId" value="${notice.noticeId}"/>
     <input type="hidden" id="userId" name="userId" value="${notice.userId}">
     <input type="hidden" id="orgId" name="orgId" value="${notice.orgId}">

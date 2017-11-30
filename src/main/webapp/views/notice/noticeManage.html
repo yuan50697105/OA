@@ -2,13 +2,13 @@
 <div class="title_text">
     <p>公告管理</p>
 </div>
-<form id="get_notice_mesage" action="${ctx}/notice/getNoticeManage" method="post">
+<form id="get_notice_mesage" action="${ctx}/notice/getNoticeList" method="post">
     <div class="search_box">
-        标题:<input type="text" name="noticeName" value="" class="searchinput">&nbsp;&nbsp;
+        标题:<input type="text" name="noticeName" value="${noticeName?default('')}" class="searchinput">&nbsp;&nbsp;
         <input type="submit" class="search_btn" value="搜&nbsp;索"/>&nbsp;&nbsp;
         <input
                 type="button" class="add_btn"
-                onclick="javascript:openWindow('${ctx}/notice/toAdd','850','400');"
+                onclick="javascript:openWindow('${ctx}/notice/toAddNotice','850','400');"
                 value="添加公告"/>
     </div>
     <div id="notice_mesage_list">

@@ -14,7 +14,7 @@ public interface WorkService {
 
     boolean updateWork(Work work);
 
-    boolean deleteWork(Long workId);
+    boolean deleteWork(Long[] workId);
 
     boolean addWork(Work work);
 

@@ -61,7 +61,7 @@
                         "noticeName": noticeName, "noticeType": noticeType,
                         "publishTime": publishTime, "notice": notice
                     };
-                    var url = "${ctx}/notice/ajaxAdd";
+                    var url = "${ctx}/notice/ajaxAddNotice";
                     $.post(url, params, function (flag) {
                         if (flag) {
                             var d = dialog({
@@ -93,7 +93,7 @@
         <tr>
             <td>公告标题:</td>
             <td>
-                <input type="text" name="noticeName" id="noticeName" value="好消息"/>
+                <input type="text" name="noticeName" id="noticeName" value=""/>
             </td>
         </tr>
         <tr>
@@ -113,7 +113,7 @@
         </tr>
         <tr>
             <td>内容:</td>
-            <td><textarea name="notice" id="notice" cols="40" rows="7">好消息</textarea>
+            <td><textarea name="notice" id="notice" cols="40" rows="7"></textarea>
             </td>
         </tr>
     </table>

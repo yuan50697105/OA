@@ -36,15 +36,18 @@ public class UserController {
     }
     @RequestMapping("toLogin")
     public String toLogin(){
-        return "user/toLogin";
+        return "user/login";
     }
     @RequestMapping("login")
     public String login(User user, HttpSession session){
-        Map<String,Object> map=userService.login(user);
-        session.setAttribute(WebCommons.USER,map.get(WebCommons.USER));
-        session.setAttribute(WebCommons.ORG,map.get(WebCommons.ORG));
-        session.setAttribute(WebCommons.USER_DATA,map.get(WebCommons.USER_DATA));
-        session.setAttribute(WebCommons.MENU_LIST,map.get(WebCommons.MENU_LIST));
+        User u= (User) session.getAttribute(WebCommons.USER);
+        if(null==u){
+            Map<String,Object> map=userService.login(user);
+            session.setAttribute(WebCommons.USER,map.get(WebCommons.USER));
+            session.setAttribute(WebCommons.ORG,map.get(WebCommons.ORG));
+            session.setAttribute(WebCommons.USER_DATA,map.get(WebCommons.USER_DATA));
+            session.setAttribute(WebCommons.MENU_LIST,map.get(WebCommons.MENU_LIST));
+        }
         return "main/main";
     }
     @RequestMapping("loginOut")
